@@ -1,0 +1,85 @@
+---
+title: "Voxel Model Generation using Wave Function Collapse"
+author: "[Antoine Crettenand, Louis Vialar, François Quellec](https://github.com/Fanfou02/RandomTilemapGeneration)"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+mail: "https://github.com/Fanfou02/RandomTilemapGeneration"
+github: "Fanfou02/RandomTilemapGeneration"
+output:
+  epuRate::epurate:
+    toc: TRUE
+    number_sections: FALSE
+    code_folding: "hide"
+---
+
+
+<br><br>
+
+> The “wave function collapse”(WFC) algorithm builds a grid of pre-defined tiles ensuring that the tiles properly connect to their neighbours, for example a road tile must neighbour another road tile following the same direction or an intersection tile. In this project we will use the WFC algorithm to produce random voxel map, like the one below. 
+![alt text](images/wave_collapse_tiling.jpg "Wave Collapse Tilling Generation")
+
+# Goals and Deliverables
+***
+The WFC algorithm takes in an archetypical input, and produces procedurally-generated outputs that look like it.
+It is most commonly used to create images, but is also capable of building towns in higher dimensions.
+<br>
+<center>
+![FigName](images/wave_collapse_1.png)
+</center>
+<br>
+WFC algorithm is used in multiples implementations, the main concept of the algorithm is quite straightforward but a lot of optization and declinaisons can be done. During this project we will work on some of them. We will use Python to developpe the algorithm, some library (e.g Numpy, ...) allow us to handle a lot of data efficiently. Furthemore, to create a video of the final voxel generation, we will use OpenCV for Python. 
+This project has two main goals, developping a Simple Tiled model where input and output images are built out of a small number of pre-defined tiles, and each square in the output image is affected and constrained only by its 4 immediate neighbors. Then, we will developp an Overlapping model where tiles or pixels influence each other from further away. We expect that, given an input image and some parameters, we will produce 
+
+## Simple Tiled Model 
+BLABLAVLA KECECA ? 
+
+## Overlapping Model
+BLABLAVLA KECECA ? 
+
+## Optionnal Extensions
+In this part we list some possible extensions to the current planned implementation.
+
+### Optimization and heuristics
+The WFC algorithm can be very time consuming when handling big large output's images. We could investigate the performance optimizations to make the algorithm faster. For example, there’s no need to recalculate every square’s entropy on every iteration, and information propagation throughout the wavefunction can be made substantially faster.
+
+### Add Parameters 
+We could add some parameters to customize our generations, for example: 
+- Choose the dimensions of the pattern of pixels we pick in the input image.
+- Augment pattern data with rotations and reflections.
+- Change the size of the output image
+
+### Add additional constraints
+We could add an interface to allow user to add constrains to the models, for example, this pixel must be in that color or only one tile of that shape in the output, etc...
+
+### Step By Step Video of the map generation 
+Since the algorithm run similarely to what a human would do, thanks to the minimal entropy heuristic, it could be very interesting to produce step by step videos of each tilemap and voxelmap generation.
+
+
+
+
+
+
+# Schedule
+***
+
+You can find in the array below some important dates during the project development: 
+
+
+| Event                        |  Date                  |
+|------------------------------|-----------------------:|
+| Proposal due                 | Thursday April 11, 1pm |
+| Proposal feedback by         | Thursday April 18      |
+| Project work begins          | Friday April 19        |
+| Milestone report due         | Thursday May 16, 1pm   |
+| Final presentation video due | Tuesday May 28, 1pm    |
+| Final report webpage due     | Friday May 31, 1pm     |
+
+
+
+
+
+# Resources
+***
+- https://robertheaton.com/2018/12/17/wavefunction-collapse-algorithm/
+- https://marian42.de/article/wfc/
+- https://github.com/mxgmn/WaveFunctionCollapse
+- https://opencv-python-tutroals.readthedocs.io/en/latest/
