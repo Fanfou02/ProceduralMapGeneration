@@ -10,6 +10,19 @@
 #include <bitmap_image.hpp>
 #include <random>
 #include <vector>
+
+
+void Error( const char *info ) {
+    printf( "[Error] MV_VoxelModel :: %s\n", info );
+}
+
+struct chunk_t {
+    int id;
+    int contentSize;
+    int childrenSize;
+    long end;
+};
+
 struct Voxel {
 public :
     int8_t x, y, z, color;
@@ -23,76 +36,171 @@ public :
     }
 };
 
+
+int32_t ReadInt( FILE *fp ) {
+    int32_t v = 0;
+    fread( &v, 4, 1, fp );
+    return v;
+}
+
+int8_t ReadByte( FILE *fp ) {
+    int8_t v = 0;
+    fread( &v, 1, 1, fp );
+    return v;
+}
+
+
+void ReadChunk( FILE *fp, chunk_t &chunk ) {
+    // read chunk
+    chunk.id = ReadInt( fp );
+    chunk.contentSize  = ReadInt( fp );
+    chunk.childrenSize = ReadInt( fp );
+
+    // end of chunk : used for skipping the whole chunk
+    chunk.end = ftell( fp ) + chunk.contentSize + chunk.childrenSize;
+
+    // print chunk info
+    const char *c = ( const char * )( &chunk.id );
+    printf( "[Log] MV_VoxelModel :: Chunk : %c%c%c%c : %d %d\n",
+            c[0], c[1], c[2], c[3],
+            chunk.contentSize, chunk.childrenSize
+    );
+}
+
+
+
+// magic number
+int MV_ID( int a, int b, int c, int d ) {
+    return ( a ) | ( b << 8 ) | ( c << 16 ) | ( d << 24 );
+}
+
+const int MV_VERSION = 150;
+const int ID_VOX  = MV_ID( 'V', 'O', 'X', ' ' );
+const int ID_MAIN = MV_ID( 'M', 'A', 'I', 'N' );
+const int ID_SIZE = MV_ID( 'S', 'I', 'Z', 'E' );
+const int ID_XYZI = MV_ID( 'X', 'Y', 'Z', 'I' );
+const int ID_RGBA = MV_ID( 'R', 'G', 'B', 'A' );
+//https://bitbucket.org/volumesoffun/cubiquity/src/9e1cb814c24e/Tools/ProcessVDB/Dependencies/MagicaVoxelModel.h?at=master
+
 std::vector<Voxel> ReadVox(std::string filename)
 {
     std::vector<Voxel> voxels;
-    std::fstream voxFile(filename, std::ios_base::in);
-    if (voxFile.is_open()) {
 
-        //std::string magic = new string(stream.ReadChars(4));
-        //int version = stream.ReadInt32();
-        char magic[5];
-        voxFile.read(reinterpret_cast<char *>(&magic), sizeof(magic));
-        std::cout << "magic: " << magic << std::endl;
-        u_int32_t version;
-        voxFile.read(reinterpret_cast<char *>(&version), sizeof(version));
-        std::cout << "version: " << version << std::endl;
-        while(!voxFile.eof()){
-            char chunkId[4];
-            voxFile.read(reinterpret_cast<char *>(&chunkId), sizeof(chunkId));
-            std::cout << "chunkId: " << chunkId << std::endl;
+    FILE *voxFile = fopen(filename.c_str(), "rb");
+    if (voxFile)
+    {
+        // magic number
+        int magic = ReadInt( voxFile );
+        if ( magic != ID_VOX ) {
+            Error( "magic number does not match" );
+            return voxels;
+        }
 
-            u_int32_t chunkSize;
-            voxFile.read(reinterpret_cast<char *>(&chunkSize), sizeof(chunkSize));
-            std::cout << "chunkSize: " << chunkSize << std::endl;
+        // version
+        int version = ReadInt( voxFile );
+        if ( version != MV_VERSION ) {
+            Error( "version does not match" );
+            return voxels;
+        }
 
-            u_int32_t childChunk;
-            voxFile.read(reinterpret_cast<char *>(&childChunk), sizeof(childChunk));
-            std::cout << "childChunk: " << childChunk << std::endl;
+        // main chunk
+        chunk_t mainChunk;
+        ReadChunk( voxFile, mainChunk );
+        if ( mainChunk.id != ID_MAIN ) {
+            Error( "main chunk is not found" );
+            return voxels;
+        }
 
-            std::string chunkName = chunkId;
+        // read children chunks
+        while ( ftell( voxFile ) < mainChunk.end ) {
+            // read chunk header
+            chunk_t sub;
+            ReadChunk( voxFile, sub );
 
-            if(chunkName.compare("SIZE")==0){
-                std::cout << "SIZE" << std::endl;
-
-                u_int32_t X;
-                voxFile.read(reinterpret_cast<char *>(&X), sizeof(X));
-
-                u_int32_t Y;
-                voxFile.read(reinterpret_cast<char *>(&Y), sizeof(Y));
-
-                u_int32_t Z;
-                voxFile.read(reinterpret_cast<char *>(&Z), sizeof(Z));
-
-                //voxFile.ignore(chunkSize - 4 * 3);
-            } else if(chunkName.compare("XYZI")==0){
-                std::cout << "XYZI" << std::endl;
-                u_int32_t numVoxels;
-                voxFile.read(reinterpret_cast<char *>(&numVoxels), sizeof(numVoxels));
-
-                std::cout << "numVoxels: " << numVoxels << std::endl;
-
-                for (int i = 0; i < numVoxels; ++i) {
-                    int8_t X;
-                    voxFile.read(reinterpret_cast<char *>(&X), sizeof(X));
-
-                    int8_t Y;
-                    voxFile.read(reinterpret_cast<char *>(&Y), sizeof(Y));
-
-                    int8_t Z;
-                    voxFile.read(reinterpret_cast<char *>(&Z), sizeof(Z));
-
-                    int8_t color;
-                    voxFile.read(reinterpret_cast<char *>(&Z), sizeof(Z));
-
-                    voxels.push_back(Voxel(X, Y, Z, color));
+            if ( sub.id == ID_SIZE ) {
+                // size
+                int sizex = ReadInt( voxFile );
+                int sizey = ReadInt( voxFile );
+                int sizez = ReadInt( voxFile );
+                std::cout << "size : " << sizex << " " << sizey << " " << sizez << std::endl;
+            }
+            else if ( sub.id == ID_XYZI ) {
+                // numVoxels
+                int numVoxels = ReadInt( voxFile );
+                if ( numVoxels < 0 ) {
+                    Error( "negative number of voxels" );
+                    return voxels;
                 }
 
+                // voxels
+                if ( numVoxels > 0 ) {
+                    for (int i = 0; i < numVoxels; ++i) {
+                        int X = ReadByte(voxFile);
+
+                        int Y = ReadByte(voxFile);;
+
+                        int Z = ReadByte(voxFile);
+
+                        int color = ReadByte(voxFile);
+
+                        voxels.push_back(Voxel(X, Y, Z, color));
+                    }
+                }
             }
+
+            // skip unread bytes of current chunk or the whole unused chunk
+            fseek( voxFile, sub.end, SEEK_SET );
         }
+        std::cout << "Voxels: " << voxels.size() << std::endl;
 
     }
     return voxels;
+}
+
+static void WriteVox(std::string filename, int X, int Y, int Z, std::vector<Voxel> voxels)
+{
+
+    FILE *voxFile = fopen(filename.c_str(), "w");
+
+    int32_t version = 150;
+    fwrite( &ID_VOX, 4, 1, voxFile );
+    fwrite( &version, 4, 1, voxFile );
+
+    int32_t main_contentSize = 0;
+    int32_t main_childrenSize = 40 + voxels.size()*4;
+    fwrite( &ID_MAIN, 4, 1, voxFile );
+    fwrite( &main_contentSize, 4, 1, voxFile );
+    fwrite( &main_childrenSize, 4, 1, voxFile );
+
+    int32_t size_contentSize = 12;
+    int32_t size_childrenSize = 0;
+    fwrite( &ID_SIZE, 4, 1, voxFile );
+    fwrite( &size_contentSize, 4, 1, voxFile );
+    fwrite( &size_childrenSize, 4, 1, voxFile );
+    fwrite( &X, 4, 1, voxFile );
+    fwrite( &Y, 4, 1, voxFile );
+    fwrite( &Z, 4, 1, voxFile );
+
+    int32_t xyzi_contentSize = 4 + voxels.size() * 4;
+    int32_t xyzi_childrenSize = 0;
+    int32_t number_voxels = voxels.size();
+    fwrite( &ID_XYZI, 4, 1, voxFile );
+    fwrite( &xyzi_contentSize, 4, 1, voxFile );
+    fwrite( &xyzi_childrenSize, 4, 1, voxFile );
+    fwrite( &number_voxels, 4, 1, voxFile );
+
+    for (Voxel v : voxels)
+    {
+        int8_t x = v.x;
+        int8_t y = v.y;
+        int8_t z = v.z;
+        int8_t color = v.color;
+
+        fwrite( &x, 1, 1, voxFile );
+        fwrite( &y, 1, 1, voxFile );
+        fwrite( &z, 1, 1, voxFile );
+        fwrite( &color, 1, 1, voxFile );
+    }
 }
 
 

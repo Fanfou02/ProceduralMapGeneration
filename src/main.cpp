@@ -11,16 +11,25 @@
 
 int main(int argc, char *argv[])
 {
-    pugi::xml_document xdoc;
+
+    std::vector<Voxel> voxs = ReadVox("../Knots/up.vox");
+    std::cout << voxs.size();
+    WriteVox("up.vox", 3, 3, 3, voxs);
+    /*
+     pugi::xml_document xdoc;
     if(!xdoc.load_file("../samples.xml")){
         std::cout<<"Error during opening of samples.xml";
         return -1;
     }
 
+
+
+
     for (pugi::xml_node sample: xdoc.child("samples").children("sample"))
     {
         std::string name = sample.attribute("name").as_string();
         std::cout <<"Sample: " << name << std::endl;
+
 
         Model model =  Model(name, sample.attribute("subset").as_string(), sample.attribute("X").as_int(), sample.attribute("Y").as_int(), sample.attribute("Z").as_int(),
                                 sample.attribute("periodic"), sample.attribute("ground").as_string());
@@ -41,29 +50,12 @@ int main(int argc, char *argv[])
                 else {
                     std::cout << "contradiction" << std::endl;
                 }
-
-                /*
-                Console.Write("> ");
-                int seed = random.Next();
-                bool finished = model.Run(seed);
-                if (finished)
-                {
-                    Console.WriteLine("DONE");
-
-                    model.PixelOutput().Save($"{counter} {name} {i}.png");
-                    System.IO.File.WriteAllText($"{counter} {name} {i}.txt", model.TextOutput());
-
-                    var scene = model.VoxelOutput();
-                    Stuff.WriteVox($"{counter} {name} {i}.vox", scene.Item1, scene.Item2, scene.Item3, scene.Item4);
-
-                    break;
-                }
-                else Console.WriteLine("CONTRADICTION");
-                 */
             }
         }
 
     }
+
     //Solar_viewer window("Solar Sytem", 640, 480);
     //return window.run();
+     * */
 }
