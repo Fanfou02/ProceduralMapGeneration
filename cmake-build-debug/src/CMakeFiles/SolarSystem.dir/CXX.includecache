@@ -1,0 +1,360 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../lib/lodePNG/lodepng.h
+string.h
+-
+vector
+-
+string
+-
+lodepng.h
+../lib/lodePNG/lodepng.h
+iostream
+-
+lodepng.h
+../lib/lodePNG/lodepng.h
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/bitmap/bitmap_image.hpp
+algorithm
+-
+cmath
+-
+cstdlib
+-
+cstring
+-
+fstream
+-
+iostream
+-
+iterator
+-
+limits
+-
+string
+-
+vector
+-
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/pugiXML/pugiconfig.hpp
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/pugiXML/pugixml.hpp
+pugiconfig.hpp
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/pugiXML/pugiconfig.hpp
+stddef.h
+-
+exception
+-
+iterator
+-
+iosfwd
+-
+string
+-
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/bezier.cpp
+bezier.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/bezier.h
+utility
+-
+cmath
+-
+array
+-
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/bezier.h
+vector
+-
+glmath.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/glmath.h
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/billboard.cpp
+billboard.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/billboard.h
+vector
+-
+array
+-
+iostream
+-
+cmath
+-
+cassert
+-
+algorithm
+-
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/billboard.h
+gl.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/gl.h
+texture.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/texture.h
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/frame.h
+shader.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/shader.h
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/gl.h
+glew.h
+-
+stdlib.h
+-
+glew.h
+-
+glew.h
+-
+iostream
+-
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/glfw_window.cpp
+glfw_window.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/glfw_window.h
+iostream
+-
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/glfw_window.h
+gl.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/gl.h
+stdlib.h
+-
+stdio.h
+-
+GLFW/glfw3.h
+-
+vector
+-
+map
+-
+string
+-
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/glmath.cpp
+glmath.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/glmath.h
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/glmath.h
+iostream
+-
+cassert
+-
+math.h
+-
+algorithm
+-
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/main.cpp
+iostream
+-
+model.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/model.h
+stdlib.h
+-
+../lib/pugiXML/pugixml.hpp
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/pugiXML/pugixml.hpp
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/model.cpp
+model.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/model.h
+../lib/pugiXML/pugixml.hpp
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/pugiXML/pugixml.hpp
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/model.h
+../lib/bitmap/bitmap_image.hpp
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/bitmap/bitmap_image.hpp
+utils.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/utils.h
+map
+-
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/path.h
+gl.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/gl.h
+glmath.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/glmath.h
+vector
+-
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/planet.h
+texture.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/texture.h
+glmath.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/glmath.h
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/shader.cpp
+shader.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/shader.h
+iostream
+-
+fstream
+-
+sstream
+-
+cassert
+-
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/shader.h
+gl.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/gl.h
+glmath.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/glmath.h
+vector
+-
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/ship.cpp
+ship.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/ship.h
+fstream
+-
+string
+-
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/ship.h
+glmath.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/glmath.h
+gl.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/gl.h
+vector
+-
+texture.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/texture.h
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/solar_viewer.cpp
+solar_viewer.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/solar_viewer.h
+glmath.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/glmath.h
+stdlib.h
+-
+time.h
+-
+array
+-
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/solar_viewer.h
+gl.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/gl.h
+glfw_window.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/glfw_window.h
+sphere.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/sphere.h
+shader.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/shader.h
+texture.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/texture.h
+planet.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/planet.h
+ship.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/ship.h
+path.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/path.h
+frame.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/frame.h
+billboard.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/billboard.h
+bezier.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/bezier.h
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/sphere.cpp
+sphere.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/sphere.h
+glmath.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/glmath.h
+vector
+-
+math.h
+-
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/sphere.h
+gl.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/gl.h
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/texture.cpp
+texture.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/texture.h
+iostream
+-
+cassert
+-
+algorithm
+-
+lodepng.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/lodepng.h
+math.h
+-
+algorithm
+-
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/texture.h
+gl.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/gl.h
+vector
+-
+
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/utils.h
+iostream
+-
+fstream
+-
+
+/usr/local/include/GL/glew.h
+stddef.h
+-
+inttypes.h
+-
+stdint.h
+-
+inttypes.h
+-
+Availability.h
+-
+OpenGL/glu.h
+-
+GL/glu.h
+-
+
+/usr/local/include/GLFW/glfw3.h
+stddef.h
+-
+stdint.h
+-
+OpenGL/gl3.h
+-
+OpenGL/gl3ext.h
+-
+OpenGL/gl.h
+-
+OpenGL/glu.h
+-
+GL/glcorearb.h
+-
+GLES/gl.h
+-
+GLES/glext.h
+-
+GLES2/gl2.h
+-
+GLES2/gl2ext.h
+-
+GLES3/gl3.h
+-
+GLES2/gl2ext.h
+-
+GLES3/gl31.h
+-
+GLES2/gl2ext.h
+-
+vulkan/vulkan.h
+-
+GL/gl.h
+-
+GL/glext.h
+-
+GL/glu.h
+-
+

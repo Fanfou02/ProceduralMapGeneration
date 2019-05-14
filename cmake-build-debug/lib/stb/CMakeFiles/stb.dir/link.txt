@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc ../../libstb.a  CMakeFiles/stb.dir/tests/resample_test.cpp.o CMakeFiles/stb.dir/tests/stb_cpp.cpp.o CMakeFiles/stb.dir/tests/test_cpp_compilation.cpp.o CMakeFiles/stb.dir/tests/test_ds_cpp.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib ../../libstb.a
