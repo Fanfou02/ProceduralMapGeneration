@@ -336,6 +336,9 @@
 		<Unit filename="/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/sphere.h">
 			<Option target="RandomTilemapGeneration"/>
 		</Unit>
+		<Unit filename="/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/stacktrace.h">
+			<Option target="RandomTilemapGeneration"/>
+		</Unit>
 		<Unit filename="/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/texture.cpp">
 			<Option target="RandomTilemapGeneration"/>
 		</Unit>

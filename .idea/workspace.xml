@@ -16,7 +16,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5d5571b-7dc9-4b24-ac79-6daeb6681104" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/stacktrace.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/RandomTilemapGeneration" afterPath="$PROJECT_DIR$/cmake-build-debug/RandomTilemapGeneration" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/RandomTilemapGeneration.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/RandomTilemapGeneration.cbp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/CXX.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/CXX.includecache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/depend.internal" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/depend.make" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/depend.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CMakeLists.txt" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model.h" afterPath="$PROJECT_DIR$/src/model.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils.h" afterPath="$PROJECT_DIR$/src/utils.h" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -31,11 +40,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="58" column="26" lean-forward="false" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+            <state relative-caret-position="152">
+              <caret line="30" column="34" lean-forward="false" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -44,24 +53,36 @@
       <file leaf-file-name="model.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="849">
-              <caret line="451" column="65" lean-forward="true" selection-start-line="451" selection-start-column="65" selection-end-line="451" selection-end-column="65" />
+            <state relative-caret-position="420">
+              <caret line="430" column="0" lean-forward="false" selection-start-line="430" selection-start-column="0" selection-end-line="430" selection-end-column="0" />
               <folding>
                 <element signature="e#75#97#0" expanded="true" />
-                <element signature="e#302#324#0" expanded="true" />
+                <element signature="e#257#279#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils.h" pinned="false" current-in-tab="true">
+      <file leaf-file-name="utils.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-892">
-              <caret line="143" column="44" lean-forward="false" selection-start-line="143" selection-start-column="44" selection-end-line="143" selection-end-column="44" />
+            <state relative-caret-position="356">
+              <caret line="303" column="0" lean-forward="false" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
               <folding>
                 <element signature="e#126#145#0" expanded="true" />
+                <element signature="e#6260#6272#0" expanded="true" />
+                <element signature="e#7278#7290#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vector" pinned="false" current-in-tab="false">
+        <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/vector">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="2736" column="0" lean-forward="false" selection-start-line="2736" selection-start-column="0" selection-end-line="2736" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -79,14 +100,24 @@
     <findStrings>
       <find>srand</find>
       <find>rand</find>
-      <find>bitmap_image</find>
       <find>tile</find>
       <find>bitmap</find>
       <find>sola</find>
       <find>solar</find>
       <find>tempStationary</find>
-      <find>observed</find>
       <find>tiles</find>
+      <find>voxeltile</find>
+      <find>voxeltiles</find>
+      <find>100</find>
+      <find>observed$</find>
+      <find>left</find>
+      <find>bitmap_image</find>
+      <find>INde</find>
+      <find>observed</find>
+      <find>stationary</find>
+      <find>*</find>
+      <find>Argmin</find>
+      <find>std::co</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -119,9 +150,10 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/model.cpp" />
+        <option value="$PROJECT_DIR$/src/stacktrace.h.h" />
+        <option value="$PROJECT_DIR$/src/utils.h" />
         <option value="$PROJECT_DIR$/src/model.h" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
-        <option value="$PROJECT_DIR$/src/utils.h" />
       </list>
     </option>
   </component>
@@ -131,6 +163,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
     <option name="width" value="1440" />
     <option name="height" value="900" />
@@ -438,7 +471,7 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="RandomTilemapGeneration" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RandomTilemapGeneration" TARGET_NAME="RandomTilemapGeneration" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="RandomTilemapGeneration" RUN_TARGET_NAME="RandomTilemapGeneration">
+    <configuration default="false" name="RandomTilemapGeneration" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-rdynamic -o" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RandomTilemapGeneration" TARGET_NAME="RandomTilemapGeneration" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="RandomTilemapGeneration" RUN_TARGET_NAME="RandomTilemapGeneration">
       <envs />
       <method />
     </configuration>
@@ -478,12 +511,12 @@
       <updated>1556206600156</updated>
       <workItem from="1556206603383" duration="3701000" />
       <workItem from="1557500105564" duration="3291000" />
-      <workItem from="1557565305598" duration="39410000" />
+      <workItem from="1557565305598" duration="56481000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46402000" />
+    <option name="totallyTimeSpent" value="63473000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -567,7 +600,16 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/model.h</url>
+          <line>142</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="7" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -625,7 +667,7 @@
           <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
           <folding>
             <element signature="e#75#97#0" expanded="true" />
-            <element signature="e#302#324#0" expanded="true" />
+            <element signature="e#257#279#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -634,14 +676,6 @@
     <entry file="file://$PROJECT_DIR$/src/AppLauncher.java" />
     <entry file="file://$PROJECT_DIR$/src/MyGLEventListener.java" />
     <entry file="file://$PROJECT_DIR$/src/MainFrame.java" />
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/vector">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="687" column="35" lean-forward="false" selection-start-line="687" selection-start-column="35" selection-end-line="687" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/memory">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
@@ -760,32 +794,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model.h">
+    <entry file="file://$PROJECT_DIR$/src/stacktrace.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="849">
-          <caret line="451" column="65" lean-forward="true" selection-start-line="451" selection-start-column="65" selection-end-line="451" selection-end-column="65" />
-          <folding>
-            <element signature="e#75#97#0" expanded="true" />
-            <element signature="e#302#324#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1395">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/locale">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="58" column="26" lean-forward="false" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+        <state relative-caret-position="322">
+          <caret line="1421" column="0" lean-forward="false" selection-start-line="1421" selection-start-column="0" selection-end-line="1421" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/ostream">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="863" column="0" lean-forward="false" selection-start-line="863" selection-start-column="0" selection-end-line="863" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/vector">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="2736" column="0" lean-forward="false" selection-start-line="2736" selection-start-column="0" selection-end-line="2736" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-892">
-          <caret line="143" column="44" lean-forward="false" selection-start-line="143" selection-start-column="44" selection-end-line="143" selection-end-column="44" />
+        <state relative-caret-position="356">
+          <caret line="303" column="0" lean-forward="false" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
           <folding>
             <element signature="e#126#145#0" expanded="true" />
+            <element signature="e#6260#6272#0" expanded="true" />
+            <element signature="e#7278#7290#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="430" column="0" lean-forward="false" selection-start-line="430" selection-start-column="0" selection-end-line="430" selection-end-column="0" />
+          <folding>
+            <element signature="e#75#97#0" expanded="true" />
+            <element signature="e#257#279#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="30" column="34" lean-forward="false" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>

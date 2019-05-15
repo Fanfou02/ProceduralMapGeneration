@@ -20,12 +20,12 @@ src/CMakeFiles/RandomTilemapGeneration.dir/glfw_window.cpp.o: /usr/local/include
 src/CMakeFiles/RandomTilemapGeneration.dir/glmath.cpp.o: ../src/glmath.cpp
 src/CMakeFiles/RandomTilemapGeneration.dir/glmath.cpp.o: ../src/glmath.h
 
-src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../lib/bitmap/bitmap_image.hpp
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../lib/pugiXML/pugiconfig.hpp
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../lib/pugiXML/pugixml.hpp
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/gl.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/main.cpp
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/model.h
+src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/stacktrace.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/utils.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: /usr/local/include/GL/glew.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: /usr/local/include/boost/algorithm/string.hpp
@@ -554,9 +554,6 @@ src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: /usr/local/include/boost/
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: /usr/local/include/boost/utility/identity_type.hpp
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: /usr/local/include/boost/utility/result_of.hpp
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: /usr/local/include/boost/version.hpp
-src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: /usr/local/include/png.h
-src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: /usr/local/include/pngconf.h
-src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: /usr/local/include/pnglibconf.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: /usr/local/include/stb_image.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: /usr/local/include/stb_image_write.h
 

@@ -21,12 +21,12 @@ src/CMakeFiles/RandomTilemapGeneration.dir/glmath.cpp.o
  /Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/glmath.cpp
  /Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/glmath.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o
- ../lib/bitmap/bitmap_image.hpp
  ../lib/pugiXML/pugiconfig.hpp
  ../lib/pugiXML/pugixml.hpp
  /Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/gl.h
  /Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/main.cpp
  /Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/model.h
+ /Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/stacktrace.h
  /Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/utils.h
  /usr/local/include/GL/glew.h
  /usr/local/include/boost/algorithm/string.hpp
@@ -555,9 +555,6 @@ src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o
  /usr/local/include/boost/utility/identity_type.hpp
  /usr/local/include/boost/utility/result_of.hpp
  /usr/local/include/boost/version.hpp
- /usr/local/include/png.h
- /usr/local/include/pngconf.h
- /usr/local/include/pnglibconf.h
  /usr/local/include/stb_image.h
  /usr/local/include/stb_image_write.h
 src/CMakeFiles/RandomTilemapGeneration.dir/model.cpp.o

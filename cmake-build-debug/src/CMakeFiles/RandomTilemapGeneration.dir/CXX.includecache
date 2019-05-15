@@ -6,28 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../lib/bitmap/bitmap_image.hpp
-algorithm
--
-cmath
--
-cstdlib
--
-cstring
--
-fstream
--
-iostream
--
-iterator
--
-limits
--
-string
--
-vector
--
-
 ../lib/lodePNG/lodepng.h
 string.h
 -
@@ -165,13 +143,9 @@ utils.h
 /Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/utils.h
 gl.h
 /Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/gl.h
-png.h
--
 array
 -
 boost/algorithm/string.hpp
--
-bitmap_image.hpp
 -
 stb_image.h
 -
@@ -280,6 +254,16 @@ math.h
 gl.h
 /Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/gl.h
 
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/stacktrace.h
+stdio.h
+-
+stdlib.h
+-
+execinfo.h
+-
+cxxabi.h
+-
+
 /Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/texture.cpp
 texture.h
 /Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/texture.h
@@ -307,12 +291,12 @@ iostream
 -
 fstream
 -
-bitmap_image.hpp
--
 random
 -
 vector
 -
+stacktrace.h
+/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/stacktrace.h
 
 /usr/local/include/GL/glew.h
 stddef.h
@@ -6129,26 +6113,6 @@ boost/utility/detail/result_of_iterate.hpp
 -
 
 /usr/local/include/boost/version.hpp
-
-/usr/local/include/png.h
-pnglibconf.h
-/usr/local/include/pnglibconf.h
-pngconf.h
-/usr/local/include/pngconf.h
-
-/usr/local/include/pngconf.h
-limits.h
--
-stddef.h
--
-stdio.h
--
-setjmp.h
--
-time.h
--
-
-/usr/local/include/pnglibconf.h
 
 /usr/local/include/stb_image.h
 stb_image.h

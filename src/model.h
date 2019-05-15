@@ -6,90 +6,73 @@
 #include <iostream>
 #include "utils.h"
 #include "gl.h"
-#include <png.h>
 #include <array>
 #include <boost/algorithm/string.hpp>
-#include <bitmap_image.hpp>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 #include <stb_image_write.h>
 #undef STB_IMAGE_IMPLEMENTATION
 
-struct RGBA
-{
-    uint8_t r, g, b, a;
-};
+
+
 
 class Model{
     private:
-    bool**** wave;
-    bool*** changes;
-    int*** observed;
-    double* stationary;
+
+    enum ObserveStates { True, False, Unfinished };
+
+    Array4D<bool> wave;
+    Array3D<bool> changes;
+    Array3D<int> observed;
+    std::vector<double> stationary;
 
     //Random random;
-    int FMX, FMY, FMZ, T, ground;
+    size_t FMX, FMY, FMZ, T, ground;
     bool periodic;
 
-    double * logProb;
+    std::vector<double> logProb;
     double logT;
     std::function<double()> random;
-    bool*** propagator;
+    Array3D<bool> propagator;
 
-    std::vector<std::vector<RGBA>> tiles;
+    //std::vector<std::vector<RGBA>> tiles;
     std::vector<std::string> tilenames;
     std::vector<std::vector<Voxel>> voxeltiles;
 
-    int pixelsize, voxelsize;
+    int8_t pixelsize, voxelsize;
 
-    std::vector<RGBA> rotate(const std::vector<RGBA>& in_tile, const size_t tile_size)
-    {
-        std::vector<RGBA> out_tile;
-        for (size_t y = 0; y < tile_size; ++y) {
-            for (size_t x = 0; x < tile_size; ++x) {
-                out_tile.push_back(in_tile[tile_size - 1 - y + x * tile_size]);
-            }
-        }
-        return out_tile;
-    }
-
+public:
     std::vector<Voxel> rotateVoxels(std::vector<Voxel> array, size_t size){
+        std::vector<Voxel> result;
         for(Voxel voxel : array){
-            voxel = Voxel(size-1-voxel.y, voxel.x, voxel.z, voxel.color);
+            result.push_back(Voxel(size-1-voxel.y, voxel.x, voxel.z, voxel.color));
         }
-        return array;
-    }
-
-    std::vector<RGBA> loadTile(std::string filename){
-        int width, height, comp;
-        RGBA* rgba = reinterpret_cast<RGBA*>(stbi_load(filename.c_str(), &width, &height, &comp, 4));
-        const auto num_pixels = width * height;
-        std::vector<RGBA> tile(rgba, rgba + num_pixels);
-        stbi_image_free(rgba);
-        return tile;
+        return result;
     }
 
 
-    bool Observe()
+    ObserveStates Observe()
     {
         double min = 1E+3, sum, mainSum, logSum, noise, entropy;
         int argminx = -1, argminy = -1, argminz = -1, amount;
-        bool* w;
+        std::vector<bool> w;
 
-        for (int x = 0; x < FMX; x++) for (int y = 0; y < FMY; y++) for (int z = 0; z < FMZ; z++)
+        for (int x = 0; x < FMX; x++)
+            for (int y = 0; y < FMY; y++)
+                for (int z = 0; z < FMZ; z++)
                 {
-                    w = wave[x][y][z];
+                    w = wave.get(x, y, z);
                     amount = 0;
                     sum = 0;
 
                     for (int t = 0; t < T; t++) if (w[t])
                         {
+
                             amount += 1;
                             sum += stationary[t];
                         }
-
-                    if (sum == 0) return false;
+                    if (sum == 0) return False;
 
                     noise = 1E-6 * random();
 
@@ -102,7 +85,6 @@ class Model{
                         for (int t = 0; t < T; t++) if (w[t]) mainSum += stationary[t] * logProb[t];
                         entropy = logSum - mainSum / sum;
                     }
-
                     if (entropy > 0 && entropy + noise < min)
                     {
                         min = entropy + noise;
@@ -114,29 +96,37 @@ class Model{
 
         if (argminx == -1 && argminy == -1 && argminz == -1)
         {
-            for (int x = 0; x < FMX; x++) for (int y = 0; y < FMY; y++) for (int z = 0; z < FMZ; z++) for (int t = 0; t < T; t++) if (wave[x][y][z][t])
+            for (int x = 0; x < FMX; x++)
+                for (int y = 0; y < FMY; y++)
+                    for (int z = 0; z < FMZ; z++)
+                        for (int t = 0; t < T; t++)
+                            if (wave.get(x, y, z, t))
                             {
-                                observed[x][y][z] = t;
+                                observed.set(x, y, z, t);
                                 break;
                             }
 
-            return true;
+            return True;
         }
 
-        std::vector<double> distribution;
-        for (int t = 0; t < T; t++) distribution[t] = wave[argminx][argminy][argminz][t] ? stationary[t] : 0;
+        std::vector<double> distribution(T, 0);
+        for (int t = 0; t < T; t++)
+            distribution[t] = wave.get(argminx, argminy, argminz, t) ? stationary[t] : 0;
         size_t r = spin_the_bottle(std::move(distribution), random());
-        for (int t = 0; t < T; t++) wave[argminx][argminy][argminz][t] = t == r;
-        changes[argminx][argminy][argminz] = true;
+        for (int t = 0; t < T; t++)
+            wave.set(argminx, argminy, argminz, t, t==r);
+        changes.set(argminx, argminy, argminz, true);
 
-
-        return false;
+        return Unfinished;
     }
 
     bool Propagate()
     {
         bool change = false, b;
-        for (int x2 = 0; x2 < FMX; x2++) for (int y2 = 0; y2 < FMY; y2++) for (int z2 = 0; z2 < FMZ; z2++) for (int d = 0; d < 6; d++)
+        for (int x2 = 0; x2 < FMX; x2++)
+            for (int y2 = 0; y2 < FMY; y2++)
+                for (int z2 = 0; z2 < FMZ; z2++)
+                    for (int d = 0; d < 6; d++)
                     {
                         int x1 = x2, y1 = y2, z1 = z2;
                         if (d == 0)
@@ -194,21 +184,22 @@ class Model{
                             else z1 = z2 - 1;
                         }
 
-                        if (!changes[x1][y1][z1]) continue;
+                        if (!changes.get(x1, y1, z1)) continue;
 
-                        bool* w1 = wave[x1][y1][z1];
-                        bool* w2 = wave[x2][y2][z2];
-
-                        for (int t2 = 0; t2 < T; t2++) if (w2[t2])
+                        for (int t2 = 0; t2 < T; t2++)
+                            if (wave.get(x2, y2, z2, t2))
                             {
-                                bool* prop = propagator[d][t2];
+                                std::vector<bool> prop = propagator.get(d, t2);
                                 b = false;
 
-                                for (int t1 = 0; t1 < T && !b; t1++) if (w1[t1]) b = prop[t1];
+                                for (int t1 = 0; t1 < T && !b; t1++)
+                                    if (wave.get(x1, y1, z1, t1))
+                                        b = prop[t1];
+
                                 if (!b)
                                 {
-                                    w2[t2] = false;
-                                    changes[x2][y2][z2] = true;
+                                    wave.set(x2, y2, z2, t2, false);
+                                    changes.set(x2, y2, z2, true);
                                     change = true;
                                 }
                             }
@@ -218,7 +209,7 @@ class Model{
     }
 
     public:
-    Model(std::string name, std::string subsetName, int FMX, int FMY, int FMZ, bool periodic, std::string groundName){
+    Model(std::string name, int FMX, int FMY, int FMZ, bool periodic, std::string groundName){
         this->FMX = FMX;
         this->FMY = FMY;
         this->FMZ = FMZ;
@@ -233,21 +224,28 @@ class Model{
         pugi::xml_node xnode = xdoc.first_child();
 
         pixelsize = xnode.attribute("pixelsize").as_int();
+        std::cout << "PixelSize: " << pixelsize << std::endl;
         voxelsize =  xnode.attribute("voxelsize").as_int();
+        std::cout << "voxelsize: " << voxelsize << std::endl;
+
         xnode = xnode.first_child();
 
         std::vector<double> tempStationary;
-        std::vector<int*> action;
-        std::map<std::string, int> firstOccurrence;
+        std::vector<std::array<int,     8>>  action;
+        std::map<std::string, size_t> firstOccurrence;
 
         for (pugi::xml_node xtile: xnode.children()){
             std::string tilename = xtile.attribute("name").as_string();
+            std::cout << "tilename: " << tilename << std::endl;
 
 
             std::string sym = xtile.attribute("symmetry").as_string();
+            std::function<int(int)> a, b;
+
+            // Default sym
             int cardinality = 1;
-            int (*a)(int i) = [](int i){ return i; };
-            int (*b)(int i)  = [](int i){ return i; };
+            a = [](int i){ return i; };
+            b = [](int i){ return i; };
 
             if (!sym.compare("L"))
             {
@@ -276,79 +274,61 @@ class Model{
 
             T = action.size();
             firstOccurrence[tilename] =  T;
+
             if (tilename == groundName) ground = T;
 
-            std::cout << "Mapping" << std::endl;
-            int ** map = new int*[cardinality];
             for (int t = 0; t < cardinality; t++)
             {
-                map[t] = new int[8];
-                map[t][0] = t;
-                map[t][1] = a(t);
-                map[t][2] = a(a(t));
-                map[t][3] = a(a(a(t)));
-                map[t][4] = b(t);
-                map[t][5] = b(a(t));
-                map[t][6] = b(a(a(t)));
-                map[t][7] = b(a(a(a(t))));
+                std::array<int, 8> map;
 
-                for (int s = 0; s < 8; s++) map[t][s] += T;
-                std::cout << map[t] << std::endl;
-                action.push_back(map[t]);
+                map[0] = t;
+                map[1] = a(t);
+                map[2] = a(a(t));
+                map[3] = a(a(a(t)));
+                map[4] = b(t);
+                map[5] = b(a(t));
+                map[6] = b(a(a(t)));
+                map[7] = b(a(a(a(t))));
+
+                for (int s = 0; s < 8; ++s) {
+                    map[s] += T;
+                }
+
+                action.push_back(map);
             }
-
-            std::cout << "Opening: " << "../" << name << "/" << tilename << ".png" << std::endl;
-            const std::vector<RGBA> bitmap = loadTile("../" + name + "/" + tilename + ".png" );
             std::cout << "Opening: " << "../" << name << "/" << tilename << ".vox" << std::endl;
             std::vector<Voxel> voxeltile = ReadVox("../" + name + "/" + tilename + ".vox");
 
 
-            tiles.push_back(bitmap);
+            //tiles.push_back(bitmap);
             tilenames.push_back(tilename + " 0");
             voxeltiles.push_back(voxeltile);
 
             for (int t = 1; t < cardinality; t++)
             {
-                tiles.push_back(rotate(tiles[T + t - 1], pixelsize));
+                //tiles.push_back(rotate(tiles[T + t - 1], pixelsize));
                 tilenames.push_back("" + tilename + " " + std::to_string(t));
                 voxeltiles.push_back(rotateVoxels(voxeltiles.at(T + t - 1), voxelsize));
             }
 
-            for (int t = 0; t < cardinality; t++) tempStationary.push_back(xtile.attribute("weight").as_double());
+            for (int t = 0; t < cardinality; t++) {
+
+                double w = xtile.attribute("weight").as_double();
+                if (w==0)
+                    w = 1;
+                tempStationary.push_back(w);
+            }
 
         }
 
         T = action.size();
-        stationary = &tempStationary[0];
-        propagator = new bool**[6];
+        stationary = tempStationary;
 
-        for (int d = 0; d < 6; d++)
-        {
-            propagator[d] = new bool*[T];
-            for (int t = 0; t < T; t++)
-                propagator[d][t] = new bool[T];
-        }
+        observed = Array3D<int >(FMX, FMY, FMZ, -1);
+        propagator = Array3D<bool>(6, T, T, false);
+        wave = Array4D<bool>(FMX, FMY, FMZ, T, false);
+        changes = Array3D<bool>(FMX, FMY, FMZ, false);
 
-        wave = new bool***[FMX];
-        changes = new bool**[FMX];
-        observed = new int**[FMX];
-        for (int x = 0; x < FMX; x++)
-        {
-            wave[x] = new bool**[FMY];
-            changes[x] = new bool*[FMY];
-            observed[x] = new int*[FMY];
-            for (int y = 0; y < FMY; y++)
-            {
-                wave[x][y] = new bool*[FMZ];
-                changes[x][y] = new bool[FMZ];
-                observed[x][y] = new int[FMZ];
-                for (int z = 0; z < FMZ; z++)
-                {
-                    wave[x][y][z] = new bool[T];
-                    observed[x][y][z] = -1;
-                }
-            }
-        }
 
         for (pugi::xml_node xneighbor : xnode.next_sibling().children())
         {
@@ -356,7 +336,6 @@ class Model{
             std::string text = xneighbor.attribute("left").as_string();
             std::vector<std::string> left;
             boost::split(left, text , [](char c){return c == ' ';});
-
             text = xneighbor.attribute("right").as_string();
             std::vector<std::string> right;
             boost::split(right, text , [](char c){return c == ' ';});
@@ -368,129 +347,99 @@ class Model{
 
             if (strncmp(xneighbor.name(),"horizontal", 10)  == 0)
             {
-                propagator[0][R][L] = true;
-                propagator[0][action[R][6]][action[L][6]] = true;
-                propagator[0][action[L][4]][action[R][4]] = true;
-                propagator[0][action[L][2]][action[R][2]] = true;
+                propagator.set(0, R, L, true);
+                propagator.set(0, action[R][6], action[L][6], true);
+                propagator.set(0, action[L][4], action[R][4], true);
+                propagator.set(0, action[L][2], action[R][2], true);
 
-                propagator[1][U][D] = true;
-                propagator[1][action[D][6]][action[U][6]] = true;
-                propagator[1][action[U][4]][action[D][4]] = true;
-                propagator[1][action[D][2]][action[U][2]] = true;
+                propagator.set(1, U, D, true);
+                propagator.set(1, action[D][6], action[U][6], true);
+                propagator.set(1, action[U][4], action[D][4], true);
+                propagator.set(1, action[D][2], action[U][2], true);
             }
-            else for (int g = 0; g < 8; g++) propagator[4][action[L][g]][action[R][g]] = true;
+            else for (int g = 0; g < 8; g++) propagator.set(4, action[L][g], action[R][g], true);
         }
 
         for (int t2 = 0; t2 < T; t2++) for (int t1 = 0; t1 < T; t1++)
             {
-                propagator[2][t2][t1] = propagator[0][t1][t2];
-                propagator[3][t2][t1] = propagator[1][t1][t2];
-                propagator[5][t2][t1] = propagator[4][t1][t2];
+                propagator.set(2, t2, t1, propagator.get(0, t1, t2));
+                propagator.set(3, t2, t1, propagator.get(1, t1, t2));
+                propagator.set(5, t2, t1, propagator.get(4, t1, t2));
             }
+
+        std::cout << "Model created" << std::endl;
 
     }
 
 
 bool Run(int seed)
     {
+        std::cout << "Run" << std::endl;
         logT = std::log(T);
-        logProb = new double[T];
+        logProb = std::vector<double> (T, 0);
         for (int t = 0; t < T; t++) logProb[t] = std::log(stationary[t]);
-
         Clear();
         std::mt19937 gen(seed);
         std::uniform_real_distribution<double> dis(0.0, 1.0);
         random = [&]() { return dis(gen); };
 
         int ite = 0;
-        while (ite++ < 100)
+        while (true)
         {
-            std::cout << ite << std::endl;
-            bool result = Observe();
-            if (result != false) return (bool)result;
+            ObserveStates result = Observe();
+
+            if (result == True) return true;
+            else if (result == False) return false;
+
             while (Propagate());
         }
-        return true;
     }
 
     void Clear()
     {
         for (int x = 0; x < FMX; x++) for (int y = 0; y < FMY; y++) for (int z = 0; z < FMZ; z++)
                 {
-                    for (int t = 0; t < T; t++) wave[x][y][z][t] = true;
-                    changes[x][y][z] = false;
+                    for (int t = 0; t < T; t++) wave.set(x, y, z, t, true);
+                    changes.set(x, y, z, false);
                 }
 
         if (ground >= 0)
         {
             for (int x = 0; x < FMX; x++) for (int y = 0; y < FMY; y++)
                 {
-                    for (int t = 0; t < T; t++) if (t != ground) wave[x][y][FMZ - 1][t] = false;
-                    changes[x][y][FMZ - 1] = true;
+                    for (int t = 0; t < T; t++) if (t != ground)
+                            wave.set(x, y, FMZ-1, t, false);
+                    changes.set(x, y, FMZ - 1, true);
 
                     for (int z = 0; z < FMZ - 1; z++)
                     {
-                        wave[x][y][z][ground] = false;
-                        changes[x][y][z] = true;
+                        wave.set(x, y, z, ground, false);
+                        changes.set(x, y, z, true);
                     }
                 }
         }
     }
 
 
-    #pragma unmanaged
-    bitmap_image PixelOutput() {
-        bitmap_image result(FMX * pixelsize,FMY * pixelsize * FMZ + FMZ);
-        int* bitmapData = new int[result.width()*result.height()];
-
-        for (int z = 0; z < FMZ; z++) for (int x = 0; x < FMX; x++) for (int y = 0; y < FMY; y++)
-                {
-                    std::vector<RGBA> tile = tiles[observed[x][y][z]];
-                    for (int yt = 0; yt < pixelsize; yt++) for (int xt = 0; xt < pixelsize; xt++)
-                        {
-                            RGBA c = tile[xt + yt * pixelsize];
-                            result.set_pixel(x * pixelsize + xt, (y * pixelsize + yt) * FMX * pixelsize + (z * FMY * pixelsize + z) * (FMX * pixelsize), c.r, c.g, c.b);
-                            bitmapData[x * pixelsize + xt + (y * pixelsize + yt) * FMX * pixelsize + (z * FMY * pixelsize + z) * (FMX * pixelsize)] =
-                                    (int)0xff000000 | (c.r << 16) | (c.g << 8) | c.b;
-                        }
-                }
-        result.save_image("test.bmp");
-
-        return result;
-    }
-/*
-std::string TextOutput()
+void saveVoxelOutput(std::string filename)
     {
-        var result = new System.Text.StringBuilder();
-
-        for (int z = 0; z < FMZ; z++)
-        {
-            for (int y = 0; y < FMY; y++)
-            {
-                for (int x = 0; x < FMX; x++) result.Append($"{tilenames[observed[x][y][z]]}, ");
-                result.Append(Environment.NewLine);
-            }
-
-            result.Append(Environment.NewLine);
-        }
-
-        return result.ToString();
-    }
-
-Tuple<int, int, int, Voxel[]> VoxelOutput()
-    {
-        List<Voxel> result = new List<Voxel>();
-
-        for (int x = 0; x < FMX; x++) for (int y = 0; y < FMY; y++) for (int z = 0; z < FMZ; z++)
+        std::vector<Voxel> result;
+        for (int8_t x = 0; x < FMX; x++) for (int8_t y = 0; y < FMY; y++) for (int8_t z = 0; z < FMZ; z++)
                 {
-                    Voxel[] voxeltile = voxeltiles[observed[x][FMY - y - 1][FMZ - z - 1]];
-                    foreach (Voxel v in voxeltile) result.Add(new Voxel { x = (byte)(v.x + x * voxelsize), y = (byte)(v.y + y * voxelsize),
-                            z = (byte)(v.z + z * voxelsize), color = v.color });
+
+                    int index = observed.get(x, FMY - y - 1, FMZ - z - 1);
+
+                    if(index >= 0) {
+                        std::vector<Voxel> voxeltile = voxeltiles[index];
+                        for (Voxel v : voxeltile)
+                            result.push_back(Voxel((v.x + x * voxelsize), (v.y + y * voxelsize), (v.z + z * voxelsize),
+                                                   v.color));
+                    }
                 }
 
-        return new Tuple<int, int, int, Voxel[]>(FMX * voxelsize, FMY * voxelsize, FMZ * voxelsize, result.ToArray());
+        WriteVox(filename, FMX * voxelsize, FMY * voxelsize, FMZ * voxelsize, result);
     }
-*/
+
 };
 
 #endif
