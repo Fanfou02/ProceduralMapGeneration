@@ -382,7 +382,7 @@ public:
 
 bool Run(int seed)
     {
-        std::cout << "Run" << std::endl;
+        //std::cout << "Run" << std::endl;
         logT = std::log(T);
         logProb = std::vector<double> (T, 0);
         for (int t = 0; t < T; t++) logProb[t] = std::log(stationary[t]);

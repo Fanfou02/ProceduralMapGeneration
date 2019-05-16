@@ -33,10 +33,10 @@ int main(int argc, char *argv[])
 
 
         for (int i = 0; i < sample.attribute("screenshots").as_int(); i++) {
-            for (int k = 0; k < 20; k++) {
+            for (int k = 0; k < 10000; k++) {
 
                 int seed = rand();
-                std::cout << "Seed :" << seed << std::endl;
+                //std::cout << "Seed :" << seed << std::endl;
                 bool finished = model.Run(seed);
                 std::string filename = "test_" + std::to_string(i) + std::to_string(k) + ".vox";
                 if (finished)
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
                     model.saveVoxelOutput(filename);
                 }
                 else {
-                    std::cout << "Contradiction occurred ! " << std::endl;
+                    //std::cout << "Contradiction occurred ! " << std::endl;
                 }
             }
         }

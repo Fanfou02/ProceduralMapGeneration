@@ -1,19 +1,31 @@
+<!-- vertical Right means down-->
 <set pixelsize="8" voxelsize="10">
 	<tiles>
 		<tile name="ground" symmetry="X"/>
-		<tile name="grass" symmetry="X"/>
+		<tile name="grass" symmetry="X" weight="1"/>
 		<tile name="empty" symmetry="X"/>
+		<tile name="block" symmetry="X" weight="0.005"/>
+		<tile name="water" symmetry="L" weight="0.1"/>
 	</tiles>
 	<neighbors>
+
 		<horizontal left="ground" right="ground"/>
 		<horizontal left="grass" right="grass"/>
-		<horizontal left="grass" right="empty"/>
-		<horizontal left="empty" right="grass"/>
+		<horizontal left="grass" right="water"/>
+		<horizontal left="water" right="water"/>
 		<horizontal left="empty" right="empty"/>
-
+		<horizontal left="empty" right="block"/>
+		<horizontal left="block" right="block"/>
+		<horizontal left="block" right="empty"/>
+		
 		<vertical left="grass" right="ground"/>
-		<vertical left="grass" right="grass"/>
+		<vertical left="water" right="ground"/>
+		<vertical left="block" right="grass"/>
+		<vertical left="block" right="block"/>
 		<vertical left="empty" right="grass"/>
+		<vertical left="empty" right="water"/>
+		<vertical left="empty" right="block"/>
 		<vertical left="empty" right="empty"/>
+
 	</neighbors>
 </set>

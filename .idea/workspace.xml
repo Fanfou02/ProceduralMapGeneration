@@ -16,31 +16,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5d5571b-7dc9-4b24-ac79-6daeb6681104" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/WFCTilemapGeneration.cbp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test0.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test1.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test2.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test3.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test4.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test5.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test6.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test7.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test8.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test9.bmp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test_018.vox" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test_021.vox" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test_022.vox" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test_027.vox" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test_03.vox" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test_032.vox" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test_04.vox" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test_08.vox" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/up.vox" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test.bmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/test_" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/RandomTilemapGeneration" afterPath="$PROJECT_DIR$/cmake-build-debug/RandomTilemapGeneration" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_00.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_00.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_01.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_01.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_010.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_010.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_011.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_011.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_012.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_012.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_013.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_013.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_014.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_014.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_015.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_015.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_016.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_016.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_017.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_017.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_018.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_018.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_019.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_019.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_02.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_02.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_03.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_03.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_04.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_04.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_05.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_05.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_06.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_06.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_07.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_07.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_08.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_08.vox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test_09.vox" afterPath="$PROJECT_DIR$/cmake-build-debug/test_09.vox" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Report/Wave Function Collapse.Rmd" afterPath="$PROJECT_DIR$/Report/Wave Function Collapse.Rmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Report/Wave_Function_Collapse.html" afterPath="$PROJECT_DIR$/Report/Wave_Function_Collapse.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/samples.xml" afterPath="$PROJECT_DIR$/samples.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/World/data.xml" afterPath="$PROJECT_DIR$/World/data.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model.h" afterPath="$PROJECT_DIR$/src/model.h" />
     </list>
@@ -59,8 +59,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="16" column="44" lean-forward="false" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+            <state relative-caret-position="71">
+              <caret line="35" column="37" lean-forward="false" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -69,8 +69,8 @@
       <file leaf-file-name="model.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="370" column="12" lean-forward="false" selection-start-line="370" selection-start-column="12" selection-end-line="370" selection-end-column="12" />
+            <state relative-caret-position="347">
+              <caret line="272" column="0" lean-forward="false" selection-start-line="272" selection-start-column="0" selection-end-line="272" selection-end-column="0" />
               <folding>
                 <element signature="e#75#97#0" expanded="true" />
                 <element signature="e#257#279#0" expanded="true" />
@@ -114,8 +114,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>rand</find>
-      <find>tile</find>
       <find>bitmap</find>
       <find>sola</find>
       <find>solar</find>
@@ -141,9 +139,11 @@
       <find>voxels</find>
       <find>ground</find>
       <find>action</find>
-      <find>split</find>
-      <find>bitmap_image</find>
       <find>first</find>
+      <find>wei</find>
+      <find>bitmap_image</find>
+      <find>seed</find>
+      <find>split</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -178,8 +178,8 @@
         <option value="$PROJECT_DIR$/src/model.cpp" />
         <option value="$PROJECT_DIR$/src/stacktrace.h.h" />
         <option value="$PROJECT_DIR$/src/utils.h" />
-        <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/src/model.h" />
+        <option value="$PROJECT_DIR$/src/main.cpp" />
       </list>
     </option>
   </component>
@@ -537,12 +537,12 @@
       <updated>1556206600156</updated>
       <workItem from="1556206603383" duration="3701000" />
       <workItem from="1557500105564" duration="3291000" />
-      <workItem from="1557565305598" duration="66555000" />
+      <workItem from="1557565305598" duration="69381000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73547000" />
+    <option name="totallyTimeSpent" value="76373000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -561,7 +561,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45180723" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24892704" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -845,14 +845,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="16" column="44" lean-forward="false" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3515">
@@ -865,10 +857,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="35" column="37" lean-forward="false" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/model.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="370" column="12" lean-forward="false" selection-start-line="370" selection-start-column="12" selection-end-line="370" selection-end-column="12" />
+        <state relative-caret-position="347">
+          <caret line="272" column="0" lean-forward="false" selection-start-line="272" selection-start-column="0" selection-end-line="272" selection-end-column="0" />
           <folding>
             <element signature="e#75#97#0" expanded="true" />
             <element signature="e#257#279#0" expanded="true" />
