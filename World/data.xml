@@ -1,0 +1,19 @@
+<set pixelsize="8" voxelsize="10">
+	<tiles>
+		<tile name="ground" symmetry="X"/>
+		<tile name="grass" symmetry="X"/>
+		<tile name="empty" symmetry="X"/>
+	</tiles>
+	<neighbors>
+		<horizontal left="ground" right="ground"/>
+		<horizontal left="grass" right="grass"/>
+		<horizontal left="grass" right="empty"/>
+		<horizontal left="empty" right="grass"/>
+		<horizontal left="empty" right="empty"/>
+
+		<vertical left="grass" right="ground"/>
+		<vertical left="grass" right="grass"/>
+		<vertical left="empty" right="grass"/>
+		<vertical left="empty" right="empty"/>
+	</neighbors>
+</set>

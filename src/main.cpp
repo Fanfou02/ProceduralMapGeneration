@@ -11,11 +11,16 @@
 
 int main(int argc, char *argv[])
 {
+
+    std::vector<std::array<int,     8>>  action;
+
+    std::cout << action.size() << std::endl;
     pugi::xml_document xdoc;
     if(!xdoc.load_file("../samples.xml")){
         std::cout<<"Error during opening of samples.xml";
         return -1;
     }
+
 
     for (pugi::xml_node sample: xdoc.child("samples").children("sample"))
     {
@@ -33,18 +38,18 @@ int main(int argc, char *argv[])
                 int seed = rand();
                 std::cout << "Seed :" << seed << std::endl;
                 bool finished = model.Run(seed);
+                std::string filename = "test_" + std::to_string(i) + std::to_string(k) + ".vox";
                 if (finished)
                 {
-                    std::string filename = "test_" + std::to_string(i) + std::to_string(k) + ".vox";
+
                     std::cout << "Finished ! Generated vox file " << filename << std::endl;
                     model.saveVoxelOutput(filename);
                 }
                 else {
-                    std::cout << "Contradiction occurred !" << std::endl;
+                    std::cout << "Contradiction occurred ! " << std::endl;
                 }
             }
         }
-
     }
 
     //Solar_viewer window("Solar Sytem", 640, 480);

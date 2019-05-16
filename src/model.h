@@ -28,19 +28,19 @@ class Model{
     std::vector<double> stationary;
 
     //Random random;
-    size_t FMX, FMY, FMZ, T, ground;
+    int FMX, FMY, FMZ, T, ground;
     bool periodic;
 
     std::vector<double> logProb;
     double logT;
     std::function<double()> random;
+
     Array3D<bool> propagator;
 
-    //std::vector<std::vector<RGBA>> tiles;
     std::vector<std::string> tilenames;
     std::vector<std::vector<Voxel>> voxeltiles;
 
-    int8_t pixelsize, voxelsize;
+    int voxelsize;
 
 public:
     std::vector<Voxel> rotateVoxels(std::vector<Voxel> array, size_t size){
@@ -62,27 +62,32 @@ public:
             for (int y = 0; y < FMY; y++)
                 for (int z = 0; z < FMZ; z++)
                 {
-                    w = wave.get(x, y, z);
                     amount = 0;
                     sum = 0;
 
-                    for (int t = 0; t < T; t++) if (w[t])
+                    for (int t = 0; t < T; t++)
+                        if ( wave.get(x, y, z, t))
                         {
 
                             amount += 1;
                             sum += stationary[t];
                         }
-                    if (sum == 0) return False;
+                    if (sum == 0)
+                        return False;
 
                     noise = 1E-6 * random();
 
-                    if (amount == 1) entropy = 0;
-                    else if (amount == T) entropy = logT;
+                    if (amount == 1)
+                        entropy = 0;
+                    else if (amount == T)
+                        entropy = logT;
                     else
                     {
                         mainSum = 0;
                         logSum = std::log(sum);
-                        for (int t = 0; t < T; t++) if (w[t]) mainSum += stationary[t] * logProb[t];
+                        for (int t = 0; t < T; t++)
+                            if (wave.get(x, y, z, t))
+                                mainSum += stationary[t] * logProb[t];
                         entropy = logSum - mainSum / sum;
                     }
                     if (entropy > 0 && entropy + noise < min)
@@ -189,12 +194,11 @@ public:
                         for (int t2 = 0; t2 < T; t2++)
                             if (wave.get(x2, y2, z2, t2))
                             {
-                                std::vector<bool> prop = propagator.get(d, t2);
                                 b = false;
 
                                 for (int t1 = 0; t1 < T && !b; t1++)
                                     if (wave.get(x1, y1, z1, t1))
-                                        b = prop[t1];
+                                        b = propagator.get(d, t2, t1);
 
                                 if (!b)
                                 {
@@ -223,22 +227,17 @@ public:
         }
         pugi::xml_node xnode = xdoc.first_child();
 
-        pixelsize = xnode.attribute("pixelsize").as_int();
-        std::cout << "PixelSize: " << pixelsize << std::endl;
         voxelsize =  xnode.attribute("voxelsize").as_int();
-        std::cout << "voxelsize: " << voxelsize << std::endl;
+        std::cout << "voxelsize: " << voxelsize << "; " <<  std::endl;
 
         xnode = xnode.first_child();
 
         std::vector<double> tempStationary;
         std::vector<std::array<int,     8>>  action;
-        std::map<std::string, size_t> firstOccurrence;
+        std::map<std::string, int> firstOccurrence;
 
         for (pugi::xml_node xtile: xnode.children()){
             std::string tilename = xtile.attribute("name").as_string();
-            std::cout << "tilename: " << tilename << std::endl;
-
-
             std::string sym = xtile.attribute("symmetry").as_string();
             std::function<int(int)> a, b;
 
@@ -265,7 +264,7 @@ public:
                 a = [](int i){ return 1 - i; };
                 b = [](int i){ return i; };
             }
-            else if (!sym.compare("\\"))
+            else if (!sym.compare("\\\\"))
             {
                 cardinality = 2;
                 a = [](int i){ return 1 - i; };
@@ -275,7 +274,10 @@ public:
             T = action.size();
             firstOccurrence[tilename] =  T;
 
-            if (tilename == groundName) ground = T;
+            std::cout << "Tilename: " << tilename << " " << groundName << std::endl;
+            if (tilename.compare(groundName) == 0) {
+                ground = T;
+            }
 
             for (int t = 0; t < cardinality; t++)
             {
@@ -306,8 +308,8 @@ public:
 
             for (int t = 1; t < cardinality; t++)
             {
-                //tiles.push_back(rotate(tiles[T + t - 1], pixelsize));
                 tilenames.push_back("" + tilename + " " + std::to_string(t));
+
                 voxeltiles.push_back(rotateVoxels(voxeltiles.at(T + t - 1), voxelsize));
             }
 
@@ -332,6 +334,7 @@ public:
 
         for (pugi::xml_node xneighbor : xnode.next_sibling().children())
         {
+            //std::cout << xneighbor.name() << " left='" << xneighbor.attribute("left").as_string() << "' right='"<< xneighbor.attribute("right").as_string()<<"'" << std::endl;
 
             std::string text = xneighbor.attribute("left").as_string();
             std::vector<std::string> left;
@@ -345,7 +348,7 @@ public:
             int R = action[firstOccurrence[right[0]]][right.size() == 1 ? 0 : std::atoi(right[1].c_str())];
             int U = action[R][1];
 
-            if (strncmp(xneighbor.name(),"horizontal", 10)  == 0)
+            if (strcmp(xneighbor.name(),"horizontal")  == 0)
             {
                 propagator.set(0, R, L, true);
                 propagator.set(0, action[R][6], action[L][6], true);
@@ -357,10 +360,15 @@ public:
                 propagator.set(1, action[U][4], action[D][4], true);
                 propagator.set(1, action[D][2], action[U][2], true);
             }
-            else for (int g = 0; g < 8; g++) propagator.set(4, action[L][g], action[R][g], true);
+            else {
+                for (int g = 0; g < 8; g++){
+                    propagator.set(4, action[L][g], action[R][g], true);
+                }
+            }
         }
 
-        for (int t2 = 0; t2 < T; t2++) for (int t1 = 0; t1 < T; t1++)
+        for (int t2 = 0; t2 < T; t2++)
+            for (int t1 = 0; t1 < T; t1++)
             {
                 propagator.set(2, t2, t1, propagator.get(0, t1, t2));
                 propagator.set(3, t2, t1, propagator.get(1, t1, t2));
@@ -399,7 +407,8 @@ bool Run(int seed)
     {
         for (int x = 0; x < FMX; x++) for (int y = 0; y < FMY; y++) for (int z = 0; z < FMZ; z++)
                 {
-                    for (int t = 0; t < T; t++) wave.set(x, y, z, t, true);
+                    for (int t = 0; t < T; t++)
+                        wave.set(x, y, z, t, true);
                     changes.set(x, y, z, false);
                 }
 
@@ -407,7 +416,8 @@ bool Run(int seed)
         {
             for (int x = 0; x < FMX; x++) for (int y = 0; y < FMY; y++)
                 {
-                    for (int t = 0; t < T; t++) if (t != ground)
+                    for (int t = 0; t < T; t++)
+                        if (t != ground)
                             wave.set(x, y, FMZ-1, t, false);
                     changes.set(x, y, FMZ - 1, true);
 
