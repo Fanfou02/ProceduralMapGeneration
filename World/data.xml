@@ -4,28 +4,65 @@
 		<tile name="ground" symmetry="X"/>
 		<tile name="grass" symmetry="X" weight="1"/>
 		<tile name="empty" symmetry="X"/>
-		<tile name="block" symmetry="X" weight="0.005"/>
-		<tile name="water" symmetry="L" weight="0.1"/>
+		<tile name="water" symmetry="L" weight="1"/>
+		<tile name="stairs" symmetry="L" weight="0.05"/>
+		<tile name="block" symmetry="X" weight="0.05"/>
+		<tile name="line" symmetry="I" weight="1"/> 
+		<tile name="turn" symmetry="L" weight="1"/> 
+		<tile name="upBridge" symmetry="I" weight="1"/> 
 	</tiles>
 	<neighbors>
-
 		<horizontal left="ground" right="ground"/>
 		<horizontal left="grass" right="grass"/>
 		<horizontal left="grass" right="water"/>
 		<horizontal left="water" right="water"/>
+
+		<horizontal left="line" right="line"/>
+		<horizontal left="line" right="turn 1"/>
+		<horizontal left="turn 2" right="grass"/>
+		<horizontal left="line 1" right="grass"/>
+		<horizontal left="grass" right="line 1"/>
+		
+		<horizontal left="block" right="upBridge"/>
+		<horizontal left="upBridge" right="block"/>
+		<horizontal left="empty" right="upBridge 1"/>
+		<horizontal left="upBridge 1" right="empty"/>
+
 		<horizontal left="empty" right="empty"/>
 		<horizontal left="empty" right="block"/>
-		<horizontal left="block" right="block"/>
 		<horizontal left="block" right="empty"/>
+		<horizontal left="block" right="block"/>
+		
+		<horizontal left="empty" right="stairs"/>
+	
+		
+		<horizontal left="stairs" right="block"/>
+		
+		
+		
+		
+		
+
+		
 		
 		<vertical left="grass" right="ground"/>
 		<vertical left="water" right="ground"/>
+		<vertical left="line" right="ground"/>
+		<vertical left="turn" right="ground"/>
+
+		<vertical left="stairs" right="grass"/>
 		<vertical left="block" right="grass"/>
-		<vertical left="block" right="block"/>
+		
 		<vertical left="empty" right="grass"/>
 		<vertical left="empty" right="water"/>
+		<vertical left="empty" right="stairs"/>
 		<vertical left="empty" right="block"/>
+		<vertical left="empty" right="line"/>
+		<vertical left="empty" right="turn"/>
+		
 		<vertical left="empty" right="empty"/>
+
+		<vertical left="block" right="block"/>
 
 	</neighbors>
 </set>
