@@ -28,7 +28,7 @@ class Model{
     std::vector<double> stationary;
 
     //Random random;
-    int FMX, FMY, FMZ, T, ground;
+    int FMX, FMY, FMZ, T, ground, bounds;
     bool periodic;
 
     std::vector<double> logProb;
@@ -219,6 +219,7 @@ public:
         this->FMZ = FMZ;
         this->periodic = periodic;
         this->ground = -1;
+        this->bounds = -1;
 
         pugi::xml_document xdoc;
         std::string filename = "../" + name + "/data.xml";
@@ -277,6 +278,10 @@ public:
             std::cout << "Tilename: " << tilename << " " << groundName << std::endl;
             if (tilename.compare(groundName) == 0) {
                 ground = T;
+            }
+
+            if (tilename.compare("bounds") == 0) {
+                bounds = T;
             }
 
             for (int t = 0; t < cardinality; t++)
@@ -412,6 +417,46 @@ bool Run(int seed)
                     changes.set(x, y, z, false);
                 }
 
+        if(bounds >= 0){
+            for (int y = 0; y < FMY; y++)
+                for (int z = 0; z < FMZ -2; z++) {
+                    for (int t = 0; t < T; t++)
+                        if (t != bounds) {
+                            wave.set(FMX - 1, y, z, t, false);
+                            wave.set(0, y, z, t, false);
+                        }
+
+                    changes.set(FMX - 1, y, z, true);
+                    changes.set(0, y, z, true);
+
+                    for (int x = 1; x < FMX - 1; x++)
+                    {
+                        if(y > 0 && y < FMY - 1) {
+                            wave.set(x, y, z, bounds, false);
+                            changes.set(x, y, z, true);
+                        }
+                    }
+                }
+            for (int x = 0; x < FMX; x++)
+                for (int z = 0; z < FMZ -2; z++) {
+                    for (int t = 0; t < T; t++)
+                        if (t != bounds) {
+                            wave.set(x, FMY - 1, z, t, false);
+                            wave.set(x, 0, z, t, false);
+                        }
+
+                    changes.set(x, FMY - 1, z, true);
+                    changes.set(x, 0, z, true);
+
+                    for (int y = 1; y < FMY - 1; y++)
+                    {
+                        if(x > 0 && x < FMX - 1) {
+                            wave.set(x, y, z, bounds, false);
+                            changes.set(x, y, z, true);
+                        }
+                    }
+                }
+        }
         if (ground >= 0)
         {
             for (int x = 0; x < FMX; x++) for (int y = 0; y < FMY; y++)
