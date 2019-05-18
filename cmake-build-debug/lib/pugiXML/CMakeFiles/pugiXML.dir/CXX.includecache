@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/pugiXML/pugiconfig.hpp
+/home/zyuiop/CLionProjects/ProceduralMapGeneration/lib/pugiXML/pugiconfig.hpp
 
-/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/pugiXML/pugixml.cpp
+/home/zyuiop/CLionProjects/ProceduralMapGeneration/lib/pugiXML/pugixml.cpp
 pugixml.hpp
-/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/pugiXML/pugixml.hpp
+/home/zyuiop/CLionProjects/ProceduralMapGeneration/lib/pugiXML/pugixml.hpp
 stdlib.h
 -
 stdio.h
@@ -38,9 +38,9 @@ new
 stdint.h
 -
 
-/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/pugiXML/pugixml.hpp
+/home/zyuiop/CLionProjects/ProceduralMapGeneration/lib/pugiXML/pugixml.hpp
 pugiconfig.hpp
-/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/pugiXML/pugiconfig.hpp
+/home/zyuiop/CLionProjects/ProceduralMapGeneration/lib/pugiXML/pugiconfig.hpp
 stddef.h
 -
 exception

@@ -1,2 +1,2 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc ../../libbitmap.a  CMakeFiles/bitmap.dir/bitmap_test.cpp.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib ../../libbitmap.a
+/bin/ar qc ../../libbitmap.a  CMakeFiles/bitmap.dir/bitmap_test.cpp.o
+/bin/ranlib ../../libbitmap.a

@@ -99,8 +99,8 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = /Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src \
-                         , /Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/README.md
+INPUT                  = /home/zyuiop/CLionProjects/ProceduralMapGeneration/src \
+                         , /home/zyuiop/CLionProjects/ProceduralMapGeneration/README.md
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          =
 RECURSIVE              = NO
@@ -111,12 +111,12 @@ EXCLUDE_SYMBOLS        =
 EXAMPLE_PATH           =
 EXAMPLE_PATTERNS       =
 EXAMPLE_RECURSIVE      = NO
-IMAGE_PATH             = /Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/screenshots
+IMAGE_PATH             = /home/zyuiop/CLionProjects/ProceduralMapGeneration/screenshots
 INPUT_FILTER           =
 FILTER_PATTERNS        =
 FILTER_SOURCE_FILES    = NO
 FILTER_SOURCE_PATTERNS =
-USE_MDFILE_AS_MAINPAGE = /Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/README.md
+USE_MDFILE_AS_MAINPAGE = /home/zyuiop/CLionProjects/ProceduralMapGeneration/README.md
 #---------------------------------------------------------------------------
 # Configuration options related to source browsing
 #---------------------------------------------------------------------------
@@ -146,7 +146,7 @@ HTML_FILE_EXTENSION    = .html
 HTML_HEADER            =
 HTML_FOOTER            =
 HTML_STYLESHEET        =
-HTML_EXTRA_STYLESHEET  = /Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/doxy.css
+HTML_EXTRA_STYLESHEET  = /home/zyuiop/CLionProjects/ProceduralMapGeneration/doxy.css
 HTML_EXTRA_FILES       =
 HTML_COLORSTYLE_HUE    = 220
 HTML_COLORSTYLE_SAT    = 100

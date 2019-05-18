@@ -4,12 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/bitmap/bitmap_test.cpp" "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/cmake-build-debug/lib/bitmap/CMakeFiles/bitmap.dir/bitmap_test.cpp.o"
+  "/home/zyuiop/CLionProjects/ProceduralMapGeneration/lib/bitmap/bitmap_test.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/lib/bitmap/CMakeFiles/bitmap.dir/bitmap_test.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "Clang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../lib/glfw/include"
   "../src"
   "../lib/lodePNG"
   "../lib/bitmap"

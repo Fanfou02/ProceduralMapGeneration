@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/bitmap/bitmap_image.hpp
+/home/zyuiop/CLionProjects/ProceduralMapGeneration/lib/bitmap/bitmap_image.hpp
 algorithm
 -
 cmath
@@ -28,7 +28,7 @@ string
 vector
 -
 
-/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/bitmap/bitmap_test.cpp
+/home/zyuiop/CLionProjects/ProceduralMapGeneration/lib/bitmap/bitmap_test.cpp
 cmath
 -
 cstdio
@@ -40,5 +40,5 @@ iostream
 string
 -
 bitmap_image.hpp
-/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/bitmap/bitmap_image.hpp
+/home/zyuiop/CLionProjects/ProceduralMapGeneration/lib/bitmap/bitmap_image.hpp
 

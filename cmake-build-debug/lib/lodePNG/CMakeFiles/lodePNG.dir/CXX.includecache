@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/lodePNG/lodepng.cpp
+/home/zyuiop/CLionProjects/ProceduralMapGeneration/lib/lodePNG/lodepng.cpp
 lodepng.h
-/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/lodePNG/lodepng.h
+/home/zyuiop/CLionProjects/ProceduralMapGeneration/lib/lodePNG/lodepng.h
 stdio.h
 -
 stdlib.h
@@ -16,7 +16,7 @@ stdlib.h
 fstream
 -
 
-/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/lodePNG/lodepng.h
+/home/zyuiop/CLionProjects/ProceduralMapGeneration/lib/lodePNG/lodepng.h
 string.h
 -
 vector
@@ -24,9 +24,9 @@ vector
 string
 -
 lodepng.h
-/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/lodePNG/lodepng.h
+/home/zyuiop/CLionProjects/ProceduralMapGeneration/lib/lodePNG/lodepng.h
 iostream
 -
 lodepng.h
-/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/lib/lodePNG/lodepng.h
+/home/zyuiop/CLionProjects/ProceduralMapGeneration/lib/lodePNG/lodepng.h
 

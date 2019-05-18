@@ -4,43 +4,43 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/bezier.cpp" "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/bezier.cpp.o"
-  "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/billboard.cpp" "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/billboard.cpp.o"
-  "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/glfw_window.cpp" "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/glfw_window.cpp.o"
-  "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/glmath.cpp" "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/glmath.cpp.o"
-  "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/main.cpp" "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o"
-  "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/model.cpp" "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/model.cpp.o"
-  "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/shader.cpp" "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/shader.cpp.o"
-  "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/ship.cpp" "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/ship.cpp.o"
-  "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/solar_viewer.cpp" "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/solar_viewer.cpp.o"
-  "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/sphere.cpp" "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/sphere.cpp.o"
-  "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src/texture.cpp" "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.o"
+  "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/bezier.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/bezier.cpp.o"
+  "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/billboard.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/billboard.cpp.o"
+  "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glfw_window.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/glfw_window.cpp.o"
+  "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glmath.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/glmath.cpp.o"
+  "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/main.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o"
+  "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/model.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/model.cpp.o"
+  "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/shader.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/shader.cpp.o"
+  "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/ship.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/ship.cpp.o"
+  "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/solar_viewer.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/solar_viewer.cpp.o"
+  "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/sphere.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/sphere.cpp.o"
+  "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/texture.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "Clang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
   "GLEW_STATIC"
-  "GLFW_DLL"
-  "SHADER_PATH=\"/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/src\""
-  "TEXTURE_PATH=\"/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/textures\""
+  "SHADER_PATH=\"/home/zyuiop/CLionProjects/ProceduralMapGeneration/src\""
+  "TEXTURE_PATH=\"/home/zyuiop/CLionProjects/ProceduralMapGeneration/textures\""
   )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../lib/glfw/include"
   "../src"
   "../lib/lodePNG"
   "../lib/bitmap"
   "../lib/pugiXML"
-  "/usr/local/include"
-  "/usr/local/include/GL"
+  "/usr/include/GL"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/cmake-build-debug/lib/lodePNG/CMakeFiles/lodePNG.dir/DependInfo.cmake"
-  "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/cmake-build-debug/lib/pugiXML/CMakeFiles/pugiXML.dir/DependInfo.cmake"
-  "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/cmake-build-debug/lib/bitmap/CMakeFiles/bitmap.dir/DependInfo.cmake"
+  "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/lib/lodePNG/CMakeFiles/lodePNG.dir/DependInfo.cmake"
+  "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/lib/glfw/src/CMakeFiles/glfw.dir/DependInfo.cmake"
+  "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/lib/pugiXML/CMakeFiles/pugiXML.dir/DependInfo.cmake"
+  "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/lib/bitmap/CMakeFiles/bitmap.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

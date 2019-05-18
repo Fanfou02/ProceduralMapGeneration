@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/RandomTilemapGeneration.iml" filepath="$PROJECT_DIR$/.idea/RandomTilemapGeneration.iml" />
-      <module fileurl="file://$PROJECT_DIR$/RandomTilemapGeneration.iml" filepath="$PROJECT_DIR$/RandomTilemapGeneration.iml" />
     </modules>
   </component>
 </project>
