@@ -9,6 +9,7 @@
 #include <rendering/World_Viewer.h>
 #include "model.h"
 #include "solar_viewer.h"
+#include "voxels.h"
 //=============================================================================
 
 int main(int argc, char *argv[]) {
@@ -53,8 +54,13 @@ int main(int argc, char *argv[]) {
 		 }
 	 }
  */
-	auto voxels = ReadVox("test_01.vox");
-	World_Viewer window("Solar Sytem", 640, 480, voxels);
+	// auto voxels = ReadVox("test_01.vox");
+	/*std::vector<Voxel> voxels(1);
+	voxels[0] = Voxel(0, 0, 0, 64);
+	World_Viewer window("Solar Sytem", 640, 480, voxels);*/
+
+	Solar_viewer window("Solar System", 640, 480);
+
 	return window.run();
 
 }

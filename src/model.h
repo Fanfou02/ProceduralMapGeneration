@@ -6,6 +6,7 @@
 #include <iostream>
 #include "utils.h"
 #include "gl.h"
+#include "voxels.h"
 #include <array>
 #include <boost/algorithm/string.hpp>
 

@@ -14,37 +14,6 @@
 
 void Error( const char *info );
 
-struct chunk_t {
-    int id;
-    int contentSize;
-    int childrenSize;
-    long end;
-};
-
-struct Voxel {
-public :
-    int8_t x, y, z, color;
-
-    Voxel(int8_t x, int8_t y, int8_t z, int8_t color)
-    {
-        this->x = x;
-        this->y = y;
-        this->z = z;
-        this->color = color;
-    }
-};
-
-
-int32_t ReadInt( FILE *fp );
-
-int8_t ReadByte( FILE *fp );
-
-
-void ReadChunk( FILE *fp, chunk_t &chunk );
-
-std::vector<Voxel> ReadVox(std::string filename);
-
-static void WriteVox(std::string filename, size_t X, size_t Y, size_t Z, std::vector<Voxel> voxels);
 
 size_t spin_the_bottle(const std::vector<double>& a, double between_zero_and_one);
 

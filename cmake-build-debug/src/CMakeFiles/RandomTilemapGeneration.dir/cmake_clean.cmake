@@ -12,6 +12,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/RandomTilemapGeneration.dir/sphere.cpp.o"
   "CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.o"
   "CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.o"
+  "CMakeFiles/RandomTilemapGeneration.dir/voxels.cpp.o"
   "../RandomTilemapGeneration.pdb"
   "../RandomTilemapGeneration"
 )

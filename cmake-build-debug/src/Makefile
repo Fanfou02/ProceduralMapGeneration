@@ -476,6 +476,33 @@ utils.cpp.s:
 	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug && $(MAKE) -f src/CMakeFiles/RandomTilemapGeneration.dir/build.make src/CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.s
 .PHONY : utils.cpp.s
 
+voxels.o: voxels.cpp.o
+
+.PHONY : voxels.o
+
+# target to build an object file
+voxels.cpp.o:
+	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug && $(MAKE) -f src/CMakeFiles/RandomTilemapGeneration.dir/build.make src/CMakeFiles/RandomTilemapGeneration.dir/voxels.cpp.o
+.PHONY : voxels.cpp.o
+
+voxels.i: voxels.cpp.i
+
+.PHONY : voxels.i
+
+# target to preprocess a source file
+voxels.cpp.i:
+	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug && $(MAKE) -f src/CMakeFiles/RandomTilemapGeneration.dir/build.make src/CMakeFiles/RandomTilemapGeneration.dir/voxels.cpp.i
+.PHONY : voxels.cpp.i
+
+voxels.s: voxels.cpp.s
+
+.PHONY : voxels.s
+
+# target to generate assembly for a file
+voxels.cpp.s:
+	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug && $(MAKE) -f src/CMakeFiles/RandomTilemapGeneration.dir/build.make src/CMakeFiles/RandomTilemapGeneration.dir/voxels.cpp.s
+.PHONY : voxels.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -524,6 +551,9 @@ help:
 	@echo "... utils.o"
 	@echo "... utils.i"
 	@echo "... utils.s"
+	@echo "... voxels.o"
+	@echo "... voxels.i"
+	@echo "... voxels.s"
 .PHONY : help
 
 

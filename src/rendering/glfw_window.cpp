@@ -30,11 +30,11 @@ GLFW_window::GLFW_window(const char* _title, int _width, int _height)
 
     glfwSetErrorCallback(error_callback);
 
-    // request core profile and OpenGL version 3.2
+    // request core profile and OpenGL version 3.3
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 
     // try to create window
     window_ = glfwCreateWindow(_width, _height, _title, NULL, NULL);

@@ -489,6 +489,12 @@
 		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/utils.h">
 			<Option target="RandomTilemapGeneration"/>
 		</Unit>
+		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/voxels.cpp">
+			<Option target="RandomTilemapGeneration"/>
+		</Unit>
+		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/voxels.h">
+			<Option target="RandomTilemapGeneration"/>
+		</Unit>
 		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

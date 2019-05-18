@@ -7,7 +7,9 @@
 
 
 #include <utils.h>
+#include <shader.h>
 #include "glfw_window.h"
+#include "voxels.h"
 
 class World_Viewer : public GLFW_window {
 
@@ -24,6 +26,10 @@ public:
 
 private:
 	std::vector<Voxel> _voxels;
+	Shader _shader;
+
+	/// current viewport dimension
+	int  width_, height_;
 };
 
 

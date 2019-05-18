@@ -17,6 +17,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/sphere.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/sphere.cpp.o"
   "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/texture.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.o"
   "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/utils.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.o"
+  "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/voxels.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/voxels.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
