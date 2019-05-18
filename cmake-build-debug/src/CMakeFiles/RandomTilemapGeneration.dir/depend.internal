@@ -11,26 +11,50 @@ src/CMakeFiles/RandomTilemapGeneration.dir/billboard.cpp.o
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/gl.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/texture.h
  /usr/include/GL/glew.h
-src/CMakeFiles/RandomTilemapGeneration.dir/glfw_window.cpp.o
- ../lib/glfw/include/GLFW/glfw3.h
- /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/gl.h
- /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glfw_window.cpp
- /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glfw_window.h
- /usr/include/GL/glew.h
 src/CMakeFiles/RandomTilemapGeneration.dir/glmath.cpp.o
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glmath.cpp
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glmath.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o
+ ../lib/glfw/include/GLFW/glfw3.h
  ../lib/pugiXML/pugiconfig.hpp
  ../lib/pugiXML/pugixml.hpp
+ ../src/rendering/World_Viewer.h
+ ../src/rendering/glfw_window.h
+ ../src/stacktrace.h
+ ../src/utils.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/bezier.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/billboard.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/frame.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/gl.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glmath.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/main.cpp
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/model.h
- /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/stacktrace.h
- /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/utils.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/path.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/planet.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/glfw_window.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/shader.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/ship.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/solar_viewer.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/sphere.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/texture.h
  /usr/include/GL/glew.h
 src/CMakeFiles/RandomTilemapGeneration.dir/model.cpp.o
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/model.cpp
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.o
+ ../lib/glfw/include/GLFW/glfw3.h
+ ../src/gl.h
+ ../src/stacktrace.h
+ ../src/utils.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/World_Viewer.cpp
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/World_Viewer.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/glfw_window.h
+ /usr/include/GL/glew.h
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/glfw_window.cpp.o
+ ../lib/glfw/include/GLFW/glfw3.h
+ ../src/gl.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/glfw_window.cpp
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/glfw_window.h
+ /usr/include/GL/glew.h
 src/CMakeFiles/RandomTilemapGeneration.dir/shader.cpp.o
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/gl.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glmath.h
@@ -50,10 +74,10 @@ src/CMakeFiles/RandomTilemapGeneration.dir/solar_viewer.cpp.o
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/billboard.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/frame.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/gl.h
- /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glfw_window.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glmath.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/path.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/planet.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/glfw_window.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/shader.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/ship.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/solar_viewer.cpp
@@ -73,3 +97,7 @@ src/CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.o
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/texture.cpp
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/texture.h
  /usr/include/GL/glew.h
+src/CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.o
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/stacktrace.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/utils.cpp
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/utils.h

@@ -12,7 +12,7 @@
 
 
 #include "gl.h"
-#include "glfw_window.h"
+#include "rendering/glfw_window.h"
 
 #include "sphere.h"
 #include "shader.h"

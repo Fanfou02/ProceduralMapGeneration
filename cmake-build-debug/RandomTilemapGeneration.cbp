@@ -426,12 +426,6 @@
 		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/billboard.h">
 			<Option target="RandomTilemapGeneration"/>
 		</Unit>
-		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glfw_window.cpp">
-			<Option target="RandomTilemapGeneration"/>
-		</Unit>
-		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glfw_window.h">
-			<Option target="RandomTilemapGeneration"/>
-		</Unit>
 		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glmath.cpp">
 			<Option target="RandomTilemapGeneration"/>
 		</Unit>
@@ -445,6 +439,18 @@
 			<Option target="RandomTilemapGeneration"/>
 		</Unit>
 		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/model.h">
+			<Option target="RandomTilemapGeneration"/>
+		</Unit>
+		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/World_Viewer.cpp">
+			<Option target="RandomTilemapGeneration"/>
+		</Unit>
+		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/World_Viewer.h">
+			<Option target="RandomTilemapGeneration"/>
+		</Unit>
+		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/glfw_window.cpp">
+			<Option target="RandomTilemapGeneration"/>
+		</Unit>
+		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/glfw_window.h">
 			<Option target="RandomTilemapGeneration"/>
 		</Unit>
 		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/shader.cpp">
@@ -471,13 +477,13 @@
 		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/sphere.h">
 			<Option target="RandomTilemapGeneration"/>
 		</Unit>
-		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/stacktrace.h">
-			<Option target="RandomTilemapGeneration"/>
-		</Unit>
 		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/texture.cpp">
 			<Option target="RandomTilemapGeneration"/>
 		</Unit>
 		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/texture.h">
+			<Option target="RandomTilemapGeneration"/>
+		</Unit>
+		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/utils.cpp">
 			<Option target="RandomTilemapGeneration"/>
 		</Unit>
 		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/utils.h">

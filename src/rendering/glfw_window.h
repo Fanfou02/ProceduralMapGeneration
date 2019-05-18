@@ -41,7 +41,7 @@ public: //------------------------------------------------------ public methods
     /// destructor
     virtual ~GLFW_window();
 
-    /// main window loop
+	virtual /// main window loop
     int run();
 
 

@@ -83,22 +83,9 @@ src/CMakeFiles/RandomTilemapGeneration.dir/billboard.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RandomTilemapGeneration.dir/billboard.cpp.s"
 	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/billboard.cpp -o CMakeFiles/RandomTilemapGeneration.dir/billboard.cpp.s
 
-src/CMakeFiles/RandomTilemapGeneration.dir/glfw_window.cpp.o: src/CMakeFiles/RandomTilemapGeneration.dir/flags.make
-src/CMakeFiles/RandomTilemapGeneration.dir/glfw_window.cpp.o: ../src/glfw_window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/glfw_window.cpp.o"
-	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RandomTilemapGeneration.dir/glfw_window.cpp.o -c /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glfw_window.cpp
-
-src/CMakeFiles/RandomTilemapGeneration.dir/glfw_window.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RandomTilemapGeneration.dir/glfw_window.cpp.i"
-	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glfw_window.cpp > CMakeFiles/RandomTilemapGeneration.dir/glfw_window.cpp.i
-
-src/CMakeFiles/RandomTilemapGeneration.dir/glfw_window.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RandomTilemapGeneration.dir/glfw_window.cpp.s"
-	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glfw_window.cpp -o CMakeFiles/RandomTilemapGeneration.dir/glfw_window.cpp.s
-
 src/CMakeFiles/RandomTilemapGeneration.dir/glmath.cpp.o: src/CMakeFiles/RandomTilemapGeneration.dir/flags.make
 src/CMakeFiles/RandomTilemapGeneration.dir/glmath.cpp.o: ../src/glmath.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/glmath.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/glmath.cpp.o"
 	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RandomTilemapGeneration.dir/glmath.cpp.o -c /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glmath.cpp
 
 src/CMakeFiles/RandomTilemapGeneration.dir/glmath.cpp.i: cmake_force
@@ -111,7 +98,7 @@ src/CMakeFiles/RandomTilemapGeneration.dir/glmath.cpp.s: cmake_force
 
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: src/CMakeFiles/RandomTilemapGeneration.dir/flags.make
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o"
 	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o -c /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/main.cpp
 
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.i: cmake_force
@@ -124,7 +111,7 @@ src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.s: cmake_force
 
 src/CMakeFiles/RandomTilemapGeneration.dir/model.cpp.o: src/CMakeFiles/RandomTilemapGeneration.dir/flags.make
 src/CMakeFiles/RandomTilemapGeneration.dir/model.cpp.o: ../src/model.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/model.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/model.cpp.o"
 	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RandomTilemapGeneration.dir/model.cpp.o -c /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/model.cpp
 
 src/CMakeFiles/RandomTilemapGeneration.dir/model.cpp.i: cmake_force
@@ -135,9 +122,35 @@ src/CMakeFiles/RandomTilemapGeneration.dir/model.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RandomTilemapGeneration.dir/model.cpp.s"
 	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/model.cpp -o CMakeFiles/RandomTilemapGeneration.dir/model.cpp.s
 
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.o: src/CMakeFiles/RandomTilemapGeneration.dir/flags.make
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.o: ../src/rendering/World_Viewer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.o"
+	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.o -c /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/World_Viewer.cpp
+
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.i"
+	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/World_Viewer.cpp > CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.i
+
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.s"
+	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/World_Viewer.cpp -o CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.s
+
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/glfw_window.cpp.o: src/CMakeFiles/RandomTilemapGeneration.dir/flags.make
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/glfw_window.cpp.o: ../src/rendering/glfw_window.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/rendering/glfw_window.cpp.o"
+	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RandomTilemapGeneration.dir/rendering/glfw_window.cpp.o -c /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/glfw_window.cpp
+
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/glfw_window.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RandomTilemapGeneration.dir/rendering/glfw_window.cpp.i"
+	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/glfw_window.cpp > CMakeFiles/RandomTilemapGeneration.dir/rendering/glfw_window.cpp.i
+
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/glfw_window.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RandomTilemapGeneration.dir/rendering/glfw_window.cpp.s"
+	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/glfw_window.cpp -o CMakeFiles/RandomTilemapGeneration.dir/rendering/glfw_window.cpp.s
+
 src/CMakeFiles/RandomTilemapGeneration.dir/shader.cpp.o: src/CMakeFiles/RandomTilemapGeneration.dir/flags.make
 src/CMakeFiles/RandomTilemapGeneration.dir/shader.cpp.o: ../src/shader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/shader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/shader.cpp.o"
 	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RandomTilemapGeneration.dir/shader.cpp.o -c /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/shader.cpp
 
 src/CMakeFiles/RandomTilemapGeneration.dir/shader.cpp.i: cmake_force
@@ -150,7 +163,7 @@ src/CMakeFiles/RandomTilemapGeneration.dir/shader.cpp.s: cmake_force
 
 src/CMakeFiles/RandomTilemapGeneration.dir/ship.cpp.o: src/CMakeFiles/RandomTilemapGeneration.dir/flags.make
 src/CMakeFiles/RandomTilemapGeneration.dir/ship.cpp.o: ../src/ship.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/ship.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/ship.cpp.o"
 	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RandomTilemapGeneration.dir/ship.cpp.o -c /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/ship.cpp
 
 src/CMakeFiles/RandomTilemapGeneration.dir/ship.cpp.i: cmake_force
@@ -163,7 +176,7 @@ src/CMakeFiles/RandomTilemapGeneration.dir/ship.cpp.s: cmake_force
 
 src/CMakeFiles/RandomTilemapGeneration.dir/solar_viewer.cpp.o: src/CMakeFiles/RandomTilemapGeneration.dir/flags.make
 src/CMakeFiles/RandomTilemapGeneration.dir/solar_viewer.cpp.o: ../src/solar_viewer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/solar_viewer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/solar_viewer.cpp.o"
 	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RandomTilemapGeneration.dir/solar_viewer.cpp.o -c /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/solar_viewer.cpp
 
 src/CMakeFiles/RandomTilemapGeneration.dir/solar_viewer.cpp.i: cmake_force
@@ -176,7 +189,7 @@ src/CMakeFiles/RandomTilemapGeneration.dir/solar_viewer.cpp.s: cmake_force
 
 src/CMakeFiles/RandomTilemapGeneration.dir/sphere.cpp.o: src/CMakeFiles/RandomTilemapGeneration.dir/flags.make
 src/CMakeFiles/RandomTilemapGeneration.dir/sphere.cpp.o: ../src/sphere.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/sphere.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/sphere.cpp.o"
 	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RandomTilemapGeneration.dir/sphere.cpp.o -c /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/sphere.cpp
 
 src/CMakeFiles/RandomTilemapGeneration.dir/sphere.cpp.i: cmake_force
@@ -189,7 +202,7 @@ src/CMakeFiles/RandomTilemapGeneration.dir/sphere.cpp.s: cmake_force
 
 src/CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.o: src/CMakeFiles/RandomTilemapGeneration.dir/flags.make
 src/CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.o: ../src/texture.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.o"
 	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.o -c /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/texture.cpp
 
 src/CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.i: cmake_force
@@ -200,34 +213,51 @@ src/CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.s"
 	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/texture.cpp -o CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.s
 
+src/CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.o: src/CMakeFiles/RandomTilemapGeneration.dir/flags.make
+src/CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.o: ../src/utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.o"
+	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.o -c /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/utils.cpp
+
+src/CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.i"
+	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/utils.cpp > CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.i
+
+src/CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.s"
+	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && /usr/lib/hardening-wrapper/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/utils.cpp -o CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.s
+
 # Object files for target RandomTilemapGeneration
 RandomTilemapGeneration_OBJECTS = \
 "CMakeFiles/RandomTilemapGeneration.dir/bezier.cpp.o" \
 "CMakeFiles/RandomTilemapGeneration.dir/billboard.cpp.o" \
-"CMakeFiles/RandomTilemapGeneration.dir/glfw_window.cpp.o" \
 "CMakeFiles/RandomTilemapGeneration.dir/glmath.cpp.o" \
 "CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o" \
 "CMakeFiles/RandomTilemapGeneration.dir/model.cpp.o" \
+"CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.o" \
+"CMakeFiles/RandomTilemapGeneration.dir/rendering/glfw_window.cpp.o" \
 "CMakeFiles/RandomTilemapGeneration.dir/shader.cpp.o" \
 "CMakeFiles/RandomTilemapGeneration.dir/ship.cpp.o" \
 "CMakeFiles/RandomTilemapGeneration.dir/solar_viewer.cpp.o" \
 "CMakeFiles/RandomTilemapGeneration.dir/sphere.cpp.o" \
-"CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.o"
+"CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.o" \
+"CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.o"
 
 # External object files for target RandomTilemapGeneration
 RandomTilemapGeneration_EXTERNAL_OBJECTS =
 
 RandomTilemapGeneration: src/CMakeFiles/RandomTilemapGeneration.dir/bezier.cpp.o
 RandomTilemapGeneration: src/CMakeFiles/RandomTilemapGeneration.dir/billboard.cpp.o
-RandomTilemapGeneration: src/CMakeFiles/RandomTilemapGeneration.dir/glfw_window.cpp.o
 RandomTilemapGeneration: src/CMakeFiles/RandomTilemapGeneration.dir/glmath.cpp.o
 RandomTilemapGeneration: src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o
 RandomTilemapGeneration: src/CMakeFiles/RandomTilemapGeneration.dir/model.cpp.o
+RandomTilemapGeneration: src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.o
+RandomTilemapGeneration: src/CMakeFiles/RandomTilemapGeneration.dir/rendering/glfw_window.cpp.o
 RandomTilemapGeneration: src/CMakeFiles/RandomTilemapGeneration.dir/shader.cpp.o
 RandomTilemapGeneration: src/CMakeFiles/RandomTilemapGeneration.dir/ship.cpp.o
 RandomTilemapGeneration: src/CMakeFiles/RandomTilemapGeneration.dir/solar_viewer.cpp.o
 RandomTilemapGeneration: src/CMakeFiles/RandomTilemapGeneration.dir/sphere.cpp.o
 RandomTilemapGeneration: src/CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.o
+RandomTilemapGeneration: src/CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.o
 RandomTilemapGeneration: src/CMakeFiles/RandomTilemapGeneration.dir/build.make
 RandomTilemapGeneration: /usr/lib/libGLEW.so
 RandomTilemapGeneration: liblodePNG.a
@@ -248,7 +278,7 @@ RandomTilemapGeneration: /usr/lib/libXcursor.so
 RandomTilemapGeneration: /usr/lib/libGL.so
 RandomTilemapGeneration: /usr/lib/libGLEW.so
 RandomTilemapGeneration: src/CMakeFiles/RandomTilemapGeneration.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable ../RandomTilemapGeneration"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable ../RandomTilemapGeneration"
 	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/RandomTilemapGeneration.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
