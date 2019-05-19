@@ -11,8 +11,9 @@
 
 layout (location = 0) in vec3 v_position;
 
+uniform mat4 modelview_projection_matrix;
 
 void main()
 {
-    gl_Position = vec4(v_position.x * 0.5, v_position.y * 0.5, v_position.z * 0.5, 1.0);
+    gl_Position = modelview_projection_matrix * vec4(v_position.x, v_position.y, v_position.z, 1.0);
 }

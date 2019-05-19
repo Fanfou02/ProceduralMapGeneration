@@ -15,7 +15,7 @@ add_definitions("-DTEXTURE_PATH=\"${TEXTURE_PATH}\"")
 add_definitions("-DSHADER_PATH=\"${SHADER_PATH}\"")
 
 # executable
-add_executable(RandomTilemapGeneration ${HEADERS} ${SOURCES} utils.cpp voxels.cpp voxels.h)
+add_executable(RandomTilemapGeneration ${HEADERS} ${SOURCES} utils.cpp voxels.cpp voxels.h rendering/cube.cpp rendering/cube.h)
 target_include_directories(RandomTilemapGeneration SYSTEM PUBLIC ${GLEW_INCLUDE_DIRS})
 # Note: target_link_libraries(glfw) should actually bring in the necessary header files.
 target_link_libraries(RandomTilemapGeneration lodePNG glfw ${GLEW_LIBRARIES} ${OPENGL_LIBRARIES} pugiXML bitmap)

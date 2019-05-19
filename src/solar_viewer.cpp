@@ -65,6 +65,21 @@ Solar_viewer::Solar_viewer(const char* _title, int _width, int _height)
     srand((unsigned int)time(NULL));
 }
 
+void GLAPIENTRY messageCallback(GLenum source,
+								GLenum type,
+								GLuint id,
+								GLenum severity,
+								GLsizei length,
+								const GLchar *message,
+								const void *userParam) {
+	fprintf(stderr, "GL CALLBACK: %s type = 0x%x, severity = 0x%x, message = %s\n",
+			(type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""),
+			type, severity, message);
+}
+
+
+
+
 //-----------------------------------------------------------------------------
 
 void
@@ -296,6 +311,11 @@ void Solar_viewer::resize(int _width, int _height)
 
 void Solar_viewer::initialize()
 {
+
+// During init, enable debug output
+	glEnable(GL_DEBUG_OUTPUT);
+	glDebugMessageCallback(messageCallback, nullptr);
+
     // set initial state
     glClearColor(1,1,1,0);
     glEnable(GL_DEPTH_TEST);

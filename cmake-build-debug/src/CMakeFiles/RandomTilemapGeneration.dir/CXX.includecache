@@ -77,6 +77,26 @@ glfw_window.h
 ../src/rendering/glfw_window.h
 voxels.h
 ../src/rendering/voxels.h
+cube.h
+../src/rendering/cube.h
+
+../src/rendering/cube.h
+iostream
+-
+fstream
+-
+random
+-
+vector
+-
+glmath.h
+-
+gl.h
+../src/rendering/gl.h
+stacktrace.h
+../src/rendering/stacktrace.h
+utils.h
+../src/rendering/utils.h
 
 ../src/rendering/glfw_window.h
 gl.h

@@ -164,6 +164,9 @@ GLint Shader::load_and_compile(const char* filename, GLenum type)
 void Shader::use()
 {
     if (pid_) glUseProgram(pid_);
+
+
+	glCheckError();
 }
 
 

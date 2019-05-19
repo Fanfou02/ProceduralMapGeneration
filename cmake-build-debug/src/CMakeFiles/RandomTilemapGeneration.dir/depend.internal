@@ -20,6 +20,7 @@ src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o
  ../lib/pugiXML/pugixml.hpp
  ../src/glmath.h
  ../src/rendering/World_Viewer.h
+ ../src/rendering/cube.h
  ../src/rendering/glfw_window.h
  ../src/shader.h
  ../src/utils.h
@@ -51,7 +52,16 @@ src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.o
  ../src/voxels.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/World_Viewer.cpp
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/World_Viewer.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/cube.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/glfw_window.h
+ /usr/include/GL/glew.h
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o
+ ../src/gl.h
+ ../src/glmath.h
+ ../src/stacktrace.h
+ ../src/utils.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/cube.cpp
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/cube.h
  /usr/include/GL/glew.h
 src/CMakeFiles/RandomTilemapGeneration.dir/rendering/glfw_window.cpp.o
  ../lib/glfw/include/GLFW/glfw3.h

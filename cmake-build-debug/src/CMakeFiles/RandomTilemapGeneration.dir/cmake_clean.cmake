@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o"
   "CMakeFiles/RandomTilemapGeneration.dir/model.cpp.o"
   "CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.o"
+  "CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o"
   "CMakeFiles/RandomTilemapGeneration.dir/rendering/glfw_window.cpp.o"
   "CMakeFiles/RandomTilemapGeneration.dir/shader.cpp.o"
   "CMakeFiles/RandomTilemapGeneration.dir/ship.cpp.o"

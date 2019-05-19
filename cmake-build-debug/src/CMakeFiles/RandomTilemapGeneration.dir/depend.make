@@ -19,6 +19,7 @@ src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../lib/pugiXML/pugiconfig
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../lib/pugiXML/pugixml.hpp
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/glmath.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/rendering/World_Viewer.h
+src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/rendering/cube.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/rendering/glfw_window.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/shader.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/utils.h
@@ -50,8 +51,17 @@ src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.o: ../src/
 src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.o: ../src/voxels.h
 src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.o: ../src/rendering/World_Viewer.cpp
 src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.o: ../src/rendering/World_Viewer.h
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.o: ../src/rendering/cube.h
 src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.o: ../src/rendering/glfw_window.h
 src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.o: /usr/include/GL/glew.h
+
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o: ../src/gl.h
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o: ../src/glmath.h
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o: ../src/stacktrace.h
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o: ../src/utils.h
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o: ../src/rendering/cube.cpp
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o: ../src/rendering/cube.h
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o: /usr/include/GL/glew.h
 
 src/CMakeFiles/RandomTilemapGeneration.dir/rendering/glfw_window.cpp.o: ../lib/glfw/include/GLFW/glfw3.h
 src/CMakeFiles/RandomTilemapGeneration.dir/rendering/glfw_window.cpp.o: ../src/gl.h

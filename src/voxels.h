@@ -20,24 +20,13 @@ struct chunk_t {
     long end;
 };
 
-class Voxel {
-private :
-	/// vertex array object
-	GLuint vao_ = 0;
-	/// vertex buffer object
-	GLuint vbo_ = 0;
-	/// index buffer object
-	GLuint ibo_ = 0;
+struct Voxel {
 public:
+	Voxel();
+
+	Voxel(int8_t x, int8_t y, int8_t z, int8_t color);
+
 	int8_t x, y, z, color;
-
-    Voxel(int8_t x, int8_t y, int8_t z, int8_t color);
-    Voxel();
-
-	void initialize();
-
-	void draw(GLenum mode=GL_TRIANGLES);
-
 };
 
 int32_t ReadInt(FILE *fp );

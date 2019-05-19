@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/main.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o"
   "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/model.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/model.cpp.o"
   "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/World_Viewer.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.o"
+  "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/cube.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o"
   "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/glfw_window.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/rendering/glfw_window.cpp.o"
   "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/shader.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/shader.cpp.o"
   "/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/ship.cpp" "/home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug/src/CMakeFiles/RandomTilemapGeneration.dir/ship.cpp.o"

@@ -10,6 +10,7 @@
 #include <shader.h>
 #include "glfw_window.h"
 #include "voxels.h"
+#include "cube.h"
 
 class World_Viewer : public GLFW_window {
 
@@ -24,12 +25,19 @@ public:
 
 	int run() override;
 
+	virtual ~World_Viewer();
+
 private:
-	std::vector<Voxel> _voxels;
+	std::vector<Cube*> _cubes;
 	Shader _shader;
 
 	/// current viewport dimension
 	int  width_, height_;
+
+	/// rotation in x direction around the planet/sun from the original point
+	float x_angle_ = 0;
+	/// rotation in y direction around the planet/sun from the original point
+	float y_angle_ = 0;
 };
 
 

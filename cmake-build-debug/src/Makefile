@@ -287,6 +287,33 @@ rendering/World_Viewer.cpp.s:
 	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug && $(MAKE) -f src/CMakeFiles/RandomTilemapGeneration.dir/build.make src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Viewer.cpp.s
 .PHONY : rendering/World_Viewer.cpp.s
 
+rendering/cube.o: rendering/cube.cpp.o
+
+.PHONY : rendering/cube.o
+
+# target to build an object file
+rendering/cube.cpp.o:
+	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug && $(MAKE) -f src/CMakeFiles/RandomTilemapGeneration.dir/build.make src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o
+.PHONY : rendering/cube.cpp.o
+
+rendering/cube.i: rendering/cube.cpp.i
+
+.PHONY : rendering/cube.i
+
+# target to preprocess a source file
+rendering/cube.cpp.i:
+	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug && $(MAKE) -f src/CMakeFiles/RandomTilemapGeneration.dir/build.make src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.i
+.PHONY : rendering/cube.cpp.i
+
+rendering/cube.s: rendering/cube.cpp.s
+
+.PHONY : rendering/cube.s
+
+# target to generate assembly for a file
+rendering/cube.cpp.s:
+	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug && $(MAKE) -f src/CMakeFiles/RandomTilemapGeneration.dir/build.make src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.s
+.PHONY : rendering/cube.cpp.s
+
 rendering/glfw_window.o: rendering/glfw_window.cpp.o
 
 .PHONY : rendering/glfw_window.o
@@ -530,6 +557,9 @@ help:
 	@echo "... rendering/World_Viewer.o"
 	@echo "... rendering/World_Viewer.i"
 	@echo "... rendering/World_Viewer.s"
+	@echo "... rendering/cube.o"
+	@echo "... rendering/cube.i"
+	@echo "... rendering/cube.s"
 	@echo "... rendering/glfw_window.o"
 	@echo "... rendering/glfw_window.i"
 	@echo "... rendering/glfw_window.s"

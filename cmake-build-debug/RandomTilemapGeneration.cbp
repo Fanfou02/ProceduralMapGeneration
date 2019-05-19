@@ -447,6 +447,12 @@
 		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/World_Viewer.h">
 			<Option target="RandomTilemapGeneration"/>
 		</Unit>
+		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/cube.cpp">
+			<Option target="RandomTilemapGeneration"/>
+		</Unit>
+		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/cube.h">
+			<Option target="RandomTilemapGeneration"/>
+		</Unit>
 		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/glfw_window.cpp">
 			<Option target="RandomTilemapGeneration"/>
 		</Unit>
