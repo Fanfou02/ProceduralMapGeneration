@@ -18,7 +18,6 @@ src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o
  ../lib/glfw/include/GLFW/glfw3.h
  ../lib/pugiXML/pugiconfig.hpp
  ../lib/pugiXML/pugixml.hpp
- ../src/glmath.h
  ../src/rendering/World_Viewer.h
  ../src/rendering/cube.h
  ../src/rendering/glfw_window.h
@@ -28,6 +27,7 @@ src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/billboard.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/frame.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/gl.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glmath.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/main.cpp
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/model.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/path.h
@@ -60,6 +60,7 @@ src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o
  ../src/glmath.h
  ../src/stacktrace.h
  ../src/utils.h
+ ../src/voxels.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/cube.cpp
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/cube.h
  /usr/include/GL/glew.h
@@ -113,6 +114,7 @@ src/CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.o
  /usr/include/GL/glew.h
 src/CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.o
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/gl.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glmath.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/stacktrace.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/utils.cpp
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/utils.h
@@ -120,6 +122,7 @@ src/CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.o
  /usr/include/GL/glew.h
 src/CMakeFiles/RandomTilemapGeneration.dir/voxels.cpp.o
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/gl.h
+ /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/glmath.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/stacktrace.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/utils.h
  /home/zyuiop/CLionProjects/ProceduralMapGeneration/src/voxels.cpp

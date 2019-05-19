@@ -17,7 +17,7 @@
 class Cube {
 private :
 public:
-	int8_t x, y, z, color;
+	int8_t x, y, z;
 	/// vertex array object
 	GLuint vao_ = 0;
 	/// vertex buffer object
@@ -25,9 +25,10 @@ public:
 	/// index buffer object
 	GLuint ibo_ = 0;
 
+	vec4 color;
 	vec4 pos_;
 
-	Cube(int8_t x, int8_t y, int8_t z, int8_t color);
+	Cube(int8_t x, int8_t y, int8_t z, vec4 color);
 
 	void initialize();
 

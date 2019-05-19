@@ -13,7 +13,7 @@ World_Viewer::World_Viewer(const char *_title, int _width, int _height, std::vec
 	_cubes = std::vector<Cube*>();
 
 	for (auto voxel : voxels) {
-		_cubes.push_back(new Cube(voxel.x, voxel.y, voxel.z, voxel.color));
+		_cubes.push_back(new Cube(voxel.x, voxel.y, voxel.z, voxel.get_color()));
 	}
 }
 
@@ -82,7 +82,7 @@ void World_Viewer::paint() {
 
 		_shader.use();
 		_shader.set_uniform("modelview_projection_matrix", mvp_matrix);
-		_shader.set_uniform("color", vec4(1.0f, 0.5f, 0.2f, 1.0f));
+		_shader.set_uniform("color", v->color);
 
 		v->draw();
 	}

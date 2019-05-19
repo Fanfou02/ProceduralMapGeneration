@@ -2,10 +2,11 @@
 // Created by zyuiop on 19/05/19.
 //
 
+#include <voxels.h>
 #include "cube.h"
 
 
-Cube::Cube(int8_t x, int8_t y, int8_t z, int8_t color) {
+Cube::Cube(int8_t x, int8_t y, int8_t z, vec4 color) {
 	this->x = x;
 	this->y = y;
 	this->z = z;

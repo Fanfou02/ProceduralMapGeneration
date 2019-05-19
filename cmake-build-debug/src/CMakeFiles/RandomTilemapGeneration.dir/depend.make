@@ -17,7 +17,6 @@ src/CMakeFiles/RandomTilemapGeneration.dir/glmath.cpp.o: ../src/glmath.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../lib/glfw/include/GLFW/glfw3.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../lib/pugiXML/pugiconfig.hpp
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../lib/pugiXML/pugixml.hpp
-src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/glmath.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/rendering/World_Viewer.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/rendering/cube.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/rendering/glfw_window.h
@@ -27,6 +26,7 @@ src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/bezier.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/billboard.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/frame.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/gl.h
+src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/glmath.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/main.cpp
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/model.h
 src/CMakeFiles/RandomTilemapGeneration.dir/main.cpp.o: ../src/path.h
@@ -59,6 +59,7 @@ src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o: ../src/gl.h
 src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o: ../src/glmath.h
 src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o: ../src/stacktrace.h
 src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o: ../src/utils.h
+src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o: ../src/voxels.h
 src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o: ../src/rendering/cube.cpp
 src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o: ../src/rendering/cube.h
 src/CMakeFiles/RandomTilemapGeneration.dir/rendering/cube.cpp.o: /usr/include/GL/glew.h
@@ -112,6 +113,7 @@ src/CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.o: ../src/texture.h
 src/CMakeFiles/RandomTilemapGeneration.dir/texture.cpp.o: /usr/include/GL/glew.h
 
 src/CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.o: ../src/gl.h
+src/CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.o: ../src/glmath.h
 src/CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.o: ../src/stacktrace.h
 src/CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.o: ../src/utils.cpp
 src/CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.o: ../src/utils.h
@@ -119,6 +121,7 @@ src/CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.o: ../src/voxels.h
 src/CMakeFiles/RandomTilemapGeneration.dir/utils.cpp.o: /usr/include/GL/glew.h
 
 src/CMakeFiles/RandomTilemapGeneration.dir/voxels.cpp.o: ../src/gl.h
+src/CMakeFiles/RandomTilemapGeneration.dir/voxels.cpp.o: ../src/glmath.h
 src/CMakeFiles/RandomTilemapGeneration.dir/voxels.cpp.o: ../src/stacktrace.h
 src/CMakeFiles/RandomTilemapGeneration.dir/voxels.cpp.o: ../src/utils.h
 src/CMakeFiles/RandomTilemapGeneration.dir/voxels.cpp.o: ../src/voxels.cpp

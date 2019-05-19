@@ -54,16 +54,16 @@ int main(int argc, char *argv[]) {
 		 }
 	 }
  */
-	// auto voxels = ReadVox("test_01.vox");
+	//auto voxels = ReadVox("test_01.vox");
 	std::vector<Voxel> voxels(5);
-	voxels[1] = Voxel(3, 3, 0, 64);
-	voxels[2] = Voxel(1, 1, 0, 64);
-	voxels[3] = Voxel(-3, 0, 3, 64);
-	voxels[4] = Voxel(-2, 0, 2, 64);
-	voxels[0] = Voxel(-1, 0, 1, 64);
+	voxels[1] = Voxel(3, 3, 0, 7);
+	voxels[2] = Voxel(1, 1, 0, 65);
+	voxels[3] = Voxel(-3, 0, 3, 12);
+	voxels[4] = Voxel(-2, 0, 2, 111);
+	voxels[0] = Voxel(-1, 0, 1, -120);
 	voxels.emplace_back(0, 0, 0, 64);
-	voxels.emplace_back(1, 0, 0, 64);
-	voxels.emplace_back(0, 1, 0, 64);
+	voxels.emplace_back(1, 0, 0, 127);
+	voxels.emplace_back(0, 1, 0, 12);
 	World_Viewer window("Solar Sytem", 640, 480, voxels);
 
 	// Solar_viewer window("Solar System", 640, 480);
