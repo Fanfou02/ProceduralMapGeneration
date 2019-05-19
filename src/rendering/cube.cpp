@@ -17,7 +17,7 @@ void Cube::draw(GLenum mode) {
 	if (vao_ == 0) initialize();
 
 	glBindVertexArray(vao_);
-	glDrawElements(mode, 8, GL_UNSIGNED_INT, 0);
+	glDrawElements(mode, 36, GL_UNSIGNED_INT, 0);
 
 	glBindVertexArray(0);
 }
