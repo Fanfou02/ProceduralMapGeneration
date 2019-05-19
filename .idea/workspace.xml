@@ -17,6 +17,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5d5571b-7dc9-4b24-ac79-6daeb6681104" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rendering/World_Viewer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/rendering/World_Viewer.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/rendering/cube.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/rendering/cube.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -35,20 +37,20 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file pinned="false" current-in-tab="true">
+            <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/rendering/World_Viewer.cpp">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="240">
-                    <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
+                  <state relative-caret-position="677">
+                    <caret line="78" column="44" lean-forward="true" selection-start-line="78" selection-start-column="44" selection-end-line="78" selection-end-column="44" />
                   </state>
                 </provider>
               </entry>
             </file>
-            <file pinned="false" current-in-tab="false">
+            <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/rendering/cube.cpp">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="230">
-                    <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+                  <state relative-caret-position="276">
+                    <caret line="12" column="36" lean-forward="true" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
                   </state>
                 </provider>
               </entry>
@@ -168,8 +170,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="53" column="10" lean-forward="true" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
+            <state relative-caret-position="160">
+              <caret line="58" column="35" lean-forward="true" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -207,8 +209,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/rendering/cube.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="307">
+              <caret line="66" column="37" lean-forward="true" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -254,7 +256,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>100</find>
       <find>observed$</find>
       <find>left</find>
       <find>INde</find>
@@ -284,7 +285,11 @@
       <find>spaces</find>
       <find>width</find>
       <find>initi</find>
+      <find>1.0</find>
     </findStrings>
+    <replaceStrings>
+      <replace>0.5</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src</dir>
     </dirStrings>
@@ -320,9 +325,9 @@
         <option value="$PROJECT_DIR$/src/rendering/cube.h" />
         <option value="$PROJECT_DIR$/src/cube.vert" />
         <option value="$PROJECT_DIR$/src/solar_viewer.cpp" />
-        <option value="$PROJECT_DIR$/src/main.cpp" />
-        <option value="$PROJECT_DIR$/src/rendering/cube.cpp" />
         <option value="$PROJECT_DIR$/src/rendering/World_Viewer.cpp" />
+        <option value="$PROJECT_DIR$/src/rendering/cube.cpp" />
+        <option value="$PROJECT_DIR$/src/main.cpp" />
       </list>
     </option>
   </component>
@@ -565,12 +570,12 @@
       <workItem from="1557500105564" duration="3291000" />
       <workItem from="1557565305598" duration="78165000" />
       <workItem from="1558183371231" duration="6653000" />
-      <workItem from="1558191750336" duration="11951000" />
+      <workItem from="1558191750336" duration="12925000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103761000" />
+    <option name="totallyTimeSpent" value="104735000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -956,13 +961,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/glmath.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="233" column="11" selection-start-line="233" selection-start-column="11" selection-end-line="233" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/rendering/World_Viewer.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
@@ -986,24 +984,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/rendering/cube.cpp">
+    <entry file="file://$PROJECT_DIR$/src/glmath.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="53" column="10" lean-forward="true" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
+        <state relative-caret-position="179">
+          <caret line="233" column="11" selection-start-line="233" selection-start-column="11" selection-end-line="233" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/rendering/World_Viewer.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
+        <state relative-caret-position="677">
+          <caret line="78" column="44" lean-forward="true" selection-start-line="78" selection-start-column="44" selection-end-line="78" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rendering/cube.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="66" column="37" lean-forward="true" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="58" column="35" lean-forward="true" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
         </state>
       </provider>
     </entry>

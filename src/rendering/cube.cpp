@@ -10,7 +10,7 @@ Cube::Cube(int8_t x, int8_t y, int8_t z, int8_t color) {
 	this->y = y;
 	this->z = z;
 	this->color = color;
-	this->pos_ = vec4(x / 10.0, y / 10.0, z / 10.0, 1.0);
+	this->pos_ = vec4(x, y, z, 1.0);
 }
 
 void Cube::draw(GLenum mode) {
@@ -24,14 +24,14 @@ void Cube::draw(GLenum mode) {
 
 void Cube::initialize() {
 	float vertices[] = {
-			1.0, 1.0, 1.0,
-			-1.0, 1.0, 1.0,
-			-1.0, -1.0, 1.0,
-			1.0, -1.0, 1.0,
-			1.0, 1.0, -1.0,
-			-1.0, 1.0, -1.0,
-			-1.0, -1.0, -1.0,
-			1.0, -1.0, -1.0
+			0.5, 0.5, 0.5,
+			-0.5, 0.5, 0.5,
+			-0.5, -0.5, 0.5,
+			0.5, -0.5, 0.5,
+			0.5, 0.5, -0.5,
+			-0.5, 0.5, -0.5,
+			-0.5, -0.5, -0.5,
+			0.5, -0.5, -0.5
 	};
 
 	GLuint indices[] = {

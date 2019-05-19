@@ -54,7 +54,7 @@ void World_Viewer::paint() {
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	vec4 center = vec4(0, 0, 0, 0);
-	vec4 eye = vec4(0, 0, 1, 1.0);
+	vec4 eye = vec4(0, 0, 10, 1.0);
 	vec4 up = vec4(0, 1, 0, 0);
 
 	eye = mat4::translate(center) * mat4::rotate_y(y_angle_) * mat4::rotate_x(x_angle_) * eye;
@@ -78,7 +78,7 @@ void World_Viewer::paint() {
 	for (Cube* v : _cubes) {
 		m_matrix = mat4::translate(v->pos_);
 		mv_matrix = view * m_matrix;
-		mvp_matrix = projection * mv_matrix * mat4::scale(0.01f);
+		mvp_matrix = projection * mv_matrix;
 
 		_shader.use();
 		_shader.set_uniform("modelview_projection_matrix", mvp_matrix);
