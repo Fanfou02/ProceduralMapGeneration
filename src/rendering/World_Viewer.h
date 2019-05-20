@@ -20,6 +20,9 @@ class World_Viewer : public GLFW_window {
 
 	void paint() override;
 
+protected:
+	void keyboard(int key, int scancode, int action, int mods) override;
+
 public:
 	World_Viewer(const char *_title, int _width, int _height, std::vector<Voxel> voxels);
 
@@ -29,6 +32,7 @@ public:
 
 private:
 	std::vector<Cube*> _cubes;
+	vec4 position = vec4(0, 0, 0, 1.0);
 	Shader _shader;
 
 	/// current viewport dimension

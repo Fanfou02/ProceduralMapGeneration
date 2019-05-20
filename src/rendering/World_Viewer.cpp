@@ -17,22 +17,8 @@ World_Viewer::World_Viewer(const char *_title, int _width, int _height, std::vec
 	}
 }
 
-void GLAPIENTRY MessageCallback(GLenum source,
-								GLenum type,
-								GLuint id,
-								GLenum severity,
-								GLsizei length,
-								const GLchar *message,
-								const void *userParam) {
-	fprintf(stderr, "GL CALLBACK: %s type = 0x%x, severity = 0x%x, message = %s\n",
-			(type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""),
-			type, severity, message);
-}
-
-
-
 void World_Viewer::initialize() {
-// During init, enable debug output
+	// During init, enable debug output
 	glEnable(GL_DEBUG_OUTPUT);
 	glDebugMessageCallback(MessageCallback, nullptr);
 
@@ -53,8 +39,8 @@ void World_Viewer::resize(int width, int height) {
 void World_Viewer::paint() {
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	vec4 center = vec4(0, 0, 0, 0);
-	vec4 eye = vec4(0, 0, 10, 1.0);
+	vec4 center = position;
+	vec4 eye = vec4(0, 0, 1, 1.0);
 	vec4 up = vec4(0, 1, 0, 0);
 
 	eye = mat4::translate(center) * mat4::rotate_y(y_angle_) * mat4::rotate_x(x_angle_) * eye;
@@ -74,13 +60,13 @@ void World_Viewer::paint() {
 	mat4 mv_matrix;
 	mat4 mvp_matrix;
 
+	_shader.use();
 	// render cubes
 	for (Cube* v : _cubes) {
 		m_matrix = mat4::translate(v->pos_);
 		mv_matrix = view * m_matrix;
 		mvp_matrix = projection * mv_matrix;
 
-		_shader.use();
 		_shader.set_uniform("modelview_projection_matrix", mvp_matrix);
 		_shader.set_uniform("color", v->color);
 
@@ -98,5 +84,51 @@ int World_Viewer::run() {
 World_Viewer::~World_Viewer() {
 	for (Cube* v : _cubes) {
 		delete v;
+	}
+}
+
+void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
+	vec4 rotating_vector = mat4::rotate_x(x_angle_) * mat4::rotate_y(y_angle_) * vec4(0, 0, 1, 0);
+
+	if (action == GLFW_PRESS || action == GLFW_REPEAT)
+	{
+		switch (key)
+		{
+			case GLFW_KEY_W:
+				position -= rotating_vector;
+				break;
+
+			case GLFW_KEY_S:
+				position += rotating_vector;
+				break;
+
+			case GLFW_KEY_A:
+				position -= mat4::rotate_y(90) * rotating_vector;
+				break;
+
+			case GLFW_KEY_D:
+				position += mat4::rotate_y(90) * vec4(0, 0, 1, 0);
+				break;
+
+			case GLFW_KEY_LEFT:
+				y_angle_ += 10.0;
+				break;
+
+			case GLFW_KEY_RIGHT:
+				y_angle_ -= 10.0;
+				break;
+
+			case GLFW_KEY_DOWN:
+				x_angle_ -= 10.0;
+				break;
+
+			case GLFW_KEY_UP:
+				x_angle_ += 10.0;
+				break;
+
+			case GLFW_KEY_ESCAPE:
+				glfwSetWindowShouldClose(window_, GL_TRUE);
+				break;
+		}
 	}
 }
