@@ -260,6 +260,33 @@ model.cpp.s:
 	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug && $(MAKE) -f src/CMakeFiles/RandomTilemapGeneration.dir/build.make src/CMakeFiles/RandomTilemapGeneration.dir/model.cpp.s
 .PHONY : model.cpp.s
 
+rendering/World_Map.o: rendering/World_Map.cpp.o
+
+.PHONY : rendering/World_Map.o
+
+# target to build an object file
+rendering/World_Map.cpp.o:
+	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug && $(MAKE) -f src/CMakeFiles/RandomTilemapGeneration.dir/build.make src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Map.cpp.o
+.PHONY : rendering/World_Map.cpp.o
+
+rendering/World_Map.i: rendering/World_Map.cpp.i
+
+.PHONY : rendering/World_Map.i
+
+# target to preprocess a source file
+rendering/World_Map.cpp.i:
+	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug && $(MAKE) -f src/CMakeFiles/RandomTilemapGeneration.dir/build.make src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Map.cpp.i
+.PHONY : rendering/World_Map.cpp.i
+
+rendering/World_Map.s: rendering/World_Map.cpp.s
+
+.PHONY : rendering/World_Map.s
+
+# target to generate assembly for a file
+rendering/World_Map.cpp.s:
+	cd /home/zyuiop/CLionProjects/ProceduralMapGeneration/cmake-build-debug && $(MAKE) -f src/CMakeFiles/RandomTilemapGeneration.dir/build.make src/CMakeFiles/RandomTilemapGeneration.dir/rendering/World_Map.cpp.s
+.PHONY : rendering/World_Map.cpp.s
+
 rendering/World_Viewer.o: rendering/World_Viewer.cpp.o
 
 .PHONY : rendering/World_Viewer.o
@@ -554,6 +581,9 @@ help:
 	@echo "... model.o"
 	@echo "... model.i"
 	@echo "... model.s"
+	@echo "... rendering/World_Map.o"
+	@echo "... rendering/World_Map.i"
+	@echo "... rendering/World_Map.s"
 	@echo "... rendering/World_Viewer.o"
 	@echo "... rendering/World_Viewer.i"
 	@echo "... rendering/World_Viewer.s"

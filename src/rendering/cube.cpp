@@ -4,14 +4,15 @@
 
 #include <voxels.h>
 #include "cube.h"
+#include "World_Map.h"
 
-
-Cube::Cube(int8_t x, int8_t y, int8_t z, vec4 color) {
+Cube::Cube(int8_t x, int8_t y, int8_t z, vec4 color, World_Map *map) {
 	this->x = x;
 	this->y = y;
 	this->z = z;
 	this->color = color;
 	this->pos_ = vec4(x, y, z, 1.0);
+	this->worldMap = map;
 }
 
 void Cube::draw(GLenum mode) {

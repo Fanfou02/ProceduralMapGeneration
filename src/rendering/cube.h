@@ -14,6 +14,8 @@
 #include "stacktrace.h"
 #include "utils.h"
 
+class World_Map;
+
 class Cube {
 private :
 public:
@@ -27,8 +29,9 @@ public:
 
 	vec4 color;
 	vec4 pos_;
+	World_Map *worldMap;
 
-	Cube(int8_t x, int8_t y, int8_t z, vec4 color);
+	Cube(int8_t x, int8_t y, int8_t z, vec4 color, World_Map *map);
 
 	void initialize();
 

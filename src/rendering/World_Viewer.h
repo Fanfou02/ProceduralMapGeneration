@@ -11,6 +11,7 @@
 #include "glfw_window.h"
 #include "voxels.h"
 #include "cube.h"
+#include "World_Map.h"
 
 class World_Viewer : public GLFW_window {
 
@@ -26,12 +27,12 @@ protected:
 public:
 	World_Viewer(const char *_title, int _width, int _height, std::vector<Voxel> voxels);
 
+	~World_Viewer() override;
 	int run() override;
 
-	virtual ~World_Viewer();
 
 private:
-	std::vector<Cube*> _cubes;
+	World_Map *worldMap;
 	vec4 position = vec4(0, 0, 0, 1.0);
 	Shader _shader;
 

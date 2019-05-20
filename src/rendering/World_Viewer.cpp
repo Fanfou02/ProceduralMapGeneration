@@ -6,21 +6,18 @@
 
 #include "World_Viewer.h"
 #include "voxels.h"
+#include "math.h"
 
 World_Viewer::World_Viewer(const char *_title, int _width, int _height, std::vector<Voxel> voxels) : GLFW_window(_title,
 																												 _width,
 																												 _height) {
-	_cubes = std::vector<Cube*>();
-
-	for (auto voxel : voxels) {
-		_cubes.push_back(new Cube(voxel.x, voxel.y, voxel.z, voxel.get_color()));
-	}
+	worldMap = new World_Map(voxels);
 }
 
 void World_Viewer::initialize() {
 	// During init, enable debug output
-	glEnable(GL_DEBUG_OUTPUT);
-	glDebugMessageCallback(MessageCallback, nullptr);
+	//glEnable(GL_DEBUG_OUTPUT);
+	//glDebugMessageCallback(MessageCallback, nullptr);
 
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -62,7 +59,7 @@ void World_Viewer::paint() {
 
 	_shader.use();
 	// render cubes
-	for (Cube* v : _cubes) {
+	for (Cube* v : worldMap->_cubes) {
 		m_matrix = mat4::translate(v->pos_);
 		mv_matrix = view * m_matrix;
 		mvp_matrix = projection * mv_matrix;
@@ -82,9 +79,7 @@ int World_Viewer::run() {
 }
 
 World_Viewer::~World_Viewer() {
-	for (Cube* v : _cubes) {
-		delete v;
-	}
+	delete worldMap;
 }
 
 void World_Viewer::keyboard(int key, int scancode, int action, int mods) {

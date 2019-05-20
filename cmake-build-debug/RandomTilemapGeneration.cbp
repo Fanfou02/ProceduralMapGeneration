@@ -441,6 +441,12 @@
 		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/model.h">
 			<Option target="RandomTilemapGeneration"/>
 		</Unit>
+		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/World_Map.cpp">
+			<Option target="RandomTilemapGeneration"/>
+		</Unit>
+		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/World_Map.h">
+			<Option target="RandomTilemapGeneration"/>
+		</Unit>
 		<Unit filename="/home/zyuiop/CLionProjects/ProceduralMapGeneration/src/rendering/World_Viewer.cpp">
 			<Option target="RandomTilemapGeneration"/>
 		</Unit>

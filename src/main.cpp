@@ -64,6 +64,8 @@ int main(int argc, char *argv[]) {
 	voxels.emplace_back(0, 0, 0, 64);
 	voxels.emplace_back(1, 0, 0, 127);
 	voxels.emplace_back(0, 1, 0, 12);*/
+	std::cout << voxels.size() << " voxels loaded" << std::endl;
+
 	World_Viewer window("Solar Sytem", 640, 480, voxels);
 
 	// Solar_viewer window("Solar System", 640, 480);
