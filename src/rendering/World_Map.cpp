@@ -42,11 +42,12 @@ bool World_Map::has_block(int x, int y, int z) {
 	if (x - min_x < _cubes_positions.size()) {
 		auto x_list = _cubes_positions[x - min_x];
 
-		if (y - min_y < x_list.size()) {
-			auto y_list = x_list[y - min_y];
+		// Reverse y and z
+		if (z - min_y < x_list.size()) {
+			auto y_list = x_list[z - min_y];
 
-			if (z - min_z < y_list.size()) {
-				return y_list[z - min_z];
+			if (y - min_z < y_list.size()) {
+				return y_list[y - min_z];
 			}
 		}
 	}

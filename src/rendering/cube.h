@@ -16,8 +16,20 @@
 
 class World_Map;
 
+enum Faces {
+	FRONT = 0, BACK = 1, LEFT = 2, RIGHT = 3, TOP = 4, BOTTOM = 5
+};
+
 class Cube {
 private :
+	static const float vertices[24];
+
+	static const GLuint faces[6][6];
+
+	void add_rectangle(std::vector<GLuint> &vec, GLuint const coords[]);
+
+	int triangles = 0;
+
 public:
 	int8_t x, y, z;
 	/// vertex array object
@@ -35,7 +47,7 @@ public:
 
 	void initialize();
 
-	void draw(GLenum mode=GL_TRIANGLES);
+	void draw(GLenum mode = GL_TRIANGLES);
 };
 
 

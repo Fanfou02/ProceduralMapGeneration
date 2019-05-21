@@ -55,7 +55,7 @@ __int8_t ReadByte(FILE *fp) {
 
 
 vec4 ColorToVec(unsigned int color) {
-	return vec4(color & 0xFF, (color >> 8) & 0xFF, (color >> 16) & 0xFF, 255 - (color >> 24) & 0xFF) * vec4(1.0/256.0, 1.0/256.0, 1.0/256.0, 1.0/256.0);
+	return vec4((color >> 16) & 0xFF, (color >> 8) & 0xFF, (color >> 0) & 0xFF, 255 - (color >> 24) & 0xFF) * vec4(1.0/256.0, 1.0/256.0, 1.0/256.0, 1.0/256.0);
 }
 
 void ReadChunk(FILE *fp, chunk_t &chunk) {

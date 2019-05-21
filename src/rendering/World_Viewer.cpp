@@ -58,6 +58,7 @@ void World_Viewer::paint() {
 	mat4 mvp_matrix;
 
 	_shader.use();
+	int i = 0;
 	// render cubes
 	for (Cube* v : worldMap->_cubes) {
 		m_matrix = mat4::translate(v->pos_);
