@@ -57,8 +57,7 @@ void World_Viewer::paint() {
 	mat4 m_matrix;
 
 	// the sun is centered at the origin and -- for lighting -- considered to be a point, so that is the light position in world coordinates
-	vec4 light = vec4(0.0, 0.0, 0.0, 1.0); //in world coordinates
-	light = view * light;
+	vec4 light = view * vec4(60, 300, 60, 1.0); //in world coordinates
 
 	_shader.use();
 	_shader.set_uniform("view_matrix", view);
@@ -87,7 +86,9 @@ World_Viewer::~World_Viewer() {
 }
 
 void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
-	vec4 rotating_vector = mat4::rotate_z(pitch_) * mat4::rotate_y(yaw) * vec4(0, 0, 1, 0);
+	vec4 rotating_vector = mat4::rotate_y(yaw) * mat4::rotate_x(pitch_) * vec4(0, 0, 1, 0);
+
+	std::cout << "Unit " << rotating_vector << std::endl;
 
 	if (action == GLFW_PRESS || action == GLFW_REPEAT)
 	{
@@ -102,11 +103,11 @@ void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
 				break;
 
 			case GLFW_KEY_A:
-				position -= mat4::rotate_y(90) * rotating_vector;
+				position -=  mat4::rotate_y(yaw) * vec4(1, 0, 0, 0);
 				break;
 
 			case GLFW_KEY_D:
-				position += mat4::rotate_y(90) * vec4(0, 0, 1, 0);
+				position +=  mat4::rotate_y(yaw) * vec4(1, 0, 0, 0);
 				break;
 
 			case GLFW_KEY_LEFT:

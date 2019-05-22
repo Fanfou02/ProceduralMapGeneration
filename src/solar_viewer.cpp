@@ -468,7 +468,7 @@ void Solar_viewer::draw_scene(mat4& _projection, mat4& _view)
     mat3 n_matrix;
 
     // the sun is centered at the origin and -- for lighting -- considered to be a point, so that is the light position in world coordinates
-    vec4 light = vec4(0.0, 0.0, 0.0, 1.0); //in world coordinates
+    vec4 light = vec4(125, 125, 125, 1.0); //in world coordinates
     // convert light into camera coordinates
     light = _view * light;
 
