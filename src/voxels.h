@@ -29,7 +29,7 @@ public:
 
 	int8_t x, y, z, color;
 
-	vec4 get_color();
+	vec3 get_color();
 };
 
 int32_t ReadInt(FILE *fp );
@@ -42,6 +42,6 @@ std::vector<Voxel> ReadVox(std::string filename);
 
 static void WriteVox(std::string filename, size_t X, size_t Y, size_t Z, std::vector<Voxel> voxels);
 
-vec4 ColorToVec(const long color);
+vec3 ColorToVec(const long color);
 
 #endif //RANDOMTILEMAPGENERATION_VOXELS_H

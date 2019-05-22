@@ -17,8 +17,8 @@ World_Viewer::World_Viewer(const char *_title, int _width, int _height, std::vec
 
 void World_Viewer::initialize() {
 	// During init, enable debug output
-	//glEnable(GL_DEBUG_OUTPUT);
-	//glDebugMessageCallback(MessageCallback, nullptr);
+	glEnable(GL_DEBUG_OUTPUT);
+	glDebugMessageCallback(MessageCallback, nullptr);
 
 	glEnable(GL_DEPTH_TEST);
 
@@ -46,8 +46,6 @@ void World_Viewer::paint() {
 	eye = mat4::translate(center) * mat4::rotate_y(yaw) * mat4::rotate_x(pitch_) * eye;
 	up = mat4::rotate_y(yaw) * mat4::rotate_x(pitch_) * up;
 
-
-
 	auto fovy_ = 45;
 	auto near_ = 0.1f;
 	auto far_  = 20;
@@ -55,20 +53,23 @@ void World_Viewer::paint() {
 	mat4 view = mat4::look_at(vec3(eye), vec3(center), vec3(up));
 	mat4 projection = mat4::perspective(fovy_, (float) width_ / (float) height_, near_, far_);
 
-	// the matrices we need: model, modelview, modelview-projection, normal
+	// the matrices we need: model
 	mat4 m_matrix;
-	mat4 mv_matrix;
-	mat4 mvp_matrix;
+
+	// the sun is centered at the origin and -- for lighting -- considered to be a point, so that is the light position in world coordinates
+	vec4 light = vec4(0.0, 0.0, 0.0, 1.0); //in world coordinates
+	light = view * light;
 
 	_shader.use();
 	_shader.set_uniform("view_matrix", view);
 	_shader.set_uniform("projection_matrix", projection);
+	_shader.set_uniform("light_position", light);
 
 	// render cubes
 	for (Cube* v : worldMap->_cubes) {
 		m_matrix = mat4::translate(v->pos_);
 		_shader.set_uniform("model_matrix", m_matrix);
-		_shader.set_uniform("color", v->color);
+		_shader.set_uniform("u_color", v->color);
 
 		v->draw();
 	}

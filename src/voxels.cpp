@@ -35,7 +35,7 @@ const long default_palette[256] = {
 };
 
 
-vec4 Voxel::get_color() {
+vec3 Voxel::get_color() {
 	auto color_index = (int) (unsigned char) this->color;
 
 	return ColorToVec(default_palette[color_index]);
@@ -56,8 +56,8 @@ __int8_t ReadByte(FILE *fp) {
 }
 
 
-vec4 ColorToVec(const long color) {
-	return vec4((color & 0xFF) / 255.0, ((color >> 8) & 0xFF) / 255.0, ((color >> 16) & 0xFF) / 255.0, 1);
+vec3 ColorToVec(const long color) {
+	return vec3((color & 0xFF) / 255.0, ((color >> 8) & 0xFF) / 255.0, ((color >> 16) & 0xFF) / 255.0);
 }
 
 void ReadChunk(FILE *fp, chunk_t &chunk) {

@@ -79,6 +79,7 @@ inline void set_uniform_by_location(int loc, const mat4  &val) { glUniformMatrix
 template<typename T>
 void Shader::set_uniform(const char* name, const T &value, bool optional) {
     if (!pid_) return;
+
     int location = glGetUniformLocation(pid_, name);
     if (location == -1) {
         if (!optional)
