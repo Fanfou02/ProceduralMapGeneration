@@ -40,9 +40,9 @@ private:
 	int  width_, height_;
 
 	/// rotation in x direction around the planet/sun from the original point
-	float x_angle_ = 0;
+	float pitch_ = -45;
 	/// rotation in y direction around the planet/sun from the original point
-	float y_angle_ = 0;
+	float yaw = 45;
 };
 
 

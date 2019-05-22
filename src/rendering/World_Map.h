@@ -20,6 +20,8 @@ public:
 
 	bool has_block(int x, int y, int z);
 
+	vec4 start_position();
+
 private:
 	std::vector<std::vector<std::vector<bool>>> _cubes_positions;
 

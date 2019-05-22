@@ -38,7 +38,11 @@ World_Map::World_Map(std::vector<Voxel> voxels) {
 	std::cout << "Size " << _cubes.size();
 }
 
+
+
 bool World_Map::has_block(int x, int y, int z) {
+	return false;
+
 	if (x - min_x < _cubes_positions.size()) {
 		auto x_list = _cubes_positions[x - min_x];
 
@@ -53,6 +57,10 @@ bool World_Map::has_block(int x, int y, int z) {
 	}
 
 	return false;
+}
+
+vec4 World_Map::start_position() {
+	return vec4(max_x + 5, max_z + 5, max_y + 5, 0);
 }
 
 World_Map::~World_Map() {

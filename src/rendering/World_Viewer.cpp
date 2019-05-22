@@ -12,6 +12,7 @@ World_Viewer::World_Viewer(const char *_title, int _width, int _height, std::vec
 																												 _width,
 																												 _height) {
 	worldMap = new World_Map(voxels);
+	position = worldMap->start_position();
 }
 
 void World_Viewer::initialize() {
@@ -40,8 +41,8 @@ void World_Viewer::paint() {
 	vec4 eye = vec4(0, 0, 1, 1.0);
 	vec4 up = vec4(0, 1, 0, 0);
 
-	eye = mat4::translate(center) * mat4::rotate_y(y_angle_) * mat4::rotate_x(x_angle_) * eye;
-	up = mat4::rotate_y(y_angle_) * mat4::rotate_x(x_angle_) * up;
+	eye = mat4::translate(center) * mat4::rotate_y(yaw) * mat4::rotate_x(pitch_) * eye;
+	up = mat4::rotate_y(yaw) * mat4::rotate_x(pitch_) * up;
 
 
 
@@ -84,7 +85,7 @@ World_Viewer::~World_Viewer() {
 }
 
 void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
-	vec4 rotating_vector = mat4::rotate_x(x_angle_) * mat4::rotate_y(y_angle_) * vec4(0, 0, 1, 0);
+	vec4 rotating_vector = mat4::rotate_z(pitch_) * mat4::rotate_y(yaw) * vec4(0, 0, 1, 0);
 
 	if (action == GLFW_PRESS || action == GLFW_REPEAT)
 	{
@@ -107,19 +108,19 @@ void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
 				break;
 
 			case GLFW_KEY_LEFT:
-				y_angle_ += 10.0;
+				yaw += 10.0;
 				break;
 
 			case GLFW_KEY_RIGHT:
-				y_angle_ -= 10.0;
+				yaw -= 10.0;
 				break;
 
 			case GLFW_KEY_DOWN:
-				x_angle_ -= 10.0;
+				pitch_ -= 10.0;
 				break;
 
 			case GLFW_KEY_UP:
-				x_angle_ += 10.0;
+				pitch_ += 10.0;
 				break;
 
 			case GLFW_KEY_ESCAPE:
@@ -127,4 +128,6 @@ void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
 				break;
 		}
 	}
+
+	std::cout << position << " pitch " << pitch_ << " yaw " << yaw << std::endl;
 }

@@ -194,7 +194,7 @@ keyboard(int key, int scancode, int action, int mods)
             case GLFW_KEY_SPACE:
             {
                 timer_active_ = !timer_active_;
-                std::cout << "x_angle_: " << x_angle_ << "\n" << "y_angle_: " << y_angle_ << "\n"<< std::endl;
+                std::cout << "pitch_: " << x_angle_ << "\n" << "yaw: " << y_angle_ << "\n"<< std::endl;
                 std::cout << "billboard_x_angle_: " << billboard_x_angle_ << "\n" << "billboard_y_angle_: " << billboard_y_angle_ << "\n"<< std::endl;
 
                 break;
