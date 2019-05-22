@@ -20,6 +20,8 @@ void World_Viewer::initialize() {
 	//glEnable(GL_DEBUG_OUTPUT);
 	//glDebugMessageCallback(MessageCallback, nullptr);
 
+	glEnable(GL_DEPTH_TEST);
+
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
@@ -35,7 +37,7 @@ void World_Viewer::resize(int width, int height) {
 }
 
 void World_Viewer::paint() {
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	vec4 center = position;
 	vec4 eye = vec4(0, 0, 1, 1.0);
