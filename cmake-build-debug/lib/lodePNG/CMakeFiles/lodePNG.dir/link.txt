@@ -1,2 +1,0 @@
-/bin/ar qc ../../liblodePNG.a  CMakeFiles/lodePNG.dir/lodepng.cpp.o
-/bin/ranlib ../../liblodePNG.a
