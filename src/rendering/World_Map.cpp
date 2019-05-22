@@ -9,6 +9,10 @@ World_Map::World_Map(std::vector<Voxel> voxels) {
 
 
 	for (auto voxel : voxels) {
+		if (voxel.x == 80 && voxel.y == 80) {
+			std::cout << (int) voxel.z << " " << (int) voxel.color << " " << voxel.get_color() << std::endl;
+		}
+
 		if (voxel.z < 19)
 			continue; // ignore the base
 

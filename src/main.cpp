@@ -13,7 +13,6 @@
 //=============================================================================
 
 int main(int argc, char *argv[]) {
-
 	/* std::vector<std::array<int,     8>>  action;
 
 	 std::cout << action.size() << std::endl;
@@ -67,6 +66,9 @@ int main(int argc, char *argv[]) {
 	std::cout << voxels.size() << " voxels loaded" << std::endl;
 
 	World_Viewer window("Solar Sytem", 640, 480, voxels);
+
+	std::cout << ColorToVec(0xFFFFFFFF) << std::endl;
+	std::cout << ColorToVec(0x00000000) << std::endl;
 
 	// Solar_viewer window("Solar System", 640, 480);
 
