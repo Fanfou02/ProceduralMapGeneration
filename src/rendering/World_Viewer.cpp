@@ -61,14 +61,13 @@ void World_Viewer::paint() {
 	mat4 mvp_matrix;
 
 	_shader.use();
-	int i = 0;
+	_shader.set_uniform("view_matrix", view);
+	_shader.set_uniform("projection_matrix", projection);
+
 	// render cubes
 	for (Cube* v : worldMap->_cubes) {
 		m_matrix = mat4::translate(v->pos_);
-		mv_matrix = view * m_matrix;
-		mvp_matrix = projection * mv_matrix;
-
-		_shader.set_uniform("modelview_projection_matrix", mvp_matrix);
+		_shader.set_uniform("model_matrix", m_matrix);
 		_shader.set_uniform("color", v->color);
 
 		v->draw();
