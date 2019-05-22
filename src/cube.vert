@@ -29,7 +29,7 @@ void main()
     mat4 modelview_matrix = view_matrix * model_matrix;
     vec4 vertices = (modelview_matrix * position);
 
-    mat3 normal_matrix = transpose(inverse(mat3(modelview_matrix)));
+    mat3 normal_matrix = mat3(transpose(inverse(modelview_matrix)));
 
     v2f_normal = normalize(normal_matrix * v_normal);
     v2f_light = normalize(light_position.xyz - vertices.xyz);

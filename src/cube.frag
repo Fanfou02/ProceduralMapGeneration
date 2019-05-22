@@ -42,13 +42,13 @@ void main() {
     // compute the diffuse lightning
     float v = dot(v2f_normal, v2f_light);
     if (v > 0)
-    color += sunlight * material * v;
+        color += sunlight * material * v;
 
     // compute the specular lightning
     vec3 reflected_ray = reflect(v2f_light, v2f_normal);
     float t = dot(reflected_ray, v2f_view);
     if (t > 0 && v > 0)
-    color += sunlight * material * pow(t, shininess);
+        color += sunlight * material * pow(t, shininess);
 
     // add required alpha value
     f_color = vec4(color, 1.0);

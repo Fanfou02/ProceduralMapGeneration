@@ -32,8 +32,8 @@ const GLuint Cube::faces[6][6] = {
 				0, 2, 3
 		},
 		{
-				5, 4, 7,
-				5, 7, 6
+				4, 5, 6,
+				4, 6, 7
 		},
 		{
 				4, 0, 3,
@@ -55,22 +55,22 @@ const GLuint Cube::faces[6][6] = {
 
 const float Cube::normals[6][3] = {
 		{
-				0, 0, -1
-		},
-		{
 				0, 0, 1
 		},
 		{
-				-1, 0, 0
+				0, 0, -1
 		},
 		{
 				1, 0, 0
 		},
 		{
-				0, -1, 0
+				-1, 0, 0
 		},
 		{
 				0, 1, 0
+		},
+		{
+				0, -1, 0
 		}
 };
 
@@ -92,9 +92,10 @@ void Cube::add_rectangle(std::vector<GLuint> &vec, GLuint const *coords) {
 }
 
 void Cube::add_normal(std::vector<float> &vec, float const *values) {
-	for (int t = 0; t < 1; ++t) {
-		for (int i = 0; i < 3; ++i)
-			vec.push_back(values[3 * t + i]);
+	for (int t = 0; t < 2; ++t) {
+		for (int i = 0; i < 3; ++i) {
+			vec.push_back(values[i]);
+		}
 	}
 }
 

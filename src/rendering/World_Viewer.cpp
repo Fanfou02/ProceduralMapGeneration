@@ -12,7 +12,9 @@ World_Viewer::World_Viewer(const char *_title, int _width, int _height, std::vec
 																												 _width,
 																												 _height) {
 	worldMap = new World_Map(voxels);
-	position = worldMap->start_position();
+	position = vec4(0, 0, 0, 1);
+	pitch_ = 70;
+	yaw = 200;
 }
 
 void World_Viewer::initialize() {
@@ -57,7 +59,7 @@ void World_Viewer::paint() {
 	mat4 m_matrix;
 
 	// the sun is centered at the origin and -- for lighting -- considered to be a point, so that is the light position in world coordinates
-	vec4 light = view * vec4(60, 300, 60, 1.0); //in world coordinates
+	vec4 light = view * vec4(-10, -10, -10, 1.0); //in world coordinates
 
 	_shader.use();
 	_shader.set_uniform("view_matrix", view);
