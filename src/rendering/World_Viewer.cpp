@@ -76,14 +76,14 @@ mat4 World_Viewer::gen_projection(float const &width, float const &height) {
 
 
 void World_Viewer::paint() {
-	vec3 light_direction = vec3(0.4f, 1.0f, 0.6f);
+	vec3 light_position = 300 * vec3(0.4f, 1.0f, 0.6f);
 
 	// Generate shadows
 	glViewport(0, 0, SHADOW_WIDTH, SHADOW_HEIGHT);
 	glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
 	glClear(GL_DEPTH_BUFFER_BIT);
 
-	vec4 lightCenter = vec4(300 * light_direction, 1.0);
+	vec4 lightCenter = vec4(light_position, 1.0);
 	mat4 lightView = gen_view(lightCenter, 40, -65);
 	mat4 lightProjection = gen_projection(SHADOW_WIDTH, SHADOW_HEIGHT);
 	mat4 lightSpaceMatrix = lightProjection * lightView;
@@ -106,7 +106,7 @@ void World_Viewer::paint() {
 	mat4 viewprojection_matrix = projection * view;
 
 	_shader.use();
-	_shader.set_uniform("light_direction", light_direction);
+	_shader.set_uniform("light_position", light_position);
 	_shader.set_uniform("view_matrix", view);
 	_shader.set_uniform("viewprojection_matrix", viewprojection_matrix);
 	_shader.set_uniform("lightSpaceMatrix", lightSpaceMatrix);
