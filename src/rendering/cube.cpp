@@ -109,15 +109,8 @@ void Cube::add_to_chunk(int index, std::vector<float> &vert, std::vector<GLuint>
 	for (int i = 0; i < 6; ++i) {
 		for (int j = 0; j < 6; ++j) {
 			indices.push_back(index * 8 + faces[i][j]);
-
-			if (x < 10 && z < 10) {
-				std::cout << i << "-" << j << "-" << faces[i][j] << "\t" << vert[index * 8 + faces[i][j]] << "\t";
-			}
-
 			norm.push_back(normals[i][j % 3]);
 		}
-
-		if (x < 10 && z < 10) std::cout << std::endl;
 	}
 }
 

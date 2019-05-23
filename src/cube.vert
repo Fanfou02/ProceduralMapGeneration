@@ -16,7 +16,6 @@ uniform vec4 light_position; //in eye space coordinates already
 uniform mat4 view_matrix;
 uniform mat4 projection_matrix;
 uniform mat4 model_matrix;
-uniform mat4 other_uniform;
 
 out vec3 v2f_normal;
 out vec3 v2f_light;
