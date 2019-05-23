@@ -21,6 +21,8 @@ int main(int argc, char *argv[]) {
 		 return -1;
 	 }
 
+	 srand(time(NULL));
+
 	std::string filename;
 	 for (pugi::xml_node sample: xdoc.child("samples").children("sample"))
 	 {
@@ -36,7 +38,7 @@ int main(int argc, char *argv[]) {
 			 for (int k = 0; k < 10; k++) {
 
 				 int seed = rand();
-				 //std::cout << "Seed :" << seed << std::endl;
+				 std::cout << "Seed :" << seed << std::endl;
 				 bool finished = model.Run(seed);
 				 filename = "test_" + std::to_string(i) + std::to_string(k) + ".vox";
 				 if (finished)
@@ -47,7 +49,7 @@ int main(int argc, char *argv[]) {
 					 break;
 				 }
 				 else {
-					 //std::cout << "Contradiction occurred ! " << std::endl;
+					 std::cout << "Contradiction occurred ! " << std::endl;
 				 }
 			 }
 		 }
