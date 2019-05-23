@@ -13,7 +13,7 @@ World_Map::World_Map(std::vector<Voxel> voxels) {
 			std::cout << (int) voxel.z << " " << (int) voxel.color << " " << voxel.get_color() << std::endl;
 		}
 
-		if (voxel.z < 19)
+		if (voxel.z != 19)
 			continue; // ignore the base
 
 		min_x = std::min(min_x, (int) voxel.x);
@@ -31,7 +31,7 @@ World_Map::World_Map(std::vector<Voxel> voxels) {
 
 	for (auto voxel : voxels) {
 
-		if (voxel.z < 19)
+		if (voxel.z != 19)
 			continue; // ignore the base
 
 		_cubes_positions[voxel.x - min_x][voxel.y - min_y][voxel.z - min_z] = true;
@@ -39,7 +39,7 @@ World_Map::World_Map(std::vector<Voxel> voxels) {
 
 	std::cout << "Lower " << min_x << " " << min_y << " " << min_z << std::endl;
 	std::cout << "Upper " << max_x << " " << max_y << " " << max_z << std::endl;
-	std::cout << "Size " << _cubes.size();
+	std::cout << "Size " << _cubes.size() << std::endl;
 }
 
 

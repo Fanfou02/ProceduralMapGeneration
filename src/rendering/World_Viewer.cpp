@@ -19,9 +19,6 @@ World_Viewer::World_Viewer(const char *_title, int _width, int _height, std::vec
 
 void World_Viewer::initialize() {
 	// During init, enable debug output
-	glEnable(GL_DEBUG_OUTPUT);
-	glDebugMessageCallback(MessageCallback, nullptr);
-
 	glEnable(GL_DEPTH_TEST);
 
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
@@ -88,7 +85,7 @@ World_Viewer::~World_Viewer() {
 }
 
 void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
-	vec4 rotating_vector = mat4::rotate_y(yaw) * mat4::rotate_x(pitch_) * vec4(0, 0, 1, 0);
+	vec4 rotating_vector = mat4::rotate_y(yaw) * vec4(0, 0, 1, 0);
 
 	std::cout << "Unit " << rotating_vector << std::endl;
 
@@ -110,6 +107,16 @@ void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
 
 			case GLFW_KEY_D:
 				position +=  mat4::rotate_y(yaw) * vec4(1, 0, 0, 0);
+				break;
+
+			case GLFW_KEY_SPACE:
+			case GLFW_KEY_E:
+				position += vec4(0, 1, 0, 0);
+				break;
+
+			case GLFW_KEY_LEFT_SHIFT:
+			case GLFW_KEY_Q:
+				position -= vec4(0, 1, 0, 0);
 				break;
 
 			case GLFW_KEY_LEFT:

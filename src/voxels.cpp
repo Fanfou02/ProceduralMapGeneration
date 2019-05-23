@@ -93,7 +93,7 @@ const int ID_RGBA = MV_ID('R', 'G', 'B', 'A');
 std::vector<Voxel> ReadVox(std::string filename) {
 	std::vector<Voxel> voxels;
 
-	struct _IO_FILE *voxFile = fopen(filename.c_str(), "rb");
+	FILE *voxFile = fopen(filename.c_str(), "rb");
 	if (voxFile) {
 		// magic number
 		int magic = ReadInt(voxFile);
@@ -165,7 +165,7 @@ std::vector<Voxel> ReadVox(std::string filename) {
 static void
 WriteVox(std::string filename, unsigned long X, unsigned long Y, unsigned long Z, std::vector<Voxel> voxels) {
 
-	struct _IO_FILE *voxFile = fopen(filename.c_str(), "w");
+	FILE *voxFile = fopen(filename.c_str(), "w");
 
 	__int32_t version = 150;
 	fwrite(&ID_VOX, 4, 1, voxFile);
