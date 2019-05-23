@@ -63,14 +63,11 @@ void World_Viewer::paint() {
 	_shader.set_uniform("projection_matrix", projection);
 	_shader.set_uniform("light_position", light);
 
-	// render cubes
-	for (Cube* v : worldMap->_cubes) {
-		m_matrix = mat4::translate(v->pos_);
-		_shader.set_uniform("model_matrix", m_matrix);
-		_shader.set_uniform("u_color", v->color);
+	m_matrix = mat4::translate(vec4(0, 10, 0, 0));
+	_shader.set_uniform("model_matrix", m_matrix);
+	_shader.set_uniform("u_color", vec3(0.5, 0.5, 0.5));
+	worldMap->draw();
 
-		v->draw();
-	}
 
 	// check for OpenGL errors
 	glCheckError();

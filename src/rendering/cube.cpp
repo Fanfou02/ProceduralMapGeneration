@@ -99,6 +99,28 @@ void Cube::add_normal(std::vector<float> &vec, float const *values) {
 	}
 }
 
+void Cube::add_to_chunk(int index, std::vector<float> &vert, std::vector<GLuint> &indices, std::vector<float> &norm) {
+	for (int i = 0; i < 8; ++i) {
+		vert.push_back(vertices[3 * i] + x);
+		vert.push_back(vertices[3 * i + 1] + y);
+		vert.push_back(vertices[3 * i + 2] + z);
+	}
+
+	for (int i = 0; i < 6; ++i) {
+		for (int j = 0; j < 6; ++j) {
+			indices.push_back(index * 8 + faces[i][j]);
+
+			if (x < 10 && z < 10) {
+				std::cout << i << "-" << j << "-" << faces[i][j] << "\t" << vert[index * 8 + faces[i][j]] << "\t";
+			}
+
+			norm.push_back(normals[i][j % 3]);
+		}
+
+		if (x < 10 && z < 10) std::cout << std::endl;
+	}
+}
+
 void Cube::initialize() {
 	std::vector<GLuint> indices;
 	std::vector<float> norm;

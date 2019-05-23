@@ -50,6 +50,7 @@ public:
 	Cube(int8_t x, int8_t y, int8_t z, vec3 color, World_Map *map);
 
 	void initialize();
+	void add_to_chunk(int index, std::vector<float> &vert, std::vector<GLuint> &indices, std::vector<float> &norm);
 
 	void draw(GLenum mode = GL_TRIANGLES);
 };
