@@ -12,9 +12,7 @@ World_Viewer::World_Viewer(const char *_title, int _width, int _height, std::vec
 																												 _width,
 																												 _height) {
 	worldMap = new World_Map(voxels);
-	position = vec4(0, 0, 0, 1);
-	pitch_ = 70;
-	yaw = 200;
+	position = worldMap->start_position();
 }
 
 void World_Viewer::initialize() {
@@ -51,26 +49,19 @@ void World_Viewer::paint() {
 
 	mat4 view = mat4::look_at(vec3(eye), vec3(center), vec3(up));
 	mat4 projection = mat4::perspective(fovy_, (float) width_ / (float) height_, near_, far_);
+	mat4 m_matrix = mat4::translate(vec4(0, 0, 0, 0));
+	mat4 modelview_matrix = view * m_matrix;
+	mat4 modelviewprojection_matrix = projection * modelview_matrix;
 
-	// the matrices we need: model
-	mat4 m_matrix;
-
-	// the sun is centered at the origin and -- for lighting -- considered to be a point, so that is the light position in world coordinates
-	vec4 light = view * vec4(-10, -10, -10, 1.0); //in world coordinates
+	mat3 normal_matrix = mat3(transpose(inverse(modelview_matrix)));
 
 	_shader.use();
-	_shader.set_uniform("view_matrix", view);
-	_shader.set_uniform("projection_matrix", projection);
-	_shader.set_uniform("light_position", light);
+	_shader.set_uniform("light_direction", vec3(-0.4f, -1.0f, -0.6f));
+	_shader.set_uniform("modelview_matrix", modelview_matrix);
+	_shader.set_uniform("modelviewprojection_matrix", modelviewprojection_matrix);
+	_shader.set_uniform("normal_matrix", normal_matrix);
+	worldMap->draw();
 
-	// render cubes
-	for (Cube* v : worldMap->_cubes) {
-		m_matrix = mat4::translate(v->pos_);
-		_shader.set_uniform("model_matrix", m_matrix);
-		_shader.set_uniform("u_color", v->color);
-
-		v->draw();
-	}
 
 	// check for OpenGL errors
 	glCheckError();

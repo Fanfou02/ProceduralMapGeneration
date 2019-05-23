@@ -59,44 +59,18 @@ const float Cube::vertices[] = {
 		-0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f
 };
 
-void Cube::draw(GLenum mode) {
-	if (vao_ == 0) initialize();
+void Cube::add_to_chunk(std::vector<float> &vert, std::vector<float> &norm, std::vector<float> &colors) {
+	for (int i = 0; i < 36; ++i) {
+		vert.push_back(vertices[6 * i] + x);
+		vert.push_back(vertices[6 * i + 1] + y);
+		vert.push_back(vertices[6 * i + 2] + z);
 
-	glBindVertexArray(vao_);
-	glDrawArrays(GL_TRIANGLES, 0, 36);
+		norm.push_back(vertices[6 * i + 3]);
+		norm.push_back(vertices[6 * i + 4]);
+		norm.push_back(vertices[6 * i + 5]);
 
-	glBindVertexArray(0);
-}
-
-void Cube::add_rectangle(std::vector<GLuint> &vec, GLuint const *coords) {
-	for (int i = 0; i < 6; ++i)
-		vec.push_back(coords[i]);
-
-	triangles += 6;
-}
-
-void Cube::add_normal(std::vector<float> &vec, float const *values) {
-	for (int t = 0; t < 2; ++t) {
-		for (int i = 0; i < 3; ++i) {
-			vec.push_back(values[i]);
-		}
+		colors.push_back(color.x);
+		colors.push_back(color.y);
+		colors.push_back(color.z);
 	}
-}
-
-void Cube::initialize() {
-	glGenVertexArrays(1, &vao_);
-	glGenBuffers(1, &vbo_);
-
-	glBindBuffer(GL_ARRAY_BUFFER, vbo_);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-	glBindVertexArray(vao_);
-
-	// position attribute
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
-	// normal attribute
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-	glEnableVertexAttribArray(1);
-
 }

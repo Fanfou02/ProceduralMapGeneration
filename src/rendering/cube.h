@@ -24,31 +24,16 @@ class Cube {
 private :
 	static const float vertices[];
 
-	void add_rectangle(std::vector<GLuint> &vec, GLuint const coords[]);
-	void add_normal(std::vector<float> &vec, float const coords[]);
-
-	int triangles = 0;
-
 public:
 	int8_t x, y, z;
-	/// vertex array object
-	GLuint vao_ = 0;
-	/// vertex buffer object
-	GLuint vbo_ = 0;
-	/// normals buffer object
-	GLuint nbo_ = 0;
-	/// index buffer object
-	GLuint ibo_ = 0;
 
 	vec3 color;
 	vec4 pos_;
 	World_Map *worldMap;
 
 	Cube(int8_t x, int8_t y, int8_t z, vec3 color, World_Map *map);
+	void add_to_chunk(std::vector<float> &vert, std::vector<float> &norm, std::vector<float> &colors);
 
-	void initialize();
-
-	void draw(GLenum mode = GL_TRIANGLES);
 };
 
 
