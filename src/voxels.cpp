@@ -162,8 +162,7 @@ std::vector<Voxel> ReadVox(std::string filename) {
 	return voxels;
 }
 
-static void
-WriteVox(std::string filename, unsigned long X, unsigned long Y, unsigned long Z, std::vector<Voxel> voxels) {
+void WriteVox(std::string filename, unsigned long X, unsigned long Y, unsigned long Z, std::vector<Voxel> voxels) {
 
 	FILE *voxFile = fopen(filename.c_str(), "w");
 

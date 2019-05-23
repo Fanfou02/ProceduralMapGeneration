@@ -12,7 +12,7 @@
 //=============================================================================
 
 int main(int argc, char *argv[]) {
-	/* std::vector<std::array<int,     8>>  action;
+	 std::vector<std::array<int,     8>>  action;
 
 	 std::cout << action.size() << std::endl;
 	 pugi::xml_document xdoc;
@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
 		 return -1;
 	 }
 
-
+	std::string filename;
 	 for (pugi::xml_node sample: xdoc.child("samples").children("sample"))
 	 {
 		 std::string name = sample.attribute("name").as_string();
@@ -38,12 +38,13 @@ int main(int argc, char *argv[]) {
 				 int seed = rand();
 				 //std::cout << "Seed :" << seed << std::endl;
 				 bool finished = model.Run(seed);
-				 std::string filename = "test_" + std::to_string(i) + std::to_string(k) + ".vox";
+				 filename = "test_" + std::to_string(i) + std::to_string(k) + ".vox";
 				 if (finished)
 				 {
 
 					 std::cout << "Finished ! Generated vox file " << filename << std::endl;
 					 model.saveVoxelOutput(filename);
+					 break;
 				 }
 				 else {
 					 //std::cout << "Contradiction occurred ! " << std::endl;
@@ -51,8 +52,8 @@ int main(int argc, char *argv[]) {
 			 }
 		 }
 	 }
- */
-	auto voxels = ReadVox("test_01.vox");
+
+	auto voxels = ReadVox(filename);
 	/*std::vector<Voxel> voxels(5);
 	voxels[1] = Voxel(3, 3, 0, 7);
 	voxels[2] = Voxel(1, 1, 0, 65);
