@@ -12,48 +12,52 @@
 //=============================================================================
 
 int main(int argc, char *argv[]) {
-	 std::vector<std::array<int,     8>>  action;
+	std::vector<std::array<int, 8>> action;
 
-	 std::cout << action.size() << std::endl;
-	 pugi::xml_document xdoc;
-	 if(!xdoc.load_file("../samples.xml")){
-		 std::cout<<"Error during opening of samples.xml";
-		 return -1;
-	 }
+	std::cout << action.size() << std::endl;
+	pugi::xml_document xdoc;
+	if (!xdoc.load_file("../samples.xml")) {
+		std::cout << "Error during opening of samples.xml";
+		return -1;
+	}
 
-	 srand(time(NULL));
+	srand(time(NULL));
 
 	std::string filename;
-	 for (pugi::xml_node sample: xdoc.child("samples").children("sample"))
-	 {
-		 std::string name = sample.attribute("name").as_string();
-		 std::cout <<"Sample: " << name << std::endl;
+
+	if (argc > 1) {
+		filename = argv[1];
+	} else {
+
+		for (pugi::xml_node sample: xdoc.child("samples").children("sample")) {
+			std::string name = sample.attribute("name").as_string();
+			std::cout << "Sample: " << name << std::endl;
 
 
-		 Model model =  Model(name, sample.attribute("X").as_int(), sample.attribute("Y").as_int(), sample.attribute("Z").as_int(),
-								 sample.attribute("periodic").as_bool(), sample.attribute("ground").as_string());
+			Model model = Model(name, sample.attribute("X").as_int(), sample.attribute("Y").as_int(),
+								sample.attribute("Z").as_int(),
+								sample.attribute("periodic").as_bool(), sample.attribute("ground").as_string());
 
 
-		 for (int i = 0; i < sample.attribute("screenshots").as_int(); i++) {
-			 for (int k = 0; k < 10; k++) {
+			for (int i = 0; i < sample.attribute("screenshots").as_int(); i++) {
+				for (int k = 0; k < 10; k++) {
 
-				 int seed = rand();
-				 std::cout << "Seed :" << seed << std::endl;
-				 bool finished = model.Run(seed);
-				 filename = "test_" + std::to_string(i) + std::to_string(k) + ".vox";
-				 if (finished)
-				 {
+					int seed = rand();
+					std::cout << "Seed :" << seed << std::endl;
+					bool finished = model.Run(seed);
+					filename = "test_" + std::to_string(i) + std::to_string(k) + ".vox";
+					if (finished) {
 
-					 std::cout << "Finished ! Generated vox file " << filename << std::endl;
-					 model.saveVoxelOutput(filename);
-					 break;
-				 }
-				 else {
-					 std::cout << "Contradiction occurred ! " << std::endl;
-				 }
-			 }
-		 }
-	 }
+						std::cout << "Finished ! Generated vox file " << filename << std::endl;
+						model.saveVoxelOutput(filename);
+						break;
+					} else {
+						std::cout << "Contradiction occurred ! " << std::endl;
+					}
+				}
+			}
+		}
+	}
 
 	auto voxels = ReadVox(filename);
 	/*std::vector<Voxel> voxels(5);
