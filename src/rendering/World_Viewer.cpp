@@ -49,7 +49,7 @@ void World_Viewer::paint() {
 
 	mat4 view = mat4::look_at(vec3(eye), vec3(center), vec3(up));
 	mat4 projection = mat4::perspective(fovy_, (float) width_ / (float) height_, near_, far_);
-	mat4 m_matrix = mat4::translate(vec4(0, 10, 0, 0));
+	mat4 m_matrix = mat4::translate(vec4(0, 0, 0, 0));
 	mat4 modelview_matrix = view * m_matrix;
 	mat4 modelviewprojection_matrix = projection * modelview_matrix;
 

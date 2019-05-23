@@ -9,6 +9,8 @@ World_Map::World_Map(std::vector<Voxel> voxels) {
 
 
 	for (auto voxel : voxels) {
+		if (voxel.z < 17) continue;
+
 		min_x = std::min(min_x, (int) voxel.x);
 		min_y = std::min(min_y, (int) voxel.y);
 		min_z = std::min(min_z, (int) voxel.z);
@@ -23,6 +25,7 @@ World_Map::World_Map(std::vector<Voxel> voxels) {
 	_cubes_positions = std::vector<std::vector<std::vector<bool>>>(max_x - min_x + 1, std::vector<std::vector<bool>>(max_y - min_y + 1, std::vector<bool>(max_z - min_z + 1)));
 
 	for (auto voxel : voxels) {
+		if (voxel.z < 17) continue;
 		_cubes_positions[voxel.x - min_x][voxel.y - min_y][voxel.z - min_z] = true;
 	}
 
