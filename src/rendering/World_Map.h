@@ -18,14 +18,10 @@ public:
 
 	std::vector<Cube*> _cubes;
 
-	bool has_block(int x, int y, int z);
-
 	vec4 start_position();
 	void draw();
 
 private:
-	std::vector<std::vector<std::vector<bool>>> _cubes_positions;
-
 	int min_x = (1 << 24), min_y = (1 << 24), min_z = (1 << 24), max_x = (0), max_y = (0), max_z = (0);
 
 	int triangles = 0;
