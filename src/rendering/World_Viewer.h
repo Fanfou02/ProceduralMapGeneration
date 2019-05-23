@@ -36,6 +36,7 @@ private:
 	World_Map *worldMap;
 	vec4 position = vec4(0, 0, 0, 1.0);
 	Shader _shader;
+	Shader _depth_shader;
 
 	/// current viewport dimension
 	int  width_, height_;
@@ -45,7 +46,8 @@ private:
 	/// rotation in y direction around the planet/sun from the original point
 	float yaw = 45;
 
-
+	mat4 gen_view(vec3 const& center, float const& yaw, float const& pitch_);
+	mat4 gen_projection(float const& width, float const& height);
 
 	const unsigned int SHADOW_WIDTH = 1024, SHADOW_HEIGHT = 1024;
 

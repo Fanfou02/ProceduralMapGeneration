@@ -23,6 +23,7 @@ void World_Viewer::initialize() {
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	_shader.load(SHADER_PATH   "/cube.vert", SHADER_PATH   "/cube.frag");
+	_depth_shader.load(SHADER_PATH   "/depth.vert", SHADER_PATH   "/depth.frag");
 
 	// Setup shadow map // https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping
 	glGenFramebuffers(1, &depthMapFBO);
@@ -52,60 +53,63 @@ void World_Viewer::resize(int width, int height) {
 
 
 void World_Viewer::gen_shadows() {
-	// https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping
 
-	vec4 center = vec4(300 * vec3(0.4f, 1.0f, 0.6f), 1.0);
+}
+
+mat4 World_Viewer::gen_view(vec3 const& center, float const& yaw, float const& pitch) {
 	vec4 eye = vec4(0, 0, 1, 1.0);
 	vec4 up = vec4(0, 1, 0, 0);
 
-	float yaw = 40, pitch_ = -65;
+	eye = mat4::translate(center) * mat4::rotate_y(yaw) * mat4::rotate_x(pitch) * eye;
+	up = mat4::rotate_y(yaw) * mat4::rotate_x(pitch) * up;
 
-	eye = mat4::translate(center) * mat4::rotate_y(yaw) * mat4::rotate_x(pitch_) * eye;
-	up = mat4::rotate_y(yaw) * mat4::rotate_x(pitch_) * up;
+	return mat4::look_at(vec3(eye), vec3(center), vec3(up));
+}
 
-
+mat4 World_Viewer::gen_projection(float const &width, float const &height) {
 	auto fovy_ = 45;
 	auto near_ = 0.1f;
 	auto far_  = 20;
 
-	mat4 view = mat4::look_at(vec3(eye), vec3(center), vec3(up));
-	mat4 projection = mat4::perspective(fovy_, (float) SHADOW_WIDTH / (float) SHADOW_HEIGHT, near_, far_);
-	mat4 lightSpaceMatrix = projection * view;
-
-	glViewport(0, 0, SHADOW_WIDTH, SHADOW_HEIGHT);
-	glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
-	glClear(GL_DEPTH_BUFFER_BIT);
-	// ConfigureShaderAndMatrices();
-	// RenderScene();
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	return mat4::perspective(fovy_, width / height, near_, far_);
 }
 
 
 void World_Viewer::paint() {
-	this->gen_shadows();
+	vec3 light_direction = vec3(0.4f, 1.0f, 0.6f);
 
+	// Generate shadows
+	glViewport(0, 0, SHADOW_WIDTH, SHADOW_HEIGHT);
+	glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
+	glClear(GL_DEPTH_BUFFER_BIT);
+
+	vec4 lightCenter = vec4(300 * light_direction, 1.0);
+	mat4 lightView = gen_view(lightCenter, 40, -65);
+	mat4 lightProjection = gen_projection(SHADOW_WIDTH, SHADOW_HEIGHT);
+	mat4 lightSpaceMatrix = lightProjection * lightView;
+
+	_depth_shader.use();
+	_depth_shader.set_uniform("lightSpaceMatrix", lightSpaceMatrix);
+
+	worldMap->draw(); // Draw the shadows
+
+
+	// Generate image
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glViewport(0, 0, width_, height_);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	vec4 center = position;
-	vec4 eye = vec4(0, 0, 1, 1.0);
-	vec4 up = vec4(0, 1, 0, 0);
 
-	eye = mat4::translate(center) * mat4::rotate_y(yaw) * mat4::rotate_x(pitch_) * eye;
-	up = mat4::rotate_y(yaw) * mat4::rotate_x(pitch_) * up;
-
-	auto fovy_ = 45;
-	auto near_ = 0.1f;
-	auto far_  = 20;
-
-	mat4 view = mat4::look_at(vec3(eye), vec3(center), vec3(up));
-	mat4 projection = mat4::perspective(fovy_, (float) width_ / (float) height_, near_, far_);
+	mat4 view = gen_view(center, yaw, pitch_);
+	mat4 projection = gen_projection(width_, height_);
 	mat4 viewprojection_matrix = projection * view;
 
 	_shader.use();
-	_shader.set_uniform("light_direction", vec3(-0.4f, -1.0f, -0.6f));
+	_shader.set_uniform("light_direction", light_direction);
 	_shader.set_uniform("view_matrix", view);
 	_shader.set_uniform("viewprojection_matrix", viewprojection_matrix);
+	_shader.set_uniform("lightSpaceMatrix", lightSpaceMatrix);
 
 	glBindTexture(GL_TEXTURE_2D, depthMap);
 
