@@ -91,7 +91,9 @@ void World_Viewer::paint() {
 	_depth_shader.use();
 	_depth_shader.set_uniform("lightSpaceMatrix", lightSpaceMatrix);
 
+	glCullFace(GL_FRONT);
 	worldMap->draw(); // Draw the shadows
+	glCullFace(GL_BACK);
 
 
 	// Generate image
