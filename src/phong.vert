@@ -30,8 +30,10 @@ void main()
 {
     vec4 vertices = (modelview_matrix * v_position);
     v2f_texcoord = v_texcoord;
+
     v2f_normal = normalize(normal_matrix * v_normal);
     v2f_light = normalize(light_position.xyz - vertices.xyz);
     v2f_view = normalize(vertices.xyz - v2f_light);
+
     gl_Position = modelview_projection_matrix * v_position;
 }

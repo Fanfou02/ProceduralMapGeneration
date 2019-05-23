@@ -22,10 +22,7 @@ enum Faces {
 
 class Cube {
 private :
-	static const float vertices[24];
-
-	static const GLuint faces[6][6];
-	static const float normals[6][3];
+	static const float vertices[];
 
 	void add_rectangle(std::vector<GLuint> &vec, GLuint const coords[]);
 	void add_normal(std::vector<float> &vec, float const coords[]);
@@ -50,9 +47,10 @@ public:
 	Cube(int8_t x, int8_t y, int8_t z, vec3 color, World_Map *map);
 
 	void initialize();
-	void add_to_chunk(int index, std::vector<float> &vert, std::vector<GLuint> &indices, std::vector<float> &norm);
+	void add_to_chunk(std::vector<float> &vert, std::vector<float> &norm);
 
 	void draw(GLenum mode = GL_TRIANGLES);
+
 };
 
 

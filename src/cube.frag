@@ -34,7 +34,7 @@ void main() {
 
     vec3 color = vec3(0.0,0.0,0.0);
     vec3 material = u_color;
-
+/*
     // compute the ambient lightning
     vec3 ambient = 0.2 * sunlight * material;
     color += ambient;
@@ -51,5 +51,6 @@ void main() {
         color += sunlight * material * pow(t, shininess);
 
     // add required alpha value
-    f_color = vec4(color, 1.0);
+    f_color = vec4(color, 1.0);*/
+    f_color = vec4(u_color, 1.0);
 }

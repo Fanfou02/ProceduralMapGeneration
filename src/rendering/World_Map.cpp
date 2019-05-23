@@ -13,7 +13,7 @@ World_Map::World_Map(std::vector<Voxel> voxels) {
 			std::cout << (int) voxel.z << " " << (int) voxel.color << " " << voxel.get_color() << std::endl;
 		}
 
-		if (voxel.z != 19)
+		if (voxel.z < 19)
 			continue; // ignore the base
 
 		min_x = std::min(min_x, (int) voxel.x);
@@ -31,7 +31,7 @@ World_Map::World_Map(std::vector<Voxel> voxels) {
 
 	for (auto voxel : voxels) {
 
-		if (voxel.z != 19)
+		if (voxel.z < 19)
 			continue; // ignore the base
 
 		_cubes_positions[voxel.x - min_x][voxel.y - min_y][voxel.z - min_z] = true;
@@ -78,19 +78,17 @@ void World_Map::draw() {
 	if (triangles == 0) return;
 
 	glBindVertexArray(vao_);
-	glDrawElements(GL_TRIANGLES, triangles, GL_UNSIGNED_INT, 0);
+	glDrawArrays(GL_TRIANGLES, 0, triangles);
 
 	glBindVertexArray(0);
 }
 
 void World_Map::initialize() {
-	std::vector<GLuint> indices;
 	std::vector<float> norm;
 	std::vector<float> vertices;
 
-	int i = 0;
 	for (Cube* c : _cubes) {
-		c->add_to_chunk(i ++, vertices, indices, norm);
+		c->add_to_chunk(vertices, norm);
 		triangles += 36;
 	}
 
@@ -111,11 +109,6 @@ void World_Map::initialize() {
 	glBufferData(GL_ARRAY_BUFFER, norm.size()*sizeof(float), &norm[0], GL_STATIC_DRAW);
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 	glEnableVertexAttribArray(1);
-
-	// triangle indices
-	glGenBuffers(1, &ibo_);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo_);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLuint), indices.data(), GL_STATIC_DRAW);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
