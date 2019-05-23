@@ -76,28 +76,26 @@ World_Viewer::~World_Viewer() {
 }
 
 void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
-	vec4 rotating_vector = mat4::rotate_y(yaw) * vec4(0, 0, 1, 0);
-
-	std::cout << "Unit " << rotating_vector << std::endl;
+	mat4 rot = mat4::rotate_y(yaw);
 
 	if (action == GLFW_PRESS || action == GLFW_REPEAT)
 	{
 		switch (key)
 		{
 			case GLFW_KEY_W:
-				position -= rotating_vector;
+				position -= rot * vec4(0, 0, 1, 0);
 				break;
 
 			case GLFW_KEY_S:
-				position += rotating_vector;
+				position += rot * vec4(0, 0, 1, 0);
 				break;
 
 			case GLFW_KEY_A:
-				position -=  mat4::rotate_y(yaw) * vec4(1, 0, 0, 0);
+				position -=  rot * vec4(1, 0, 0, 0);
 				break;
 
 			case GLFW_KEY_D:
-				position +=  mat4::rotate_y(yaw) * vec4(1, 0, 0, 0);
+				position +=  rot * vec4(1, 0, 0, 0);
 				break;
 
 			case GLFW_KEY_SPACE:
@@ -111,19 +109,19 @@ void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
 				break;
 
 			case GLFW_KEY_LEFT:
-				yaw += 10.0;
+				yaw += 5.0;
 				break;
 
 			case GLFW_KEY_RIGHT:
-				yaw -= 10.0;
+				yaw -= 5.0;
 				break;
 
 			case GLFW_KEY_DOWN:
-				pitch_ -= 10.0;
+				if (pitch_ > -85) pitch_ -= 5.0;
 				break;
 
 			case GLFW_KEY_UP:
-				pitch_ += 10.0;
+				if (pitch_ < 85) pitch_ += 5.0;
 				break;
 
 			case GLFW_KEY_ESCAPE:
@@ -131,6 +129,4 @@ void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
 				break;
 		}
 	}
-
-	std::cout << position << " pitch " << pitch_ << " yaw " << yaw << std::endl;
 }
