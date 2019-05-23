@@ -12,8 +12,8 @@
 in vec3 v2f_normal;
 in vec3 v2f_light;
 in vec3 v2f_view;
+in vec3 v2f_color;
 
-uniform vec3 u_color;
 out vec4 f_color;
 
 const float shininess = 8.0;
@@ -33,8 +33,8 @@ void main() {
 
 
     vec3 color = vec3(0.0,0.0,0.0);
-    vec3 material = u_color;
-/*
+    vec3 material = v2f_color;
+
     // compute the ambient lightning
     vec3 ambient = 0.2 * sunlight * material;
     color += ambient;
@@ -51,6 +51,5 @@ void main() {
         color += sunlight * material * pow(t, shininess);
 
     // add required alpha value
-    f_color = vec4(color, 1.0);*/
-    f_color = vec4(u_color, 1.0);
+    f_color = vec4(color, 1.0);
 }

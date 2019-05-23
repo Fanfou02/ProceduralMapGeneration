@@ -9,13 +9,6 @@ World_Map::World_Map(std::vector<Voxel> voxels) {
 
 
 	for (auto voxel : voxels) {
-		if (voxel.x == 80 && voxel.y == 80) {
-			std::cout << (int) voxel.z << " " << (int) voxel.color << " " << voxel.get_color() << std::endl;
-		}
-
-		if (voxel.z < 19)
-			continue; // ignore the base
-
 		min_x = std::min(min_x, (int) voxel.x);
 		min_y = std::min(min_y, (int) voxel.y);
 		min_z = std::min(min_z, (int) voxel.z);
@@ -30,10 +23,6 @@ World_Map::World_Map(std::vector<Voxel> voxels) {
 	_cubes_positions = std::vector<std::vector<std::vector<bool>>>(max_x - min_x + 1, std::vector<std::vector<bool>>(max_y - min_y + 1, std::vector<bool>(max_z - min_z + 1)));
 
 	for (auto voxel : voxels) {
-
-		if (voxel.z < 19)
-			continue; // ignore the base
-
 		_cubes_positions[voxel.x - min_x][voxel.y - min_y][voxel.z - min_z] = true;
 	}
 
@@ -86,9 +75,10 @@ void World_Map::draw() {
 void World_Map::initialize() {
 	std::vector<float> norm;
 	std::vector<float> vertices;
+	std::vector<float> colors;
 
 	for (Cube* c : _cubes) {
-		c->add_to_chunk(vertices, norm);
+		c->add_to_chunk(vertices, norm, colors);
 		triangles += 36;
 	}
 
@@ -109,6 +99,13 @@ void World_Map::initialize() {
 	glBufferData(GL_ARRAY_BUFFER, norm.size()*sizeof(float), &norm[0], GL_STATIC_DRAW);
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 	glEnableVertexAttribArray(1);
+
+	// Colors buffer -> attribute 2
+	glGenBuffers(1, &cbo_);
+	glBindBuffer(GL_ARRAY_BUFFER, cbo_);
+	glBufferData(GL_ARRAY_BUFFER, colors.size()*sizeof(float), &colors[0], GL_STATIC_DRAW);
+	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
+	glEnableVertexAttribArray(2);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }

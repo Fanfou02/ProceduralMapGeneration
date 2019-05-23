@@ -36,6 +36,8 @@ private:
 	GLuint vbo_ = 0;
 	/// normals buffer object
 	GLuint nbo_ = 0;
+	/// colors buffer object
+	GLuint cbo_ = 0;
 	/// index buffer object
 	GLuint ibo_ = 0;
 

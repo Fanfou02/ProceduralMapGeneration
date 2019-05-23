@@ -59,7 +59,7 @@ const float Cube::vertices[] = {
 		-0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f
 };
 
-void Cube::add_to_chunk(std::vector<float> &vert, std::vector<float> &norm) {
+void Cube::add_to_chunk(std::vector<float> &vert, std::vector<float> &norm, std::vector<float> &colors) {
 	for (int i = 0; i < 36; ++i) {
 		vert.push_back(vertices[6 * i] + x);
 		vert.push_back(vertices[6 * i + 1] + y);
@@ -68,6 +68,10 @@ void Cube::add_to_chunk(std::vector<float> &vert, std::vector<float> &norm) {
 		norm.push_back(vertices[6 * i + 3]);
 		norm.push_back(vertices[6 * i + 4]);
 		norm.push_back(vertices[6 * i + 5]);
+
+		colors.push_back(color.x);
+		colors.push_back(color.y);
+		colors.push_back(color.z);
 	}
 }
 
