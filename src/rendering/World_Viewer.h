@@ -20,6 +20,7 @@ class World_Viewer : public GLFW_window {
 	void resize(int width, int height) override;
 
 	void paint() override;
+	void gen_shadows();
 
 protected:
 	void keyboard(int key, int scancode, int action, int mods) override;
@@ -43,6 +44,13 @@ private:
 	float pitch_ = -45;
 	/// rotation in y direction around the planet/sun from the original point
 	float yaw = 45;
+
+
+
+	const unsigned int SHADOW_WIDTH = 1024, SHADOW_HEIGHT = 1024;
+
+	unsigned int depthMapFBO;
+	unsigned int depthMap;
 };
 
 

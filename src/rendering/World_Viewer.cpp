@@ -23,6 +23,23 @@ void World_Viewer::initialize() {
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	_shader.load(SHADER_PATH   "/cube.vert", SHADER_PATH   "/cube.frag");
+
+	// Setup shadow map // https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping
+	glGenFramebuffers(1, &depthMapFBO);
+	glGenTextures(1, &depthMap);
+	glBindTexture(GL_TEXTURE_2D, depthMap);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT,
+				 SHADOW_WIDTH, SHADOW_HEIGHT, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+	glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depthMap, 0);
+	glDrawBuffer(GL_NONE);
+	glReadBuffer(GL_NONE);
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
 void World_Viewer::resize(int width, int height) {
@@ -33,7 +50,41 @@ void World_Viewer::resize(int width, int height) {
 	std::cout << "Resize " << width << " " << height << std::endl;
 }
 
+
+void World_Viewer::gen_shadows() {
+	// https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping
+
+	vec4 center = vec4(300 * vec3(0.4f, 1.0f, 0.6f), 1.0);
+	vec4 eye = vec4(0, 0, 1, 1.0);
+	vec4 up = vec4(0, 1, 0, 0);
+
+	float yaw = 40, pitch_ = -65;
+
+	eye = mat4::translate(center) * mat4::rotate_y(yaw) * mat4::rotate_x(pitch_) * eye;
+	up = mat4::rotate_y(yaw) * mat4::rotate_x(pitch_) * up;
+
+
+	auto fovy_ = 45;
+	auto near_ = 0.1f;
+	auto far_  = 20;
+
+	mat4 view = mat4::look_at(vec3(eye), vec3(center), vec3(up));
+	mat4 projection = mat4::perspective(fovy_, (float) SHADOW_WIDTH / (float) SHADOW_HEIGHT, near_, far_);
+	mat4 lightSpaceMatrix = projection * view;
+
+	glViewport(0, 0, SHADOW_WIDTH, SHADOW_HEIGHT);
+	glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
+	glClear(GL_DEPTH_BUFFER_BIT);
+	// ConfigureShaderAndMatrices();
+	// RenderScene();
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+}
+
+
 void World_Viewer::paint() {
+	this->gen_shadows();
+
+	glViewport(0, 0, width_, height_);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	vec4 center = position;
@@ -49,17 +100,15 @@ void World_Viewer::paint() {
 
 	mat4 view = mat4::look_at(vec3(eye), vec3(center), vec3(up));
 	mat4 projection = mat4::perspective(fovy_, (float) width_ / (float) height_, near_, far_);
-	mat4 m_matrix = mat4::translate(vec4(0, 0, 0, 0));
-	mat4 modelview_matrix = view * m_matrix;
-	mat4 modelviewprojection_matrix = projection * modelview_matrix;
-
-	mat3 normal_matrix = mat3(transpose(inverse(modelview_matrix)));
+	mat4 viewprojection_matrix = projection * view;
 
 	_shader.use();
 	_shader.set_uniform("light_direction", vec3(-0.4f, -1.0f, -0.6f));
-	_shader.set_uniform("modelview_matrix", modelview_matrix);
-	_shader.set_uniform("modelviewprojection_matrix", modelviewprojection_matrix);
-	_shader.set_uniform("normal_matrix", normal_matrix);
+	_shader.set_uniform("view_matrix", view);
+	_shader.set_uniform("viewprojection_matrix", viewprojection_matrix);
+
+	glBindTexture(GL_TEXTURE_2D, depthMap);
+
 	worldMap->draw();
 
 
