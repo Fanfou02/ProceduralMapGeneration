@@ -27,6 +27,7 @@ int main(int argc, char *argv[]) {
 
 	if (argc > 1) {
 		filename = argv[1];
+		std::cout << "loading immediately " << filename << std::endl;
 	} else {
 
 		for (pugi::xml_node sample: xdoc.child("samples").children("sample")) {
@@ -71,7 +72,7 @@ int main(int argc, char *argv[]) {
 	voxels.emplace_back(0, 1, 0, 12);*/
 	std::cout << voxels.size() << " voxels loaded" << std::endl;
 
-	World_Viewer window("Solar Sytem", 640, 480, voxels);
+	World_Viewer window("Wave Function Collapse", 640, 480, voxels);
 
 	std::cout << ColorToVec(0xFFFFFFFF) << std::endl;
 	std::cout << ColorToVec(0x00000000) << std::endl;
