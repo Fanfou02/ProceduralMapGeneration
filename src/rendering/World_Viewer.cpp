@@ -49,20 +49,17 @@ void World_Viewer::paint() {
 
 	mat4 view = mat4::look_at(vec3(eye), vec3(center), vec3(up));
 	mat4 projection = mat4::perspective(fovy_, (float) width_ / (float) height_, near_, far_);
+	mat4 m_matrix = mat4::translate(vec4(0, 10, 0, 0));
+	mat4 modelview_matrix = view * m_matrix;
+	mat4 modelviewprojection_matrix = projection * modelview_matrix;
 
-	// the matrices we need: model
-	mat4 m_matrix;
-
-	// the sun is centered at the origin and -- for lighting -- considered to be a point, so that is the light position in world coordinates
-	vec4 light = view * vec4(300, 300, 300, 1.0); //in world coordinates
+	mat3 normal_matrix = mat3(transpose(inverse(modelview_matrix)));
 
 	_shader.use();
-	_shader.set_uniform("view_matrix", view);
-	_shader.set_uniform("projection_matrix", projection);
 	_shader.set_uniform("light_direction", vec3(-0.4f, -1.0f, -0.6f));
-
-	m_matrix = mat4::translate(vec4(0, 10, 0, 0));
-	_shader.set_uniform("model_matrix", m_matrix);
+	_shader.set_uniform("modelview_matrix", modelview_matrix);
+	_shader.set_uniform("modelviewprojection_matrix", modelviewprojection_matrix);
+	_shader.set_uniform("normal_matrix", normal_matrix);
 	worldMap->draw();
 
 
