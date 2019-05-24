@@ -3,7 +3,8 @@
 //
 
 #include "World_Map.h"
-#define CUBE_EVERY 0.05
+#define CUBE_EVERY 1
+#define SPAWN_GROUPED true
 #define STEP_BY_STEP_ENABLE true
 #define STEP_BY_STEP_FIXED_LAYER 19
 
@@ -92,9 +93,31 @@ void World_Map::timer(float seconds) {
 
 	while (!_not_spawned_cubes.empty() && next_block <= 0) {
 		auto cube = _not_spawned_cubes.front();
-		_moving_cubes.push_back(cube);
-		rendered_triangles += 36;
-		_not_spawned_cubes.pop();
+
+		if (SPAWN_GROUPED) {
+			int min_x = (cube->x / 10) * 10;
+			int min_y = (cube->target_y / 10) * 10;
+			int min_z = (cube->z / 10) * 10;
+
+			int max_x = min_x + 10;
+			int max_y = min_y + 10;
+			int max_z = min_z + 10;
+
+			while (!_not_spawned_cubes.empty() && (cube = _not_spawned_cubes.front()) && (
+					cube->x >= min_x && cube->x < max_x
+					&& cube->target_y >= min_y && cube->target_y < max_y
+					&& cube->z >= min_z && cube->z < max_z)) {
+				_moving_cubes.push_back(cube);
+				_not_spawned_cubes.pop();
+
+				rendered_triangles += 36;
+			}
+		} else {
+			_moving_cubes.push_back(cube);
+			_not_spawned_cubes.pop();
+
+			rendered_triangles += 36;
+		}
 
 		cube->timer(-next_block);
 

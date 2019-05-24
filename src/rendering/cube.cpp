@@ -12,7 +12,7 @@ Cube::Cube(int8_t x, int8_t y, int8_t z, vec3 color, World_Map *map) {
 	this->target_y = y;
 
 	this->x = x;
-	this->y = SKY_LAYER;
+	this->y = SKY_LAYER + y % 10;
 	this->z = z;
 
 	this->color = color;
