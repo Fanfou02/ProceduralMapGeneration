@@ -6,12 +6,13 @@
 #include "cube.h"
 #include "World_Map.h"
 #define GRAVITY -9.81
+#define SKY_LAYER 150
 
 Cube::Cube(int8_t x, int8_t y, int8_t z, vec3 color, World_Map *map) {
 	this->target_y = y;
 
 	this->x = x;
-	this->y = y + 100;
+	this->y = SKY_LAYER;
 	this->z = z;
 
 	this->color = color;
