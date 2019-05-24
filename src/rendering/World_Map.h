@@ -17,8 +17,10 @@ public:
 
 	~World_Map();
 
-	std::queue<Cube*> _cubes;
-	std::vector<Cube*> _spawned_cubes;
+	std::queue<Cube*> _not_spawned_cubes;
+	std::vector<Cube*> _moving_cubes;
+	std::vector<Cube*> _floor;
+	std::vector<Cube*> _rest;
 
 	vec4 start_position();
 	void draw();
@@ -29,11 +31,10 @@ public:
 private:
 	int min_x = (1 << 24), min_y = (1 << 24), min_z = (1 << 24), max_x = (0), max_y = (0), max_z = (0);
 
-	int triangles = 0;
-	int offset = 0;
+	int rendered_triangles = 0;
+	size_t offset = 0;
 
 	float next_block = 1;
-	void add_cube(Cube* cube, bool reset_position = false);
 
 	/// vertex array object
 	GLuint vao_ = 0;

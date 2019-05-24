@@ -8,9 +8,10 @@
 #define STEP_BY_STEP_FIXED_LAYER 19
 
 World_Map::World_Map(std::vector<Voxel> voxels) {
-	_cubes = std::queue<Cube*>();
-	_spawned_cubes = std::vector<Cube*>();
-
+	_not_spawned_cubes = std::queue<Cube*>();
+	_moving_cubes = std::vector<Cube*>();
+	_floor = std::vector<Cube*>();
+	_rest = std::vector<Cube*>();
 
 	for (auto voxel : voxels) {
 		if (voxel.z < 17) continue;
@@ -25,15 +26,16 @@ World_Map::World_Map(std::vector<Voxel> voxels) {
 		// Reverse y and z
 		Cube* cube = new Cube(voxel.x, voxel.z, voxel.y, voxel.get_color(), this);
 
-		if (STEP_BY_STEP_ENABLE && cube->target_y > STEP_BY_STEP_FIXED_LAYER)
-			_cubes.push(cube);
-		else
-			_spawned_cubes.push_back(cube);
+		if (STEP_BY_STEP_ENABLE && cube->target_y > STEP_BY_STEP_FIXED_LAYER) {
+			_rest.push_back(cube);
+		} else {
+			_floor.push_back(cube);
+		}
 	}
 
 	std::cout << "Lower " << min_x << " " << min_y << " " << min_z << std::endl;
 	std::cout << "Upper " << max_x << " " << max_y << " " << max_z << std::endl;
-	std::cout << "Size " << _cubes.size() << std::endl;
+	std::cout << "Size " << _not_spawned_cubes.size() << std::endl;
 }
 
 vec4 World_Map::start_position() {
@@ -41,19 +43,22 @@ vec4 World_Map::start_position() {
 }
 
 World_Map::~World_Map() {
-	while (_cubes.front() != NULL) {
-		delete _cubes.front();
-		_cubes.pop();
+	while (!_not_spawned_cubes.empty()) {
+		delete _not_spawned_cubes.front();
+		_not_spawned_cubes.pop();
+	}
+
+	for (auto cube : _moving_cubes) {
+		delete cube;
 	}
 }
 
 void World_Map::draw() {
 	if (vao_ == 0) initialize();
-	if (triangles == 0) return;
+	if (rendered_triangles == 0) return;
 
 	glBindVertexArray(vao_);
-	glDrawArrays(GL_TRIANGLES, 0, triangles);
-
+	glDrawArrays(GL_TRIANGLES, 0, rendered_triangles);
 	glBindVertexArray(0);
 }
 
@@ -62,16 +67,17 @@ void World_Map::update_position(Cube* cube) {
 	cube->add_position_to_chunk(vertices);
 
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_);
-	glBufferSubData(GL_ARRAY_BUFFER, cube->offset * 3 * sizeof(float), vertices.size() * sizeof(float), vertices.data());
+	glBufferSubData(GL_ARRAY_BUFFER, cube->offset, vertices.size() * sizeof(float), vertices.data());
 }
 
 void World_Map::timer(float seconds) {
-	next_block -= seconds;
+	if (vao_ == 0) return;
 
+	next_block -= seconds;
 	std::vector<int> to_erase;
 
 	int i = 0;
-	for (Cube* cube : _spawned_cubes) {
+	for (Cube* cube : _moving_cubes) {
 		bool keep = cube->timer(seconds);
 		if (!keep) {
 			to_erase.push_back(i);
@@ -81,55 +87,55 @@ void World_Map::timer(float seconds) {
 	}
 
 	for (i = 0; i < to_erase.size(); ++i) {
-		_spawned_cubes.erase(_spawned_cubes.begin() + to_erase[i] - i);
+		_moving_cubes.erase(_moving_cubes.begin() + to_erase[i] - i);
 	}
 
-	while (next_block <= 0) {
-		auto cube = _cubes.front();
-		add_cube(cube);
-		_cubes.pop();
+	while (!_not_spawned_cubes.empty() && next_block <= 0) {
+		auto cube = _not_spawned_cubes.front();
+		_moving_cubes.push_back(cube);
+		rendered_triangles += 36;
+		_not_spawned_cubes.pop();
 
 		cube->timer(-next_block);
 
 		next_block += CUBE_EVERY;
 	}
 
+
 }
 
-void World_Map::add_cube(Cube* cube, bool reset_position) {
-	if (cube->offset != -1) {
-		update_position(cube);
-		return;
-	}
-
+void World_Map::initialize() {
 	std::vector<float> norm;
 	std::vector<float> vertices;
 	std::vector<float> colors;
 
-	if (reset_position) {
+	const size_t offset_step = 36 * 3 * sizeof(float);
+
+	// Add the floor first, at the begining of the array
+	for (auto cube : _floor) {
 		cube->y = cube->target_y;
-	} else {
-		_spawned_cubes.push_back(cube);
+		cube->offset = offset;
+		offset += offset_step;
+
+		cube->add_to_chunk(vertices, norm, colors);
+
+		// Render them from the start
+		rendered_triangles += 36;
 	}
 
-	cube->add_to_chunk(vertices, norm, colors);
-	cube->offset = triangles;
-	triangles += 36;
+	// Add the other cubes in the array, but don't increase rendered_triangles (effectively not rendering them)
+	for (auto cube : _rest) {
+		cube->offset = offset;
+		offset += offset_step;
 
-	glBindBuffer(GL_ARRAY_BUFFER, vbo_);
-	glBufferSubData(GL_ARRAY_BUFFER, cube->offset* 3 * sizeof(float), vertices.size() * sizeof(float), vertices.data());
+		cube->add_to_chunk(vertices, norm, colors);
 
+		// Add them to the not spawned queue
+		_not_spawned_cubes.push(cube);
+	}
 
-	glBindBuffer(GL_ARRAY_BUFFER, nbo_);
-	glBufferSubData(GL_ARRAY_BUFFER, cube->offset* 3 * sizeof(float), norm.size() * sizeof(float), norm.data());
-
-
-	glBindBuffer(GL_ARRAY_BUFFER, cbo_);
-	glBufferSubData(GL_ARRAY_BUFFER, cube->offset* 3 * sizeof(float), colors.size() * sizeof(float), colors.data());
-}
-
-void World_Map::initialize() {
-	size_t size = _cubes.size() * 36 * 3 * sizeof(float);
+	_floor.clear();
+	_rest.clear();
 
 	glGenVertexArrays(1, &vao_);
 	glBindVertexArray(vao_);
@@ -138,29 +144,23 @@ void World_Map::initialize() {
 	// vertex positions -> attribute 0
 	glGenBuffers(1, &vbo_);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_);
-	glBufferData(GL_ARRAY_BUFFER, size, NULL, GL_STREAM_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STREAM_DRAW);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 	glEnableVertexAttribArray(0);
 
 	// Normal vectors -> attribute 1
 	glGenBuffers(1, &nbo_);
 	glBindBuffer(GL_ARRAY_BUFFER, nbo_);
-	glBufferData(GL_ARRAY_BUFFER, size, NULL, GL_DYNAMIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, norm.size() * sizeof(float), norm.data(), GL_STATIC_DRAW);
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 	glEnableVertexAttribArray(1);
 
 	// Colors buffer -> attribute 2
 	glGenBuffers(1, &cbo_);
 	glBindBuffer(GL_ARRAY_BUFFER, cbo_);
-	glBufferData(GL_ARRAY_BUFFER, size, NULL, GL_DYNAMIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, colors.size() * sizeof(float), colors.data(), GL_STATIC_DRAW);
 	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 	glEnableVertexAttribArray(2);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-	for (auto cube : _spawned_cubes) {
-		add_cube(cube, true);
-	}
-
-	_spawned_cubes.clear();
 }
