@@ -3,7 +3,9 @@
 //
 
 #include "World_Map.h"
-#define CUBE_EVERY 0.25
+#define CUBE_EVERY 0.05
+#define STEP_BY_STEP_ENABLE true
+#define STEP_BY_STEP_FIXED_LAYER 19
 
 World_Map::World_Map(std::vector<Voxel> voxels) {
 	_cubes = std::queue<Cube*>();
@@ -23,7 +25,7 @@ World_Map::World_Map(std::vector<Voxel> voxels) {
 		// Reverse y and z
 		Cube* cube = new Cube(voxel.x, voxel.z, voxel.y, voxel.get_color(), this);
 
-		if (cube->target_y > 19)
+		if (STEP_BY_STEP_ENABLE && cube->target_y > STEP_BY_STEP_FIXED_LAYER)
 			_cubes.push(cube);
 		else
 			_spawned_cubes.push_back(cube);
