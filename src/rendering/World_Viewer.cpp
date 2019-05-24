@@ -51,11 +51,6 @@ void World_Viewer::resize(int width, int height) {
 	std::cout << "Resize " << width << " " << height << std::endl;
 }
 
-
-void World_Viewer::gen_shadows() {
-
-}
-
 mat4 World_Viewer::gen_view(vec3 const& center, float const& yaw, float const& pitch) {
 	vec4 eye = vec4(0, 0, 1, 1.0);
 	vec4 up = vec4(0, 1, 0, 0);
@@ -77,7 +72,7 @@ mat4 World_Viewer::gen_projection(float const &width, float const &height) {
 
 void World_Viewer::paint() {
 	vec3 light_position = 300 * vec3(0.4f, 1.0f, 0.6f);
-	mat4 m_matrix = mat4::translate(vec4(0, 0, 0, 0));
+	mat4 main_m_matrix = mat4::translate(vec4(0, 0, 0, 0));
 
 	// Generate shadows
 	glViewport(0, 0, SHADOW_WIDTH, SHADOW_HEIGHT);
@@ -91,7 +86,7 @@ void World_Viewer::paint() {
 
 	_depth_shader.use();
 	_depth_shader.set_uniform("lightSpaceMatrix", lightSpaceMatrix);
-	_depth_shader.set_uniform("model_matrix", m_matrix);
+	_depth_shader.set_uniform("model_matrix", main_m_matrix);
 
 	glCullFace(GL_FRONT);
 	worldMap->draw(); // Draw the shadows
@@ -107,15 +102,17 @@ void World_Viewer::paint() {
 
 	mat4 view = gen_view(center, yaw, pitch_);
 	mat4 projection = gen_projection(width_, height_);
-	mat4 modelview_matrix = view * m_matrix;
-	mat4 viewprojection_matrix = projection * modelview_matrix;
 
 	_shader.use();
 	_shader.set_uniform("light_position", light_position);
-	_shader.set_uniform("model_matrix", m_matrix);
+	_shader.set_uniform("lightSpaceMatrix", lightSpaceMatrix);
+
+
+	mat4 modelview_matrix = view * main_m_matrix;
+	mat4 viewprojection_matrix = projection * modelview_matrix;
+	_shader.set_uniform("model_matrix", main_m_matrix);
 	_shader.set_uniform("modelview_matrix", modelview_matrix);
 	_shader.set_uniform("modelviewprojection_matrix", viewprojection_matrix);
-	_shader.set_uniform("lightSpaceMatrix", lightSpaceMatrix);
 
 	glBindTexture(GL_TEXTURE_2D, depthMap);
 
@@ -190,4 +187,10 @@ void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
 
 		std::cout << position.x << " " << position.y << " " << position.z << std::endl;
 	}
+}
+
+void World_Viewer::timer() {
+	GLFW_window::timer();
+
+	worldMap->timer(0.25);
 }

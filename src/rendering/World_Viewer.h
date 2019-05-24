@@ -25,6 +25,8 @@ class World_Viewer : public GLFW_window {
 protected:
 	void keyboard(int key, int scancode, int action, int mods) override;
 
+	void timer() override;
+
 public:
 	World_Viewer(const char *_title, int _width, int _height, std::vector<Voxel> voxels);
 

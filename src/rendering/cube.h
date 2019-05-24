@@ -25,14 +25,22 @@ private :
 	static const float vertices[];
 
 public:
-	int8_t x, y, z;
+	int x, y, z;
+	int target_y;
+
+	GLintptr offset = -1;
 
 	vec3 color;
 	vec4 pos_;
 	World_Map *worldMap;
 
+	float speed = 0;
+
+	bool timer(float seconds);
+
 	Cube(int8_t x, int8_t y, int8_t z, vec3 color, World_Map *map);
 	void add_to_chunk(std::vector<float> &vert, std::vector<float> &norm, std::vector<float> &colors);
+	void add_position_to_chunk(std::vector<float> &vert);
 
 };
 
