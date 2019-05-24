@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
 
 
 			for (int i = 0; i < sample.attribute("screenshots").as_int(); i++) {
-				for (int k = 0; k < 10; k++) {
+				for (int k = 0; k < 1000; k++) {
 
 					int seed = rand();
 					std::cout << "Seed :" << seed << std::endl;
