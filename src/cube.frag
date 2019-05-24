@@ -56,7 +56,7 @@ void main() {
     vec3 material = v2f_color;
 
     // compute the ambient lightning
-    vec3 ambient = 0.2 * sunlight * material;
+    vec3 ambient = 0.3 * sunlight * material;
     color += ambient;
 
     // compute the diffuse lightning
