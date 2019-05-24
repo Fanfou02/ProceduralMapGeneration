@@ -426,6 +426,7 @@ bool Run(int seed)
                             wave.set(0, y, z, t, false);
                         }
 
+
                     changes.set(FMX - 1, y, z, true);
                     changes.set(0, y, z, true);
 

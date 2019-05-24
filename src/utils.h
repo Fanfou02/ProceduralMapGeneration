@@ -67,8 +67,6 @@ void ReadChunk( FILE *fp, chunk_t &chunk ) {
     );
 }
 
-
-
 // magic number
 int MV_ID( int a, int b, int c, int d ) {
     return ( a ) | ( b << 8 ) | ( c << 16 ) | ( d << 24 );
