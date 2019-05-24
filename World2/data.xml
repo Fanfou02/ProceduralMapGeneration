@@ -15,6 +15,11 @@
 		<tile name="upBridge" symmetry="I" weight="0.5"/> 
 		<tile name="hat" symmetry="X" weight="1"/>
 		<tile name="upBridgeT" symmetry="T" weight="1"/> 
+
+		<tile name="upBridgeDown" symmetry="T" weight="1"/> 
+		<tile name="upBridgeUp" symmetry="T" weight="1"/> 
+		<tile name="floorUp" symmetry="T" weight="1"/> 
+
 	</tiles>
 	<neighbors>
 		<horizontal left="ground" right="ground"/>
@@ -23,12 +28,28 @@
 		<horizontal left="grass" right="water 1"/>
 		<horizontal left="water" right="water"/>
 
+
 		<horizontal left="line" right="line"/>
 		<horizontal left="line" right="turn 1"/>
 		<horizontal left="turn 2" right="grass"/>
 		<horizontal left="line 1" right="grass"/>
 		<horizontal left="grass" right="line 1"/>
 		
+		<horizontal left="floorUp" right="blockTurn 1"/> 
+		<horizontal left="block2door" right="floorUp"/> 
+		<horizontal left="block3door" right="floorUp"/> 
+		<horizontal left="floorUp" right="block2door"/> 
+		<horizontal left="floorUp" right="block3door"/> 
+		<horizontal left="floorUp" right="block3door 1"/> 
+		<horizontal left="grass" right="floorUp 1"/>
+		<horizontal left="floorUp 1" right="grass"/>
+		<horizontal left="water" right="floorUp 1"/>
+		<horizontal left="floorUp 1" right="water"/>
+
+		<horizontal left="floorUp" right="turn 1"/>
+		<horizontal left="floorUp" right="line"/>
+		<horizontal left="line" right="floorUp"/>
+
 		<horizontal left="upBridge" right="upBridge"/>
 		<horizontal left="upBridge" right="blockTurn 1"/> 
 		<horizontal left="block2door" right="upBridge"/> 
@@ -47,6 +68,38 @@
 		<horizontal left="upBridgeT 2" right="upBridge"/>
 		<horizontal left="upBridgeT 1" right="empty"/>
 		<horizontal left="empty" right="upBridgeT 3"/>
+
+		<horizontal left="upBridgeDown" right="blockTurn 1"/> 
+		<horizontal left="block2door" right="upBridgeDown"/> 
+		<horizontal left="block3door" right="upBridgeDown"/> 
+		<horizontal left="upBridgeDown" right="block2door"/> 
+		<horizontal left="upBridgeDown" right="block3door"/> 
+		<horizontal left="upBridgeDown" right="block3door 1"/> 
+		<horizontal left="empty" right="upBridgeDown 1"/>
+		<horizontal left="upBridgeDown 1" right="empty"/>
+
+		<horizontal left="upBridgeDown" right="upBridgeT"/>
+		<horizontal left="upBridgeDown" right="upBridgeT 1"/>
+		<horizontal left="upBridgeDown" right="upBridgeT 2"/>
+		<horizontal left="upBridgeT" right="upBridgeDown"/>
+		<horizontal left="upBridgeT 3" right="upBridgeDown"/>
+		<horizontal left="upBridgeT 2" right="upBridgeDown"/>
+
+		<horizontal left="upBridgeUp" right="blockTurn 1"/> 
+		<horizontal left="block2door" right="upBridgeUp"/> 
+		<horizontal left="block3door" right="upBridgeUp"/> 
+		<horizontal left="upBridgeUp" right="block2door"/> 
+		<horizontal left="upBridgeUp" right="block3door"/> 
+		<horizontal left="upBridgeUp" right="block3door 1"/> 
+		<horizontal left="empty" right="upBridgeUp 1"/>
+		<horizontal left="upBridgeUp 1" right="empty"/>
+
+		<horizontal left="upBridgeUp" right="upBridgeT"/>
+		<horizontal left="upBridgeUp" right="upBridgeT 1"/>
+		<horizontal left="upBridgeUp" right="upBridgeT 2"/>
+		<horizontal left="upBridgeT" right="upBridgeUp"/>
+		<horizontal left="upBridgeT 3" right="upBridgeUp"/>
+		<horizontal left="upBridgeT 2" right="upBridgeUp"/>
 
 
 		<horizontal left="empty" right="empty"/>
@@ -104,6 +157,7 @@
 		<horizontal left="hat" right="block2door"/>
 		<horizontal left="hat" right="block3door"/>
 		
+		<vertical left="floorUp" right="ground"/>
 		<vertical left="grass" right="ground"/>
 		<vertical left="water" right="ground"/>
 		<vertical left="line" right="ground"/>
@@ -113,6 +167,7 @@
 		<vertical left="block3door" right="ground"/>
 
 		<vertical left="upBridgeT" right="upBridge"/>
+		<vertical left="upBridgeT" right="upBridgeDown"/>
 		<vertical left="upBridgeT" right="upBridgeT"/>
 		<vertical left="upBridgeT" right="empty"/>
 		<vertical left="upBridgeT" right="grass"/>
@@ -120,7 +175,19 @@
 		<vertical left="upBridgeT" right="water"/>
 		<vertical left="upBridgeT" right="turn"/>
 
+		<vertical left="upBridgeUp" right="upBridge"/>
+		<vertical left="upBridgeUp" right="upBridgeT"/>
+		<vertical left="upBridgeUp" right="empty"/>
+		<vertical left="upBridgeUp" right="grass"/>
+		<vertical left="upBridgeUp" right="line"/>
+		<vertical left="upBridgeUp" right="water"/>
+		<vertical left="upBridgeUp" right="turn"/>
+		<vertical left="upBridgeDown" right="upBridgeUp"/>
+		<vertical left="upBridgeDown" right="floorUp"/>
+
+
 		<vertical left="upBridge" right="upBridgeT"/>
+		<vertical left="upBridgeT" right="upBridgeDown"/>
 		<vertical left="upBridge" right="upBridge"/>
 		<vertical left="upBridge" right="empty"/>
 		<vertical left="upBridge" right="grass"/>
@@ -129,6 +196,7 @@
 		<vertical left="upBridge" right="water"/>
 
 		<vertical left="empty" right="upBridge"/>
+		<vertical left="empty" right="upBridgeDown"/>
 		<vertical left="empty" right="upBridgeT"/>
 		<vertical left="empty" right="grass"/>
 		<vertical left="empty" right="water"/>
