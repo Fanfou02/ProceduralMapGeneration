@@ -29,7 +29,7 @@ protected:
 	void timer(float diff_sec) override;
 
 public:
-	World_Viewer(const char *_title, int _width, int _height, std::vector<Voxel> voxels);
+	World_Viewer(const char *_title, int _width, int _height, std::vector<Voxel> voxels, int groundLevel, int groupSize = 10);
 
 	~World_Viewer() override;
 	int run() override;

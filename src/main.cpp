@@ -25,12 +25,14 @@ int main(int argc, char *argv[]) {
 
 	std::string filename;
 
+	pugi::xml_node sample = xdoc.child("samples").child("sample");
+
 	if (argc > 1) {
 		filename = argv[1];
 		std::cout << "loading immediately " << filename << std::endl;
 	} else {
 
-		for (pugi::xml_node sample: xdoc.child("samples").children("sample")) {
+
 			std::string name = sample.attribute("name").as_string();
 			std::cout << "Sample: " << name << std::endl;
 
@@ -53,7 +55,7 @@ int main(int argc, char *argv[]) {
 					}
 				}
 			}
-		}
+
 	}
 
 
@@ -69,7 +71,7 @@ int main(int argc, char *argv[]) {
 	voxels.emplace_back(0, 1, 0, 12);*/
 	std::cout << voxels.size() << " voxels loaded" << std::endl;
 
-	World_Viewer window("Wave Function Collapse", 640, 480, voxels);
+	World_Viewer window("Wave Function Collapse", 640, 480, voxels, sample.attribute("groundLevel").as_int(10), sample.attribute("blockSize").as_int(10));
 
 	std::cout << ColorToVec(0xFFFFFFFF) << std::endl;
 	std::cout << ColorToVec(0x00000000) << std::endl;

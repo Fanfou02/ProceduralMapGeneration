@@ -13,7 +13,7 @@
 
 class World_Map {
 public:
-	World_Map(std::vector<Voxel> voxels);
+	World_Map(std::vector<Voxel> voxels, int groundLevel, int groupSize);
 
 	~World_Map();
 
@@ -37,6 +37,7 @@ private:
 	size_t offset = 0;
 
 	float next_block = 0.1;
+	int _group_size = 0; // size of block groups
 
 	/// vertex array object
 	GLuint vao_ = 0;

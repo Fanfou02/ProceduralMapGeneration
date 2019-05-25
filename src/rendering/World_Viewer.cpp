@@ -8,10 +8,10 @@
 #include "voxels.h"
 #include "math.h"
 
-World_Viewer::World_Viewer(const char *_title, int _width, int _height, std::vector<Voxel> voxels) : GLFW_window(_title,
+World_Viewer::World_Viewer(const char *_title, int _width, int _height, std::vector<Voxel> voxels, int groundLevel, int groupSize) : GLFW_window(_title,
 																												 _width,
 																												 _height) {
-	worldMap = new World_Map(voxels);
+	worldMap = new World_Map(voxels, groundLevel, groupSize);
 	_pos_bezier = PiecewiseBezier();
 	_view_angle_bezier = PiecewiseBezier();
 
