@@ -44,16 +44,12 @@ int main(int argc, char *argv[]) {
 				for (int k = 0; k < 1000; k++) {
 
 					int seed = rand();
-					std::cout << "Seed :" << seed << std::endl;
 					bool finished = model.Run(seed);
 					filename = "test_" + std::to_string(i) + std::to_string(k) + ".vox";
 					if (finished) {
-
 						std::cout << "Finished ! Generated vox file " << filename << std::endl;
 						model.saveVoxelOutput(filename);
 						break;
-					} else {
-						std::cout << "Contradiction occurred ! " << std::endl;
 					}
 				}
 			}
@@ -76,9 +72,7 @@ int main(int argc, char *argv[]) {
 
 	std::cout << ColorToVec(0xFFFFFFFF) << std::endl;
 	std::cout << ColorToVec(0x00000000) << std::endl;
-
-	// Solar_viewer window("Solar System", 640, 480);
-
+	
 	return window.run();
 
 }

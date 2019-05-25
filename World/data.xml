@@ -44,6 +44,8 @@
 	
 		
 		<horizontal left="stairs" right="block"/>
+		<horizontal left="line" right="stairs"/>
+		
 		
 		
 		
