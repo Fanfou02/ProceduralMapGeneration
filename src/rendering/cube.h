@@ -25,8 +25,8 @@ private :
 	static const float vertices[];
 
 public:
-	int x, y, z;
-	int target_y;
+	int x, target_y, z;
+	float y;
 
 	GLintptr offset = -1;
 

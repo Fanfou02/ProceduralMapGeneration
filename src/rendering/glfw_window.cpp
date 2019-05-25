@@ -116,11 +116,19 @@ int GLFW_window::run()
     glfwGetFramebufferSize(window_, &width, &height);
     resize(width, height);
 
-    // now run the event loop
+	time_point time = std::chrono::high_resolution_clock::now();
+
+	// now run the event loop
     while (!glfwWindowShouldClose(window_))
     {
-        // call timer function
-        timer();
+    	// Compute elapsed time
+		time_point new_time = std::chrono::high_resolution_clock::now();
+		int diff = std::chrono::duration_cast<std::chrono::milliseconds>(new_time - time).count();
+		float diff_sec = float(diff) / 1000.0f;
+		time = new_time;
+
+		// call timer function
+        timer(diff_sec);
 
         // draw scene
         paint();
@@ -130,7 +138,9 @@ int GLFW_window::run()
 
         // handle events
         glfwPollEvents();
-    }
+
+
+	}
 
     glfwDestroyWindow(window_);
 

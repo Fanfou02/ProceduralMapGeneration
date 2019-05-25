@@ -25,7 +25,7 @@ class World_Viewer : public GLFW_window {
 protected:
 	void keyboard(int key, int scancode, int action, int mods) override;
 
-	void timer() override;
+	void timer(float diff_sec) override;
 
 public:
 	World_Viewer(const char *_title, int _width, int _height, std::vector<Voxel> voxels);
@@ -39,6 +39,8 @@ private:
 	vec4 position = vec4(0, 0, 0, 1.0);
 	Shader _shader;
 	Shader _depth_shader;
+
+	bool paused = true;
 
 	/// current viewport dimension
 	int  width_, height_;

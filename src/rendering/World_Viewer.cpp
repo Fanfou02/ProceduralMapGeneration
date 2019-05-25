@@ -154,12 +154,10 @@ void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
 				position +=  rot * vec4(1, 0, 0, 0);
 				break;
 
-			case GLFW_KEY_SPACE:
 			case GLFW_KEY_E:
 				position += vec4(0, 1, 0, 0);
 				break;
 
-			case GLFW_KEY_LEFT_SHIFT:
 			case GLFW_KEY_Q:
 				position -= vec4(0, 1, 0, 0);
 				break;
@@ -183,14 +181,23 @@ void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
 			case GLFW_KEY_ESCAPE:
 				glfwSetWindowShouldClose(window_, GL_TRUE);
 				break;
+
+			case GLFW_KEY_SPACE:
+				paused = !paused;
+				break;
+
+			case GLFW_KEY_ENTER:
+				worldMap->render_all_now();
+				break;
 		}
 
 		std::cout << position.x << " " << position.y << " " << position.z << std::endl;
 	}
 }
 
-void World_Viewer::timer() {
-	GLFW_window::timer();
+void World_Viewer::timer(float diff_sec) {
+	GLFW_window::timer(diff_sec);
 
-	worldMap->timer(0.25);
+	if (!paused)
+		worldMap->timer(diff_sec);
 }

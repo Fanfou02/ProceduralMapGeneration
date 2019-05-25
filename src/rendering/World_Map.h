@@ -28,6 +28,8 @@ public:
 	void update_position(Cube *cube);
 	void timer(float seconds);
 
+	void render_all_now();
+
 private:
 	int min_x = (1 << 24), min_y = (1 << 24), min_z = (1 << 24), max_x = (0), max_y = (0), max_z = (0);
 
