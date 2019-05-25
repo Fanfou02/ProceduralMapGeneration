@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
 
 					int seed = rand();
 					bool finished = model.Run(seed);
-					filename = "test_" + std::to_string(i) + std::to_string(k) + ".vox";
+					filename = "test_" + std::to_string(seed) + ".vox";
 					if (finished) {
 						std::cout << "Finished ! Generated vox file " << filename << std::endl;
 						model.saveVoxelOutput(filename);
@@ -55,6 +55,7 @@ int main(int argc, char *argv[]) {
 			}
 		}
 	}
+
 
 	auto voxels = ReadVox(filename);
 	/*std::vector<Voxel> voxels(5);
@@ -72,7 +73,7 @@ int main(int argc, char *argv[]) {
 
 	std::cout << ColorToVec(0xFFFFFFFF) << std::endl;
 	std::cout << ColorToVec(0x00000000) << std::endl;
-	
+
 	return window.run();
 
 }

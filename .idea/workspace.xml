@@ -45,8 +45,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="74" column="4" lean-forward="false" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="4" />
+            <state relative-caret-position="765">
+              <caret line="51" column="24" lean-forward="false" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
               <folding>
                 <element signature="e#359#394#0" expanded="true" />
               </folding>
@@ -57,8 +57,8 @@
       <file leaf-file-name="model.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="393" column="4" lean-forward="true" selection-start-line="393" selection-start-column="4" selection-end-line="393" selection-end-column="4" />
+            <state relative-caret-position="166">
+              <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -67,8 +67,8 @@
       <file leaf-file-name="model.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+            <state relative-caret-position="-1976">
+              <caret line="179" column="1" lean-forward="false" selection-start-line="179" selection-start-column="1" selection-end-line="179" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -77,7 +77,7 @@
       <file leaf-file-name="utils.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
+            <state relative-caret-position="225">
               <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
               <folding>
                 <element signature="e#126#145#0" expanded="true" />
@@ -178,10 +178,10 @@
         <option value="$PROJECT_DIR$/lib/png++/types.hpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/src/model.cpp" />
         <option value="$PROJECT_DIR$/src/stacktrace.h.h" />
         <option value="$PROJECT_DIR$/src/utils.h" />
         <option value="$PROJECT_DIR$/src/model.h" />
+        <option value="$PROJECT_DIR$/src/model.cpp" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
       </list>
     </option>
@@ -271,6 +271,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="FullScreen" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -559,12 +560,12 @@
       <workItem from="1558444092744" duration="420000" />
       <workItem from="1558451352648" duration="186000" />
       <workItem from="1558451863583" duration="1446000" />
-      <workItem from="1558534629521" duration="15196000" />
+      <workItem from="1558534629521" duration="18917000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102449000" />
+    <option name="totallyTimeSpent" value="106170000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -973,7 +974,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
+        <state relative-caret-position="225">
           <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
           <folding>
             <element signature="e#126#145#0" expanded="true" />
@@ -981,26 +982,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model.cpp">
+    <entry file="file://$PROJECT_DIR$/src/model.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+        <state relative-caret-position="166">
+          <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model.h">
+    <entry file="file://$PROJECT_DIR$/src/model.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="393" column="4" lean-forward="true" selection-start-line="393" selection-start-column="4" selection-end-line="393" selection-end-column="4" />
+        <state relative-caret-position="-1976">
+          <caret line="179" column="1" lean-forward="false" selection-start-line="179" selection-start-column="1" selection-end-line="179" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="74" column="4" lean-forward="false" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="4" />
+        <state relative-caret-position="765">
+          <caret line="51" column="24" lean-forward="false" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
           <folding>
             <element signature="e#359#394#0" expanded="true" />
           </folding>
