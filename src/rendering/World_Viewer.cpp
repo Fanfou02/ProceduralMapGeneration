@@ -1,4 +1,5 @@
 #include <utility>
+#include <tkInt.h>
 
 //
 // Created by zyuiop on 18/05/19.
@@ -12,6 +13,21 @@ World_Viewer::World_Viewer(const char *_title, int _width, int _height, std::vec
 																												 _width,
 																												 _height) {
 	worldMap = new World_Map(voxels);
+	bezier = PiecewiseBezier();
+
+	std::vector<vec3> control;
+	control.emplace_back(0, 120, 0);
+	control.emplace_back(120, 60, 0);
+	control.emplace_back(120, 0, 120);
+	control.emplace_back(0, 60, 120);
+	control.emplace_back(0, 120, 0);
+
+	bezier.set_control_polygon(control);
+
+	for (float i = 0; i <= 1.0; i += 0.005) {
+		std::cout << bezier(i) << std::endl;
+	}
+
 	position = worldMap->start_position();
 }
 
@@ -186,12 +202,16 @@ void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
 				paused = !paused;
 				break;
 
+			case GLFW_KEY_B:
+				bezier_start = !bezier_start;
+				break;
+
 			case GLFW_KEY_ENTER:
 				worldMap->render_all_now();
 				break;
 		}
 
-		std::cout << position.x << " " << position.y << " " << position.z << std::endl;
+		std::cout << position.x << " " << position.y << " " << position.z << " " << yaw << " " << pitch_ << std::endl;
 	}
 }
 
@@ -200,4 +220,25 @@ void World_Viewer::timer(float diff_sec) {
 
 	if (!paused)
 		worldMap->timer(diff_sec);
+
+	if (bezier_start) {
+		position = vec4(bezier(bezier_current), 1.0f);
+
+		// Compute angle
+		vec3 cont_position = vec3(60, 25, 60);
+
+		float dX = position.x - cont_position.x;
+		float dY = position.y - cont_position.y;
+		float dZ = position.z - cont_position.z;
+
+		yaw = atan2(dX, dZ) * (180.0 / PI); // OK
+		pitch_ = (atan2(sqrt(dZ * dZ + dX * dX), dY) - PI/2) * (180.0 / PI);
+		if (pitch_ > 2 * PI) pitch_ -= 2*PI;
+		std::cout << bezier_current << " : " << position << " " << yaw << " " << pitch_ << std::endl;
+
+		bezier_current += bezier_speed * diff_sec;
+
+
+		while (bezier_current > 1.0f) bezier_current -= 1.0f;
+	}
 }
