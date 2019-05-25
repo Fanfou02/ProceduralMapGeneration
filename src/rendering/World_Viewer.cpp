@@ -8,19 +8,19 @@
 #include "voxels.h"
 #include "math.h"
 
-World_Viewer::World_Viewer(const char *_title, int _width, int _height, std::vector<Voxel> voxels) : GLFW_window(_title,
+World_Viewer::World_Viewer(const char *_title, int _width, int _height, std::vector<Voxel> voxels, int groundLevel, int groupSize) : GLFW_window(_title,
 																												 _width,
 																												 _height) {
-	worldMap = new World_Map(voxels);
+	worldMap = new World_Map(voxels, groundLevel, groupSize);
 	_pos_bezier = PiecewiseBezier();
 	_view_angle_bezier = PiecewiseBezier();
 
 	std::vector<vec3> control;
-	control.emplace_back(0, 120, 0);
-	control.emplace_back(120, 60, 0);
-	control.emplace_back(120, 0, 120);
-	control.emplace_back(0, 60, 120);
-	control.emplace_back(0, 120, 0);
+	control.emplace_back(0, 80, 0);
+	control.emplace_back(120, 40, 0);
+	control.emplace_back(120, 10, 120);
+	control.emplace_back(0, 40, 120);
+	control.emplace_back(0, 80, 0);
 
 	std::vector<vec3> view_angle_control;
 	view_angle_control.emplace_back(60, 25, 60);
@@ -238,7 +238,6 @@ void World_Viewer::timer(float diff_sec) {
 		yaw = atan2(dX, dZ) * (180.0 / M_PI); // OK
 		pitch_ = (atan2(sqrt(dZ * dZ + dX * dX), dY) - M_PI/2) * (180.0 / M_PI);
 		if (pitch_ > 2 * M_PI) pitch_ -= 2*M_PI;
-		std::cout << bezier_current << " : " << position << " " << yaw << " " << pitch_ << std::endl;
 
 		bezier_current += bezier_speed * diff_sec;
 

@@ -6,17 +6,15 @@
 #define CUBE_EVERY 1
 #define SPAWN_GROUPED true
 #define STEP_BY_STEP_ENABLE true
-#define STEP_BY_STEP_FIXED_LAYER 19
 
-World_Map::World_Map(std::vector<Voxel> voxels) {
+World_Map::World_Map(std::vector<Voxel> voxels, int groundLevel, int groupSize) {
 	_not_spawned_cubes = std::queue<Cube*>();
 	_moving_cubes = std::vector<Cube*>();
 	_floor = std::vector<Cube*>();
 	_rest = std::vector<Cube*>();
+	_group_size = groupSize;
 
 	for (auto voxel : voxels) {
-		if (voxel.z < 17) continue;
-
 		min_x = std::min(min_x, (int) voxel.x);
 		min_y = std::min(min_y, (int) voxel.y);
 		min_z = std::min(min_z, (int) voxel.z);
@@ -27,7 +25,7 @@ World_Map::World_Map(std::vector<Voxel> voxels) {
 		// Reverse y and z
 		Cube* cube = new Cube(voxel.x, voxel.z, voxel.y, voxel.get_color(), this);
 
-		if (STEP_BY_STEP_ENABLE && cube->target_y > STEP_BY_STEP_FIXED_LAYER) {
+		if (STEP_BY_STEP_ENABLE && cube->target_y > groundLevel) {
 			_rest.push_back(cube);
 		} else {
 			_floor.push_back(cube);
@@ -95,13 +93,13 @@ void World_Map::timer(float seconds) {
 		auto cube = _not_spawned_cubes.front();
 
 		if (SPAWN_GROUPED) {
-			int min_x = (cube->x / 10) * 10;
-			int min_y = (cube->target_y / 10) * 10;
-			int min_z = (cube->z / 10) * 10;
+			int min_x = (cube->x / _group_size) * _group_size;
+			int min_y = (cube->target_y / _group_size) * _group_size;
+			int min_z = (cube->z / _group_size) * _group_size;
 
-			int max_x = min_x + 10;
-			int max_y = min_y + 10;
-			int max_z = min_z + 10;
+			int max_x = min_x + _group_size;
+			int max_y = min_y + _group_size;
+			int max_z = min_z + _group_size;
 
 			while (!_not_spawned_cubes.empty() && (cube = _not_spawned_cubes.front()) && (
 					cube->x >= min_x && cube->x < max_x
