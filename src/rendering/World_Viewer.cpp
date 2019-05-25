@@ -16,11 +16,11 @@ World_Viewer::World_Viewer(const char *_title, int _width, int _height, std::vec
 	_view_angle_bezier = PiecewiseBezier();
 
 	std::vector<vec3> control;
-	control.emplace_back(0, 120, 0);
-	control.emplace_back(120, 60, 0);
-	control.emplace_back(120, 0, 120);
-	control.emplace_back(0, 60, 120);
-	control.emplace_back(0, 120, 0);
+	control.emplace_back(0, 80, 0);
+	control.emplace_back(120, 40, 0);
+	control.emplace_back(120, 10, 120);
+	control.emplace_back(0, 40, 120);
+	control.emplace_back(0, 80, 0);
 
 	std::vector<vec3> view_angle_control;
 	view_angle_control.emplace_back(60, 25, 60);
