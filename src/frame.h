@@ -1,3 +1,10 @@
+/**
+ * Introduction to Computer Graphics 2019
+ * Final Project: Random Tilemap Generation and Rendering
+ *
+ * Authors: Antoine Crettenand, Louis Vialar, François Quellec
+ */
+
 #ifndef FRAME_H
 #define FRAME_H
 

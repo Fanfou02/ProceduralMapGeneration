@@ -1,6 +1,9 @@
-//
-// Created by François Quellec on 11.05.19.
-//
+/**
+ * Introduction to Computer Graphics 2019
+ * Final Project: Random Tilemap Generation and Rendering
+ *
+ * Authors: Antoine Crettenand, Louis Vialar, François Quellec
+ */
 
 #ifndef WFCTILEMAPGENERATION_UTILS_H
 #define WFCTILEMAPGENERATION_UTILS_H
@@ -12,12 +15,27 @@
 #include <gl.h>
 #include "stacktrace.h"
 
-
+/**
+ * Print an error message in the logs and stp the process
+ * @param info the message to print
+ */
 void Error(const char *info);
 
+/**
+ * Randomly rotate a vector
+ * @param a the vector to rotate
+ * @param between_zero_and_one the seed
+ * @return the rotated vector
+ */
 size_t rotateVector(const std::vector<double> &a, double between_zero_and_one);
 
+/**
+ * Check that index is between 0 and bounds and generate an Error if not
+ * @param index
+ * @param bound
+ */
 void checkBounds(size_t index, size_t bound);
+
 
 void MessageCallback(GLenum source,
 					 GLenum type,
@@ -27,6 +45,10 @@ void MessageCallback(GLenum source,
 					 const GLchar *message,
 					 const void *userParam);
 
+/**
+ * 4D array, made with 1D vector for efficiency
+ * @tparam T The type of the array
+ */
 template<typename T>
 struct Array4D {
 	size_t dim1, dim2, dim3, dim4;
@@ -61,6 +83,10 @@ public:
 	}
 };
 
+/**
+ * 3D array, made with 1D vector for efficiency
+ * @tparam T The type of the array
+ */
 template<typename T>
 struct Array3D {
 	size_t width, height, depht;

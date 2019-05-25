@@ -1,9 +1,18 @@
+/**
+ * Introduction to Computer Graphics 2019
+ * Final Project: Random Tilemap Generation and Rendering
+ *
+ * Authors: Antoine Crettenand, Louis Vialar, François Quellec
+ */
+
 #include "utils.h"
 #include "voxels.h"
 
 
-void Error( const char *info ) {
-	printf( "[Error] MV_VoxelModel :: %s\n", info );
+void Error(const char *info ) {
+	std::cerr << info << std::endl;
+	print_stacktrace();
+	exit(0);
 }
 
 
@@ -48,8 +57,6 @@ size_t rotateVector(const std::vector<double>& a, double between_zero_and_one)
 
 void checkBounds(size_t index, size_t bound){
 	if(index >= bound) {
-		std::cerr << "Index Out of Bounds: index(" << index << "); bound(" << bound << ")" << std::endl;
-		print_stacktrace();
-		exit(0);
+		Error("Index Out of Bounds");
 	}
 }

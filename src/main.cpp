@@ -1,15 +1,13 @@
-//=============================================================================
-//
-//   Exercise code for the lecture "Introduction to Computer Graphics"
-//     by Prof. Mario Botsch, Bielefeld University
-//
-//   Copyright (C) by Computer Graphics Group, Bielefeld University
-//
-//=============================================================================
+/**
+ * Introduction to Computer Graphics 2019
+ * Final Project: Random Tilemap Generation and Rendering
+ *
+ * Authors: Antoine Crettenand, Louis Vialar, François Quellec
+ */
+
 #include <rendering/World_Viewer.h>
 #include "model.h"
 #include "voxels.h"
-//=============================================================================
 
 int main(int argc, char *argv[]) {
 	std::vector<std::array<int, 8>> action;
@@ -51,7 +49,7 @@ int main(int argc, char *argv[]) {
 					if (finished) {
 						std::cout << "Finished ! Generated vox file " << filename << std::endl;
 						model.saveVoxelOutput(filename);
-                        //break;
+                        break;
 					}
 				}
 			}
