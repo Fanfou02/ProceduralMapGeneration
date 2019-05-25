@@ -35,6 +35,9 @@ vec3 PiecewiseBezier::eval_piecewise_bezier_curve(float t) const {
 	while (t > 1.0) t -= 1.0;
 	while (t < 0.0) t += 1.0;
 
+	if (bezier_control_points_.size() == 1)
+		return bezier_control_points_[0];
+
 	vec3 sum = vec3(0.0, 0.0, 0.0);
 	for (int i = 0; i < bezier_control_points_.size(); ++i) {
 		sum += eval_bezier(i, t);

@@ -238,7 +238,6 @@ void World_Viewer::timer(float diff_sec) {
 		yaw = atan2(dX, dZ) * (180.0 / M_PI); // OK
 		pitch_ = (atan2(sqrt(dZ * dZ + dX * dX), dY) - M_PI/2) * (180.0 / M_PI);
 		if (pitch_ > 2 * M_PI) pitch_ -= 2*M_PI;
-		std::cout << bezier_current << " : " << position << " " << yaw << " " << pitch_ << std::endl;
 
 		bezier_current += bezier_speed * diff_sec;
 
