@@ -20,6 +20,7 @@
 #include <vector>
 #include <map>
 #include <string>
+#include <chrono>
 
 
 //== CLASS DEFINITION =========================================================
@@ -52,6 +53,9 @@ private: //----------------------------- static wrapper functions for callbacks
     static void keyboard__(GLFWwindow* window, int key, int scancode, int action, int mods);
     static void resize__(GLFWwindow* window, int width, int height);
 
+    typedef std::chrono::high_resolution_clock::time_point time_point;
+
+
     static GLFW_window *instance__;
 
 
@@ -71,7 +75,7 @@ protected: //----------------------------------- callbacks as member functions
     virtual void keyboard(int key, int scancode, int action, int mods) {}
 
     /// may overload: handle idle timer
-    virtual void timer() {}
+    virtual void timer(float diff_sec) {}
 
 
 

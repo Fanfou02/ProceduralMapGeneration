@@ -187,3 +187,22 @@ void World_Map::initialize() {
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
+
+void World_Map::render_all_now() {
+	while (!_not_spawned_cubes.empty()) {
+		auto cube = _not_spawned_cubes.front();
+		cube->y = cube->target_y;
+		update_position(cube);
+
+		_not_spawned_cubes.pop();
+
+		rendered_triangles += 36;
+	}
+
+	for (auto moving : _moving_cubes) {
+		moving->y = moving->target_y;
+		update_position(moving);
+	}
+
+	_moving_cubes.clear();
+}
