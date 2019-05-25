@@ -8,6 +8,7 @@
 
 #include <utils.h>
 #include <shader.h>
+#include <bezier.h>
 #include "glfw_window.h"
 #include "voxels.h"
 #include "cube.h"
@@ -40,15 +41,20 @@ private:
 	Shader _shader;
 	Shader _depth_shader;
 
+	PiecewiseBezier bezier;
+
+	float bezier_speed = 1.0/30.0f; // 1 = curve in 1 second
+	float bezier_current = 0;
+
+	bool bezier_start = false;
 	bool paused = true;
 
 	/// current viewport dimension
 	int  width_, height_;
 
-	/// rotation in x direction around the planet/sun from the original point
-	float pitch_ = -45;
-	/// rotation in y direction around the planet/sun from the original point
 	float yaw = 45;
+	float pitch_ = -45;
+
 
 	mat4 gen_view(vec3 const& center, float const& yaw, float const& pitch_);
 	mat4 gen_projection(float const& width, float const& height);

@@ -17,7 +17,6 @@ public:
     // evaluation point and finding the parametric distance along this curve
     // segment corresponding to "t".
     vec3 operator()(float t) const;
-    vec3 tangent(float t) const;
 
     // Number of Bezier curve segments making up the spline curve.
     int num_segments() const {
@@ -31,7 +30,7 @@ public:
 private:
     vec3 eval_piecewise_bezier_curve(       float t) const;
     vec3 eval_bezier        (int bp_offset, float t) const;
-    vec3 eval_bezier_tangent(int bp_offset, float t) const;
+    float eval_bezier_polynom(int i, int n, float t) const;
     std::vector<vec3> control_polygon_to_bezier_points(std::vector<vec3> const& control_polygon);
 
     std::vector<vec3> control_polygon_;
