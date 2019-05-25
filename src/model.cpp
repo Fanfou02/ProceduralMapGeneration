@@ -237,7 +237,7 @@ Model::ObserveStates Model::Observe() {
 	std::vector<double> distribution(T, 0);
 	for (int t = 0; t < T; t++)
 		distribution[t] = wave.get(argminx, argminy, argminz, t) ? stationary[t] : 0;
-	size_t r = spin_the_bottle(std::move(distribution), random());
+	size_t r = rotateVector(std::move(distribution), random());
 	for (int t = 0; t < T; t++)
 		wave.set(argminx, argminy, argminz, t, t == r);
 	changes.set(argminx, argminy, argminz, true);

@@ -24,7 +24,7 @@ void GLAPIENTRY MessageCallback(GLenum source,
 
 
 
-size_t spin_the_bottle(const std::vector<double>& a, double between_zero_and_one)
+size_t rotateVector(const std::vector<double>& a, double between_zero_and_one)
 {
 	double sum = std::accumulate(a.begin(), a.end(), 0.0);
 

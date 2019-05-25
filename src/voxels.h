@@ -1,6 +1,9 @@
-//
-// Created by zyuiop on 18/05/19.
-//
+/**
+ * Introduction to Computer Graphics 2019
+ * Final Project: Random Tilemap Generation and Rendering
+ *
+ * Authors: Antoine Crettenand, Louis Vialar, François Quellec
+ */
 
 #ifndef RANDOMTILEMAPGENERATION_VOXELS_H
 #define RANDOMTILEMAPGENERATION_VOXELS_H
@@ -13,6 +16,7 @@
 #include "stacktrace.h"
 #include "utils.h"
 #include "glmath.h"
+
 
 struct chunk_t {
     int id;

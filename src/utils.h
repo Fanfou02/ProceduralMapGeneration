@@ -15,7 +15,7 @@
 
 void Error(const char *info);
 
-size_t spin_the_bottle(const std::vector<double> &a, double between_zero_and_one);
+size_t rotateVector(const std::vector<double> &a, double between_zero_and_one);
 
 void checkBounds(size_t index, size_t bound);
 

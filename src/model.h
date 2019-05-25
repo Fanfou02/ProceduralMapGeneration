@@ -1,3 +1,10 @@
+/**
+ * Introduction to Computer Graphics 2019
+ * Final Project: Random Tilemap Generation and Rendering
+ *
+ * Authors: Antoine Crettenand, Louis Vialar, François Quellec
+ */
+
 #ifndef WFCTILEMAPGENERATION_MODEL_H
 #define WFCTILEMAPGENERATION_MODEL_H
 
@@ -14,7 +21,14 @@
 #undef STB_IMAGE_IMPLEMENTATION
 
 
-
+/**
+ * C++ Simple Tiled model
+ * Use the WFC algorithm to generate a 3D simple tiled model from
+ * a set of vox files (MagicaVoxel extension).
+ *
+ * Adapted from C# implementation: https://bitbucket.org/mxgmn/basic3dwfc/src/master/
+ *
+ */
 
 class Model {
 private:
@@ -28,7 +42,6 @@ private:
     Array3D<int> observed;
     std::vector<double> stationary;
 
-    //Random random;
     int FMX, FMY, FMZ, T, ground, bounds;
     bool periodic;
 
@@ -43,7 +56,6 @@ private:
 
     int voxelsize;
 
-
     std::vector<Voxel> rotateVoxels(std::vector<Voxel> array, size_t size);
 
     ObserveStates Observe();
@@ -56,9 +68,6 @@ public:
     Model(std::string name, int FMX, int FMY, int FMZ, bool periodic, std::string groundName);
 
     bool Run(int seed);
-
-
-
 
     void saveVoxelOutput(std::string filename);
 };
