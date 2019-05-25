@@ -1,6 +1,0 @@
-/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration"
-Using system GLEW
-Using system GLFW
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/francoisquellec/Documents/EPFL/Passerelle/2eme semestre/Introduction to Computer Graphics/Exercises/RandomTilemapGeneration/cmake-build-debug

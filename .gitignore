@@ -32,3 +32,8 @@
 *.app
 
 .DS_STORE
+
+.idea/
+
+cmake-build-debug/
+build/
