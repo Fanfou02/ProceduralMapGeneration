@@ -31,11 +31,6 @@ bool Cube::timer(float seconds) {
 	speed = speed + (seconds * GRAVITY);
 	y = y + speed * seconds;
 
-	if (x == 22 && z == 58 && target_y == 33) {
-		std::cout << y << " " << speed << std::endl;
-	}
-
-
 	if (y < target_y)
 		y = target_y;
 

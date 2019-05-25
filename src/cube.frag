@@ -17,27 +17,13 @@ in vec4 v2f_lightpos;
 
 out vec4 f_color;
 
-uniform sampler2D shadowMap;
+uniform sampler2D shadow_map;
 
 const float shininess = 8.0;
 const vec3  sunlight = vec3(1.0, 0.941, 0.898);
-
-float ShadowCalculation(vec4 fragPosLightSpace)
-{
-    // perform perspective divide
-    vec3 projCoords = fragPosLightSpace.xyz / fragPosLightSpace.w;
-    // transform to [0,1] range
-    projCoords = projCoords * 0.5 + 0.5;
-    // get closest depth value from light's perspective (using [0,1] range fragPosLight as coords)
-    float closestDepth = texture(shadowMap, projCoords.xy).r;
-    // get depth of current fragment from light's perspective
-    float currentDepth = projCoords.z;
-    // check whether current frag pos is in shadow
-    float bias = 0.000005;
-    float shadow = currentDepth - bias > closestDepth  ? 1.0 : 0.0;
-
-    return shadow;
-}
+const float ambient_value = 0.4;
+const float shadow_bias = 0.000002;
+const int average_size = 1; // number of blocks to use in each direction (0 = no PCF)
 
 void main() {
     /**
@@ -56,7 +42,7 @@ void main() {
     vec3 material = v2f_color;
 
     // compute the ambient lightning
-    vec3 ambient = 0.3 * sunlight * material;
+    vec3 ambient = ambient_value * sunlight * material;
     color += ambient;
 
     // compute the diffuse lightning
@@ -74,9 +60,21 @@ void main() {
         specular = sunlight * material * pow(t, shininess);
     color += specular;
 
-    float shadow = ShadowCalculation(v2f_lightpos);
-    vec3 lighting = (ambient + (1.0 - shadow) * (diffuse + specular)) * material;
+    // compute shadows
+    float shadow = 0.0;
+    vec2 texture_pixel_size = 1.0 / textureSize(shadow_map, 0);
+    vec3 lightpos_proj = (v2f_lightpos.xyz / v2f_lightpos.w) * 0.5 + 0.5;
+    float point_depth = lightpos_proj.z;
 
+    // Compute the average
+    for (int x = -average_size; x <= average_size; ++x) {
+        for (int y = -average_size; y <= average_size; ++y) {
+            float pcf_depth = texture(shadow_map, lightpos_proj.xy + vec2(x, y) * texture_pixel_size).r;
+            shadow += point_depth - shadow_bias > pcf_depth ? 1.0 : 0.0;
+        }
+    }
+
+    shadow /= pow(float(average_size) * 2.0 + 1.0, 2);
     // add required alpha value
-    f_color = vec4(lighting, 1.0);
+    f_color = vec4((ambient + (1.0 - shadow) * (diffuse + specular)) * material, 1.0);
 }

@@ -36,7 +36,7 @@ private:
 	int rendered_triangles = 0;
 	size_t offset = 0;
 
-	float next_block = 1;
+	float next_block = 0.1;
 
 	/// vertex array object
 	GLuint vao_ = 0;

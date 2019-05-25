@@ -17,7 +17,7 @@ uniform vec3 light_position; //in eye space coordinates already
 uniform mat4 model_matrix;
 uniform mat4 modelview_matrix;
 uniform mat4 modelviewprojection_matrix;
-uniform mat4 lightSpaceMatrix;
+uniform mat4 lightspace_matrix;
 
 out vec3 v2f_normal;
 out vec3 v2f_light;
@@ -34,7 +34,7 @@ void main()
     v2f_light = normalize(light_position - vertices.xyz);
     v2f_view = normalize(vertices.xyz - v2f_light);
     v2f_color = v_color;
-    v2f_lightpos = lightSpaceMatrix * model_matrix * vec4(v_position, 1.0);
+    v2f_lightpos = lightspace_matrix * model_matrix * vec4(v_position, 1.0);
 
     gl_Position = modelviewprojection_matrix * position;
 }

@@ -85,7 +85,7 @@ void World_Viewer::paint() {
 	mat4 lightSpaceMatrix = lightProjection * lightView;
 
 	_depth_shader.use();
-	_depth_shader.set_uniform("lightSpaceMatrix", lightSpaceMatrix);
+	_depth_shader.set_uniform("lightspace_matrix", lightSpaceMatrix);
 	_depth_shader.set_uniform("model_matrix", main_m_matrix);
 
 	glCullFace(GL_FRONT);
@@ -105,7 +105,7 @@ void World_Viewer::paint() {
 
 	_shader.use();
 	_shader.set_uniform("light_position", light_position);
-	_shader.set_uniform("lightSpaceMatrix", lightSpaceMatrix);
+	_shader.set_uniform("lightspace_matrix", lightSpaceMatrix);
 
 
 	mat4 modelview_matrix = view * main_m_matrix;
