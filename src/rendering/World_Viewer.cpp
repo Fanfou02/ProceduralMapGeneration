@@ -1,5 +1,4 @@
 #include <utility>
-#include <tkInt.h>
 
 //
 // Created by zyuiop on 18/05/19.
@@ -13,7 +12,8 @@ World_Viewer::World_Viewer(const char *_title, int _width, int _height, std::vec
 																												 _width,
 																												 _height) {
 	worldMap = new World_Map(voxels);
-	bezier = PiecewiseBezier();
+	_pos_bezier = PiecewiseBezier();
+	_view_angle_bezier = PiecewiseBezier();
 
 	std::vector<vec3> control;
 	control.emplace_back(0, 120, 0);
@@ -22,10 +22,14 @@ World_Viewer::World_Viewer(const char *_title, int _width, int _height, std::vec
 	control.emplace_back(0, 60, 120);
 	control.emplace_back(0, 120, 0);
 
-	bezier.set_control_polygon(control);
+	std::vector<vec3> view_angle_control;
+	view_angle_control.emplace_back(60, 25, 60);
+
+	_pos_bezier.set_control_polygon(control);
+	_view_angle_bezier.set_control_polygon(view_angle_control);
 
 	for (float i = 0; i <= 1.0; i += 0.005) {
-		std::cout << bezier(i) << std::endl;
+		std::cout << _pos_bezier(i) << " view to " << _view_angle_bezier(i) << std::endl;
 	}
 
 	position = worldMap->start_position();
@@ -222,18 +226,18 @@ void World_Viewer::timer(float diff_sec) {
 		worldMap->timer(diff_sec);
 
 	if (bezier_start) {
-		position = vec4(bezier(bezier_current), 1.0f);
+		position = vec4(_pos_bezier(bezier_current), 1.0f);
 
 		// Compute angle
-		vec3 cont_position = vec3(60, 25, 60);
+		vec3 cont_position = _view_angle_bezier(bezier_current);
 
 		float dX = position.x - cont_position.x;
 		float dY = position.y - cont_position.y;
 		float dZ = position.z - cont_position.z;
 
-		yaw = atan2(dX, dZ) * (180.0 / PI); // OK
-		pitch_ = (atan2(sqrt(dZ * dZ + dX * dX), dY) - PI/2) * (180.0 / PI);
-		if (pitch_ > 2 * PI) pitch_ -= 2*PI;
+		yaw = atan2(dX, dZ) * (180.0 / M_PI); // OK
+		pitch_ = (atan2(sqrt(dZ * dZ + dX * dX), dY) - M_PI/2) * (180.0 / M_PI);
+		if (pitch_ > 2 * M_PI) pitch_ -= 2*M_PI;
 		std::cout << bezier_current << " : " << position << " " << yaw << " " << pitch_ << std::endl;
 
 		bezier_current += bezier_speed * diff_sec;

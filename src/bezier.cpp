@@ -32,7 +32,8 @@ std::vector<vec3> PiecewiseBezier::control_polygon_to_bezier_points(std::vector<
 }
 
 vec3 PiecewiseBezier::eval_piecewise_bezier_curve(float t) const {
-	t = (t > 1.0) ? 1.0 : ((t < 0.0) ? 0.0 : t);
+	while (t > 1.0) t -= 1.0;
+	while (t < 0.0) t += 1.0;
 
 	vec3 sum = vec3(0.0, 0.0, 0.0);
 	for (int i = 0; i < bezier_control_points_.size(); ++i) {

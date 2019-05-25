@@ -41,7 +41,8 @@ private:
 	Shader _shader;
 	Shader _depth_shader;
 
-	PiecewiseBezier bezier;
+	PiecewiseBezier _pos_bezier;
+	PiecewiseBezier _view_angle_bezier;
 
 	float bezier_speed = 1.0/30.0f; // 1 = curve in 1 second
 	float bezier_current = 0;
