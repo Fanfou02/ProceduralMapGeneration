@@ -60,11 +60,8 @@ int main(int argc, char *argv[]) {
 	auto voxels = ReadVox(filename);
 	std::cout << voxels.size() << " voxels loaded" << std::endl;
 
-	World_Viewer window("Wave Function Collapse", 640, 480, voxels, sample.attribute("groundLevel").as_int(10), sample.attribute("blockSize").as_int(10));
-
-	std::cout << ColorToVec(0xFFFFFFFF) << std::endl;
-	std::cout << ColorToVec(0x00000000) << std::endl;
+	World_Viewer window("Wave Function Collapse", 640, 480, voxels,
+						sample.attribute("groundLevel").as_int(10), sample.attribute("blockSize").as_int(10));
 
 	return window.run();
-
 }

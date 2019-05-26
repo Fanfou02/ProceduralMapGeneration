@@ -15,7 +15,7 @@ output:
 <br><br>
 
 > The “wave function collapse”(WFC) algorithm builds a grid of pre-defined tiles ensuring that the tiles properly connect to their neighbours, for example a road tile must neighbour another road tile following the same direction or an intersection tile. In this project we will use the WFC algorithm to produce random 3D voxel maps, like the one below.
-![alt text](images/wave_collapse_tiling.jpg "Wave Collapse Tilling Generation")
+![alt text](images/world_small.png "Wave Collapse Tilling Generation")
 
 
 The WFC algorithm takes in an archetypical input, and produces procedurally-generated outputs that look like it (overlapping generation). It can also take a set of tiles and constraints, and generate an image using these tiles that match these contraints (tiled generation).
@@ -30,7 +30,7 @@ WFC algorithm is used in multiples implementations, the main concept of the algo
 - **Design meaningful rules :** Write rules for the set of voxel created that can lead to a relevant scene generation with the WFC algorithm.
 
 
-## Optionnal Extensions
+### Optionnal Extensions
 In order to improve our resulting scenes we will add some extensions to the project, depending on how much time we have. The potential extensions are describe below: 
 
 - **Animate the parts entering the scene :**
@@ -73,20 +73,35 @@ You can find in the array below some important dates during the project developm
 | Final report webpage due         | Friday May 31, 1pm     |
 
 
-# Milestone Update
+# Technical Approach
 ***
-### Where we are right now
-We first struggle to establish a correct grading contract for this project, once we did (last week), we started to implement the WFC algorithm in C++ based on the mxgmn C# implementation provided. We had a lot of issues with that but we finally succeed to have a working algorithm. Howether we didn't had time to properly test it for now, since we didn't have meaningfull rules. We also design some voxels with magicaVoxel to feed the algorithm. In parallal we start to implement the rendering pipeline, based on the SolarSystem homework provided in class, we can't render vox file yet but it is in process.
+### WFC algorithm implementation
+BLABLABLA
 
-### Preliminary Results
-For now we don't have any scene to show since we didn't manage to write meaningfull rules but we designed the parts of the final model, some of them are shown below:
+### Voxels design and Rules implementation
+We first begin to build a set of voxels block to feed our algorithm. This step was quite time consuming since we needed to think about how each block will interact with each over. We builded a set of 16 different blocks to define the world, some of them are shown below:
 
-![](images/ground.png){ width=200 height=200 } ![](images/bridge-block.png){width=200 height=200} ![](images/bridge.png){width=200 height=200 }
+![](images/hat.png){ width=200 height=200 } ![](images/bridgeT.png){width=200 height=200} ![](images/line.png){width=200 height=200 }
 
-![](images/path.png){ width=200 height=200 } ![](images/turn.png){ width=200 height=200 } ![](images/stairs.png){ width=200 height=200 }
+![](images/blockT.png){ width=200 height=200 } ![](images/bridgeUp.png){ width=200 height=200 } ![](images/turn.png){ width=200 height=200 }
 
-### Updated Schedule
-The schedule remain approximatively the same as before, we just added a new event, we need to finish the rules and the WFC algorithm for next week.
+Once we had our differents pieces of the puzzle, we needed to write down rules to define which block can be placed next to each other taking in account the rotation and the symmetry of each piece. We write more than 200 rules to obtain the models shown in the results part.
+
+### Rendering the scene
+BLABLABLA
+
+### Bezier Curve and camera trajectory
+BLABLABLA
+
+### Animate the parts entering the scene
+BLABLABLA
+
+# Results
+***
+
+![](images/world_small.png){ width=300 height=300 } ![](images/world_small_2.png){ width=300 height=300 }
+
+![](images/world_medium.png){ width=300 height=300 } ![](images/world_medium_up.png){ width=300 height=300 }
 
 # Resources and technologies used
 ***

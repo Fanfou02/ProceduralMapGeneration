@@ -8,9 +8,9 @@
 		<tile name="pig" symmetry="L" weight="0.1"/>
 		<tile name="line" symmetry="I" weight="1"/> 
 		<tile name="turn" symmetry="L" weight="1"/> 
-		<tile name="blockTurn" symmetry="L" weight="0.1"/> 
-		<tile name="blockLine" symmetry="I" weight="0.1"/> 
-		<tile name="blockT" symmetry="T" weight="0.1"/>
+		<tile name="blockTurn" symmetry="L" weight="0.01"/> 
+		<tile name="blockLine" symmetry="I" weight="0.01"/> 
+		<tile name="blockT" symmetry="T" weight="0.01"/>
 		<tile name="hat" symmetry="X" weight="1"/>
 		<tile name="bridgeLine" symmetry="I" weight="1"/> 
 		<tile name="bridgeT" symmetry="T" weight="1"/> 

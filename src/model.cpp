@@ -111,17 +111,15 @@ tilenames.push_back(tilename + " 0");
 voxeltiles.push_back(voxeltile);
 
 for (int t = 1; t < cardinality; t++) {
-tilenames.push_back("" + tilename + " " + std::to_string(t));
-
-voxeltiles.push_back(rotateVoxels(voxeltiles.at(T + t - 1), voxelsize));
+    tilenames.push_back("" + tilename + " " + std::to_string(t));
+    voxeltiles.push_back(rotateVoxels(voxeltiles.at(T + t - 1), voxelsize));
 }
 
 for (int t = 0; t < cardinality; t++) {
-
-double w = xtile.attribute("weight").as_double();
-if (w == 0)
-w = 1;
-tempStationary.push_back(w);
+    double w = xtile.attribute("weight").as_double();
+    if (w == 0)
+    w = 1;
+    tempStationary.push_back(w);
 }
 
 }
@@ -378,14 +376,14 @@ void Model::Clear() {
 void Model::saveVoxelOutput(std::string filename)
 {
 	std::vector<Voxel> result;
-	for (int8_t x = 0; x < FMX; x++) for (int8_t y = 0; y < FMY; y++) for (int8_t z = 0; z < FMZ; z++)
+	for (int8_t x = 0; x < FMX; x++)
+        for (int8_t y = 0; y < FMY; y++)
+            for (int8_t z = 0; z < FMZ; z++)
 			{
-
 				int index = observed.get(x, FMY - y - 1, FMZ - z - 1);
 
 				if(index >= 0) {
-					std::vector<Voxel> voxeltile = voxeltiles[index];
-					for (Voxel v : voxeltile)
+					for (Voxel v : voxeltiles[index])
 						result.push_back(Voxel((v.x + x * voxelsize), (v.y + y * voxelsize), (v.z + z * voxelsize),
 											   v.color));
 				}
