@@ -85,10 +85,12 @@ We first begin to build a set of voxels block to feed our algorithm. This step w
 
 ![](images/blockT.png){ width=200 height=200 } ![](images/bridgeUp.png){ width=200 height=200 } ![](images/turn.png){ width=200 height=200 }
 
-Once we had our differents pieces of the puzzle, we needed to write down rules to define which block can be placed next to each other taking in account the rotation and the symmetry of each piece. We write more than 200 rules to obtain the models shown in the results part.
+Once we had our differents pieces of the puzzle, we needed to write down rules to define which block can be placed next to each other taking in account the rotation and the symmetry of each piece. 
+One of the main problems that occured during the development was the low percentage of success rate. Indeed the more complex the rules/constraints are, the less likely is for the algorithm to find a stable configuration.
+Currently, there is about 200 rules with a success rate of about 4% to obtain the models shown in the results part. However, the current rules enables for complex structure generation (Bridge-connected high buildings, doors, balconies, roads, stairs...).
 
 ### Rendering the scene
-BLABLABLA
+We started with the SolarSystemViewer source code as a foundation for our rendering engine. The entine scene is rendered as a single mesh in order to improve performances.
 
 ### Bezier Curve and camera trajectory
 BLABLABLA
