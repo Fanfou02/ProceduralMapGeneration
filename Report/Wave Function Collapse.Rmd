@@ -87,13 +87,14 @@ We first begin to build a set of voxels block to feed our algorithm. This step w
 
 Once we had our differents pieces of the puzzle, we needed to write down rules to define which block can be placed next to each other taking in account the rotation and the symmetry of each piece. 
 One of the main problems that occured during the development was the low percentage of success rate. Indeed the more complex the rules/constraints are, the less likely is for the algorithm to find a stable configuration.
-Currently, there is about 200 rules with a success rate of about 4% to obtain the models shown in the results part. However, the current rules enables for complex structure generation (Bridge-connected high buildings, doors, balconies, roads, stairs...).
+Currently, there is about 200 rules with a success rate of about 4% to obtain the models shown in the results part. However, the current rules enables for complex structure generation (Bridge-connected high buildings, doors, balconies, roads, stairs...). The rules are located in the same folder as blocks : World/data.xml.
 
 ### Rendering the scene
-We started with the SolarSystemViewer source code as a foundation for our rendering engine. The entine scene is rendered as a single mesh in order to improve performances.
+We started with the SolarSystemViewer homework source code as a foundation for our rendering engine. The entine scene is rendered as a single mesh in order to improve performances. Phong lighting and shadows (with a shadow map) were implemented with shaders. 
+Files related to rendering are located under /src/rendering/.
 
 ### Bezier Curve and camera trajectory
-BLABLABLA
+Four points are computed in the scene, respectively in the corners of the tilemap in order to create an ellipse bezier curve. The camera then follows the path of the curve, looking at center of the tilemap.  
 
 ### Animate the parts entering the scene
 BLABLABLA
@@ -118,5 +119,6 @@ BLABLABLA
 - https://robertheaton.com/2018/12/17/wavefunction-collapse-algorithm/ (base article for the algorithm)
 - https://marian42.de/article/wfc/ (algorithm exploitation in 3D)
 - https://github.com/ephtracy/voxel-model/blob/master/MagicaVoxel-file-format-vox.txt (for the vox file format)
+- https://www.dropbox.com/s/zeiat1w8zre9ro8/Knots%20breakdown.png?dl=0 (How to design meaningful tile rules)
 
  We will use the homework SolarSystem base project in C++ to help us integrate OpenGl.
