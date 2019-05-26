@@ -182,6 +182,16 @@ void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
 				position -= vec4(0, 1, 0, 0);
 				break;
 
+			case GLFW_KEY_F:
+				speedup_ *= 0.95f;
+				std::cout << speedup_ << std::endl;
+				break;
+
+			case GLFW_KEY_R:
+				speedup_ /= 0.95f;
+				std::cout << speedup_ << std::endl;
+				break;
+
 			case GLFW_KEY_LEFT:
 				yaw += 5.0;
 				break;
@@ -214,8 +224,6 @@ void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
 				worldMap->render_all_now();
 				break;
 		}
-
-		std::cout << position.x << " " << position.y << " " << position.z << " " << yaw << " " << pitch_ << std::endl;
 	}
 }
 
@@ -223,7 +231,7 @@ void World_Viewer::timer(float diff_sec) {
 	GLFW_window::timer(diff_sec);
 
 	if (!paused)
-		worldMap->timer(diff_sec);
+		worldMap->timer(diff_sec * speedup_);
 
 	if (bezier_start) {
 		position = vec4(_pos_bezier(bezier_current), 1.0f);
