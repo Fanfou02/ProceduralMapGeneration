@@ -58,7 +58,7 @@ private:
 
 	float yaw = 45;
 	float pitch_ = -45;
-
+	float speedup_ = 1.0f;
 
 	mat4 gen_view(vec3 const& center, float const& yaw, float const& pitch_);
 	mat4 gen_projection(float const& width, float const& height);
