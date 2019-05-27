@@ -1,9 +1,11 @@
+/**
+ * Introduction to Computer Graphics 2019
+ * Final Project: Random Tilemap Generation and Rendering
+ *
+ * Authors: Antoine Crettenand, Louis Vialar, François Quellec
+ */
+
 #include <utility>
-
-//
-// Created by zyuiop on 18/05/19.
-//
-
 #include "World_Viewer.h"
 #include "voxels.h"
 #include "math.h"
@@ -214,8 +216,6 @@ void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
 				worldMap->render_all_now();
 				break;
 		}
-
-		std::cout << position.x << " " << position.y << " " << position.z << " " << yaw << " " << pitch_ << std::endl;
 	}
 }
 
