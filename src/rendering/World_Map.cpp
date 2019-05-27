@@ -1,6 +1,9 @@
-//
-// Created by zyuiop on 20/05/19.
-//
+/**
+ * Introduction to Computer Graphics 2019
+ * Final Project: Random Tilemap Generation and Rendering
+ *
+ * Authors: Antoine Crettenand, Louis Vialar, François Quellec
+ */
 
 #include "World_Map.h"
 #define CUBE_EVERY 1
@@ -31,10 +34,6 @@ World_Map::World_Map(std::vector<Voxel> voxels, int groundLevel, int groupSize) 
 			_floor.push_back(cube);
 		}
 	}
-
-	std::cout << "Lower " << min_x << " " << min_y << " " << min_z << std::endl;
-	std::cout << "Upper " << max_x << " " << max_y << " " << max_z << std::endl;
-	std::cout << "Size " << _not_spawned_cubes.size() << std::endl;
 }
 
 vec4 World_Map::start_position() {

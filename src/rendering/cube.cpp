@@ -1,6 +1,9 @@
-//
-// Created by zyuiop on 19/05/19.
-//
+/**
+ * Introduction to Computer Graphics 2019
+ * Final Project: Random Tilemap Generation and Rendering
+ *
+ * Authors: Antoine Crettenand, Louis Vialar, François Quellec
+ */
 
 #include <voxels.h>
 #include "cube.h"

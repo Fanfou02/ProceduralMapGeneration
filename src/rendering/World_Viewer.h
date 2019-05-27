@@ -1,6 +1,9 @@
-//
-// Created by zyuiop on 18/05/19.
-//
+/**
+ * Introduction to Computer Graphics 2019
+ * Final Project: Random Tilemap Generation and Rendering
+ *
+ * Authors: Antoine Crettenand, Louis Vialar, François Quellec
+ */
 
 #ifndef RANDOMTILEMAPGENERATION_WORLD_VIEWER_H
 #define RANDOMTILEMAPGENERATION_WORLD_VIEWER_H
