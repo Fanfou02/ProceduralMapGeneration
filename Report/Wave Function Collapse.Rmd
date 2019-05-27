@@ -76,10 +76,10 @@ You can find in the array below some important dates during the project developm
 # Technical Approach
 ***
 ### WFC algorithm implementation
-We first adapted the C# implementation of WFC by mxgmn in C++, we struggled a bit with the data structures and the voxel format at the beginning but everything finally worked out. We used the same structure as mxgmn, xml configuration files indicate the parameters, the rules and the source blocks of the algorithm and we define for each block a symmetry component to facilitate voxels rotations (https://www.dropbox.com/s/zeiat1w8zre9ro8/Knots%20breakdown.png?dl=0)
+We first adapted the C# implementation of WFC by mxgmn in C++, we struggled a bit with the data structures and the voxel format at the beginning but everything eventually worked out. We used the same structure as mxgmn, xml configuration files indicate the parameters, the rules and the source blocks of the algorithm and we define for each block a symmetry component to facilitate voxels rotations. (https://www.dropbox.com/s/zeiat1w8zre9ro8/Knots%20breakdown.png?dl=0)
 
 ### Voxels design and Rules implementation
-We first begin to build a set of voxels block to feed our algorithm. This step was quite time consuming since we needed to think about how each block will interact with each over. We builded a set of 16 different blocks to define the world, some of them are shown below:
+We first began to build a set of voxels block to feed our algorithm. This step was quite time consuming since we needed to think about how each block will interact with each over. We builded a set of 16 different blocks to define the world, some of them are shown below:
 
 ![](images/hat.png){ width=200 height=200 } ![](images/bridgeT.png){width=200 height=200} ![](images/line.png){width=200 height=200 }
 
@@ -130,5 +130,3 @@ BLABLABLA
 - https://github.com/ephtracy/voxel-model/blob/master/MagicaVoxel-file-format-vox.txt (for the vox file format)
 - https://bitbucket.org/mxgmn/basic3dwfc/src/master/ (C# implementation)
 - https://www.dropbox.com/s/zeiat1w8zre9ro8/Knots%20breakdown.png?dl=0 (How to design meaningful tile rules)
-
- We will use the homework SolarSystem base project in C++ to help us integrate OpenGl.
