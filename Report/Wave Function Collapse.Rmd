@@ -91,7 +91,7 @@ Currently, there is about 200 rules with a success rate of about 4% to obtain th
 
 ### Rendering the scene
 We started with the SolarSystemViewer homework source code as a foundation for our rendering engine. The entine scene is rendered as a single mesh in order to improve performances. Phong lighting and shadows (with a shadow map) were implemented with shaders. 
-The main difficulty arised when we try to render individually each cube. With over 300k cubes in the scene, we struggled to keep a stable number of frames per second when moving the camera.
+The main difficulty arised when we try to render individually each cube. With over 300k cubes in the scene, we struggled to keep a stable number of frames per second when moving the camera. Therefore we decided to unite every cube in a single VBA.
 Files related to rendering are located under /src/rendering/.
 
 ### Bezier Curve and camera trajectory
