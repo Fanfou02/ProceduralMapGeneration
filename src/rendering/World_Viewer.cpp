@@ -10,29 +10,26 @@
 #include "voxels.h"
 #include "math.h"
 
-World_Viewer::World_Viewer(const char *_title, int _width, int _height, std::vector<Voxel> voxels, int groundLevel, int groupSize) : GLFW_window(_title,
-																												 _width,
-																												 _height) {
+World_Viewer::World_Viewer(const char *_title, int _width, int _height, std::vector<Voxel> &voxels, int groundLevel,
+						   int groupSize) : GLFW_window(_title,
+														_width,
+														_height) {
 	worldMap = new World_Map(voxels, groundLevel, groupSize);
 	_pos_bezier = PiecewiseBezier();
 	_view_angle_bezier = PiecewiseBezier();
 
 	std::vector<vec3> control;
-	control.emplace_back(0, 80, 0);
-	control.emplace_back(120, 40, 0);
-	control.emplace_back(120, 10, 120);
-	control.emplace_back(0, 40, 120);
-	control.emplace_back(0, 80, 0);
+	control.emplace_back(worldMap->min_x, 80, worldMap->min_z);
+	control.emplace_back(worldMap->max_x, 40, worldMap->min_z);
+	control.emplace_back(worldMap->max_x, 10, worldMap->max_z);
+	control.emplace_back(worldMap->min_x, 40, worldMap->max_z);
+	control.emplace_back(worldMap->min_x, 80, worldMap->min_z);
 
 	std::vector<vec3> view_angle_control;
 	view_angle_control.emplace_back(60, 25, 60);
 
 	_pos_bezier.set_control_polygon(control);
 	_view_angle_bezier.set_control_polygon(view_angle_control);
-
-	for (float i = 0; i <= 1.0; i += 0.005) {
-		std::cout << _pos_bezier(i) << " view to " << _view_angle_bezier(i) << std::endl;
-	}
 
 	position = worldMap->start_position();
 }
@@ -73,7 +70,7 @@ void World_Viewer::resize(int width, int height) {
 	std::cout << "Resize " << width << " " << height << std::endl;
 }
 
-mat4 World_Viewer::gen_view(vec3 const& center, float const& yaw, float const& pitch) {
+mat4 World_Viewer::gen_view(vec3 const &center, float const &yaw, float const &pitch) {
 	vec4 eye = vec4(0, 0, 1, 1.0);
 	vec4 up = vec4(0, 1, 0, 0);
 
@@ -86,7 +83,7 @@ mat4 World_Viewer::gen_view(vec3 const& center, float const& yaw, float const& p
 mat4 World_Viewer::gen_projection(float const &width, float const &height) {
 	auto fovy_ = 45;
 	auto near_ = 0.1f;
-	auto far_  = 20;
+	auto far_ = 20;
 
 	return mat4::perspective(fovy_, width / height, near_, far_);
 }
@@ -156,10 +153,8 @@ World_Viewer::~World_Viewer() {
 void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
 	mat4 rot = mat4::rotate_y(yaw);
 
-	if (action == GLFW_PRESS || action == GLFW_REPEAT)
-	{
-		switch (key)
-		{
+	if (action == GLFW_PRESS || action == GLFW_REPEAT) {
+		switch (key) {
 			case GLFW_KEY_W:
 				position -= rot * vec4(0, 0, 1, 0);
 				break;
@@ -169,11 +164,11 @@ void World_Viewer::keyboard(int key, int scancode, int action, int mods) {
 				break;
 
 			case GLFW_KEY_A:
-				position -=  rot * vec4(1, 0, 0, 0);
+				position -= rot * vec4(1, 0, 0, 0);
 				break;
 
 			case GLFW_KEY_D:
-				position +=  rot * vec4(1, 0, 0, 0);
+				position += rot * vec4(1, 0, 0, 0);
 				break;
 
 			case GLFW_KEY_E:
@@ -246,8 +241,8 @@ void World_Viewer::timer(float diff_sec) {
 		float dZ = position.z - cont_position.z;
 
 		yaw = atan2(dX, dZ) * (180.0 / M_PI); // OK
-		pitch_ = (atan2(sqrt(dZ * dZ + dX * dX), dY) - M_PI/2) * (180.0 / M_PI);
-		if (pitch_ > 2 * M_PI) pitch_ -= 2*M_PI;
+		pitch_ = (atan2(sqrt(dZ * dZ + dX * dX), dY) - M_PI / 2) * (180.0 / M_PI);
+		if (pitch_ > 2 * M_PI) pitch_ -= 2 * M_PI;
 
 		bezier_current += bezier_speed * diff_sec;
 
