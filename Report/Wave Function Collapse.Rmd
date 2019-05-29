@@ -92,6 +92,8 @@ Currently, there are about 200 rules with a success rate of about 4% to obtain t
 ### Rendering the scene
 We started with the SolarSystemViewer homework source code as a foundation for our rendering engine. At first, we had an object for each voxe, but the loop rendering the voxels had to render more than 200'000 voxels, and as it runs on the CPU it was not efficient at all. We therefore decided to have a single object with all the voxels direcly mapped in it, and it greatly improved performance. Phong lighting and shadows (with a shadow map) were implemented with shaders.
 
+We also allow the user to move around in the scene, using the standard WASD keys (+ Q to go down, and E to go up), and to look around him, using the arrow keys. Additionnal keys allow him to control time: SPACE will stop it, F will slow it, and R will accelerate it. Finally, ENTER will render the full scene immediately (instead of step-by-step), and B will enable or disable the automatic camera path, following Bezier curves.
+
 Files related to rendering are located under /src/rendering/.
 
 ### Bezier Curve and camera trajectory
