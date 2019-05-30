@@ -14,7 +14,7 @@ output:
 
 <br><br>
 
-> The “wave function collapse” (WFC) algorithm builds a grid of pre-defined tiles ensuring that the tiles properly connect to their neighbours, for example a road tile must neighbour another road tile following the same direction or an intersection tile. In this project we will use the WFC algorithm to produce random 3D voxel maps, like the one below (here rendered using MagicaVoxel).
+> The “wave function collapse” (WFC) algorithm builds a grid of pre-defined tiles ensuring that the tiles properly connect to their neighbours, for example a road tile must neighbour another road tile following the same direction or an intersection tile. In this project we will use the WFC algorithm to produce random 3D voxel maps, like the one below.
 ![alt text](images/world_small.png "Wave Collapse Tilling Generation")
 
 
@@ -105,8 +105,10 @@ We spawn the parts in blocks, and let the gravity do the rest. The challenge in 
 # Results
 ***
 ### Simple Tiled Model Generation (MagicaVoxel render)
-![](images/world_small.png){ width=300 height=300 } ![](images/world_small_2.png){ width=300 height=300 }
-![](images/world_medium.png){ width=300 height=300 } ![](images/world_medium_up.png){ width=300 height=300 }
+
+
+![](images/world_small.png){ width=400 height=400 }![](images/world_small_2.png){ width=400 height=400 }
+![](images/world_medium.png){ width=400 height=400 }![](images/world_medium_up.png){ width=400 height=400 }
 
 ### Step by Step Animation 
 <video width="640" height="480" loop autoplay muted>
@@ -117,7 +119,7 @@ We spawn the parts in blocks, and let the gravity do the rest. The challenge in 
 <video width="640" height="480" loop autoplay muted>
   <source src="images/Bezier_web.mp4" type="video/mp4">
 </video>
-# Resources and technologies used
+# Resources and technologies
 ***
 
 ## Technologies
