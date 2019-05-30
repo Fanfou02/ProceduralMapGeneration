@@ -22,7 +22,7 @@
 void Error(const char *info);
 
 /**
- * Randomly rotate a vector
+ * Randomly pick an index of vector 
  * @param a the vector to rotate
  * @param between_zero_and_one the seed
  * @return the rotated vector
