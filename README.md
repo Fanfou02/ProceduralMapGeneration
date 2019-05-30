@@ -2,6 +2,7 @@ RandomTilemapGeneration
 ========================
 Wave function Collapse to build 3D tilemaps
 
+![alt text](report/images/world_small.png "Wave Collapse Tilling Generation")
 
 Building under Linux/macOS
 --------------------------
