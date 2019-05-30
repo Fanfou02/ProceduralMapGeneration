@@ -14,7 +14,7 @@ output:
 
 <br><br>
 
-> The “wave function collapse”(WFC) algorithm builds a grid of pre-defined tiles ensuring that the tiles properly connect to their neighbours, for example a road tile must neighbour another road tile following the same direction or an intersection tile. In this project we will use the WFC algorithm to produce random 3D voxel maps, like the one below.
+> The “wave function collapse” (WFC) algorithm builds a grid of pre-defined tiles ensuring that the tiles properly connect to their neighbours, for example a road tile must neighbour another road tile following the same direction or an intersection tile. In this project we will use the WFC algorithm to produce random 3D voxel maps, like the one below (here rendered using MagicaVoxel).
 ![alt text](images/world_small.png "Wave Collapse Tilling Generation")
 
 
@@ -76,33 +76,35 @@ You can find in the array below some important dates during the project developm
 # Technical Approach
 ***
 ### WFC algorithm implementation
-We first adapted the C# implementation of WFC by mxgmn in C++, we struggled a bit with the data structures and the voxel format at the beginning but everything finally worked out. We used the same structure as mxgmn, xml configuration files indicate the parameters, the rules and the source blocks of the algorithm and we define for each block a symmetry component to facilitate voxels rotations (https://www.dropbox.com/s/zeiat1w8zre9ro8/Knots%20breakdown.png?dl=0)
+We first adapted the C# implementation of WFC by mxgmn in C++, we struggled a bit with the data structures and the voxel format at the beginning but everything eventually worked out. We used the same structure as mxgmn, xml configuration files indicate the parameters, the rules and the source blocks of the algorithm and we define for each block a symmetry component to facilitate voxels rotations. (https://www.dropbox.com/s/zeiat1w8zre9ro8/Knots%20breakdown.png?dl=0)
 
 ### Voxels design and Rules implementation
-We first begin to build a set of voxels block to feed our algorithm. This step was quite time consuming since we needed to think about how each block will interact with each over. We builded a set of 16 different blocks to define the world, some of them are shown below:
+We first began to build a set of voxels block to feed our algorithm. This step was quite time consuming since we needed to think about how each block will interact with each other. We built a set of 16 different blocks to define the world, some of which are shown below:
 
 ![](images/hat.png){ width=200 height=200 } ![](images/bridgeT.png){width=200 height=200} ![](images/line.png){width=200 height=200 }
 
 ![](images/blockT.png){ width=200 height=200 } ![](images/bridgeUp.png){ width=200 height=200 } ![](images/turn.png){ width=200 height=200 }
 
-Once we had our differents pieces of the puzzle, we needed to write down rules to define which block can be placed next to each other taking in account the rotation and the symmetry of each piece. 
-One of the main problems that occured during the development was the low percentage of success rate. Indeed the more complex the rules/constraints are, the less likely is for the algorithm to find a stable configuration.
-Currently, there is about 200 rules with a success rate of about 4% to obtain the models shown in the results part. However, the current rules enables for complex structure generation (Bridge-connected high buildings, doors, balconies, roads, stairs...). The rules are located in the same folder as blocks : /World/data.xml.
+Once we had our different pieces of the puzzle, we needed to write down rules to define which block can be placed next to each other taking in account the rotation and the symmetry of each piece.
+One of the main problems that occurred during the development was the low percentage of success rate. Indeed the more complex the rules/constraints are, the less likely it is for the algorithm to find a stable configuration.
+Currently, there are about 200 rules with a success rate of about 4% to obtain the models shown in the results part. However, the current rules enables for complex structure generation (Bridge-connected high buildings, doors, balconies, roads, stairs...). The rules are located in the same folder as blocks : /World/data.xml and /World2/data.xml.
 
 ### Rendering the scene
-We started with the SolarSystemViewer homework source code as a foundation for our rendering engine. The entine scene is rendered as a single mesh in order to improve performances. Phong lighting and shadows (with a shadow map) were implemented with shaders. 
-The main difficulty arised when we try to render individually each cube. With over 300k cubes in the scene, we struggled to keep a stable number of frames per second when moving the camera.
+We started with the SolarSystemViewer homework source code as a foundation for our rendering engine. At first, we had an object for each voxe, but the loop rendering the voxels had to render more than 200'000 voxels, and as it runs on the CPU it was not efficient at all. We therefore decided to have a single object with all the voxels direcly mapped in it, and it greatly improved performance. Phong lighting and shadows (with a shadow map) were implemented with shaders.
+
+We also allow the user to move around in the scene, using the standard WASD keys (+ Q to go down, and E to go up), and to look around him, using the arrow keys. Additionnal keys allow him to control time: SPACE will stop it, F will slow it, and R will accelerate it. Finally, ENTER will render the full scene immediately (instead of step-by-step), and B will enable or disable the automatic camera path, following Bezier curves.
+
 Files related to rendering are located under /src/rendering/.
 
 ### Bezier Curve and camera trajectory
 Four points are computed in the scene, respectively in the corners of the tilemap in order to create an ellipse bezier curve. The camera then follows the path of the curve, looking at center of the tilemap.  
 
 ### Animate the parts entering the scene
-BLABLABLA
+We spawn the parts in blocks, and let the gravity do the rest. The challenge in this was to move the blocks directly in the vertex buffer, since as mentioned before there is only one vertex buffer for all the voxels. It was actually quite easy once figured out. All the blocks are added in the VBO but not rendered. We increase the number of blocks to render once we want a block to spawn. And, finally, we update the coordinates in the VBO each time needed. The VBO is registered as a STREAM, to tell OpenGL that it content will be updated a lot.
 
 # Results
 ***
-### Simple Tiled Model Generation
+### Simple Tiled Model Generation (MagicaVoxel render)
 ![](images/world_small.png){ width=300 height=300 } ![](images/world_small_2.png){ width=300 height=300 }
 ![](images/world_medium.png){ width=300 height=300 } ![](images/world_medium_up.png){ width=300 height=300 }
 
@@ -120,8 +122,7 @@ BLABLABLA
 
 ## Technologies
 - C++
-- A 3D rendering engine (OpenGL via LWJGL)
-- MagicaVoxel
+- OpenGL
 
 ## Resources :
 - https://github.com/mxgmn/WaveFunctionCollapse (C# algorithm implementation and description)
@@ -130,5 +131,3 @@ BLABLABLA
 - https://github.com/ephtracy/voxel-model/blob/master/MagicaVoxel-file-format-vox.txt (for the vox file format)
 - https://bitbucket.org/mxgmn/basic3dwfc/src/master/ (C# implementation)
 - https://www.dropbox.com/s/zeiat1w8zre9ro8/Knots%20breakdown.png?dl=0 (How to design meaningful tile rules)
-
- We will use the homework SolarSystem base project in C++ to help us integrate OpenGl.

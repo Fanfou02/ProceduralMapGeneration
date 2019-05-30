@@ -24,7 +24,6 @@ class World_Viewer : public GLFW_window {
 	void resize(int width, int height) override;
 
 	void paint() override;
-	void gen_shadows();
 
 protected:
 	void keyboard(int key, int scancode, int action, int mods) override;
@@ -32,7 +31,7 @@ protected:
 	void timer(float diff_sec) override;
 
 public:
-	World_Viewer(const char *_title, int _width, int _height, std::vector<Voxel> voxels, int groundLevel, int groupSize = 10);
+	World_Viewer(const char *_title, int _width, int _height, std::vector<Voxel> &voxels, int groundLevel, int groupSize = 10);
 
 	~World_Viewer() override;
 	int run() override;

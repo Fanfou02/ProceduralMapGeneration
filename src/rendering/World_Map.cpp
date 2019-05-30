@@ -18,14 +18,15 @@ World_Map::World_Map(std::vector<Voxel> voxels, int groundLevel, int groupSize) 
 	_group_size = groupSize;
 
 	for (auto voxel : voxels) {
-		min_x = std::min(min_x, (int) voxel.x);
-		min_y = std::min(min_y, (int) voxel.y);
-		min_z = std::min(min_z, (int) voxel.z);
-		max_x = std::max(max_x, (int) voxel.x);
-		max_y = std::max(max_y, (int) voxel.y);
-		max_z = std::max(max_z, (int) voxel.z);
-
 		// Reverse y and z
+		min_x = std::min(min_x, (int) voxel.x);
+		min_z = std::min(min_z, (int) voxel.y);
+		min_y = std::min(min_y, (int) voxel.z);
+
+		max_x = std::max(max_x, (int) voxel.x);
+		max_z = std::max(max_z, (int) voxel.y);
+		max_y = std::max(max_y, (int) voxel.z);
+
 		Cube* cube = new Cube(voxel.x, voxel.z, voxel.y, voxel.get_color(), this);
 
 		if (STEP_BY_STEP_ENABLE && cube->target_y > groundLevel) {
@@ -37,7 +38,7 @@ World_Map::World_Map(std::vector<Voxel> voxels, int groundLevel, int groupSize) 
 }
 
 vec4 World_Map::start_position() {
-	return vec4(max_x + 5, max_z + 5, max_y + 5, 0);
+	return vec4(max_x + 5, max_y + 5, max_z + 5, 0);
 }
 
 World_Map::~World_Map() {
