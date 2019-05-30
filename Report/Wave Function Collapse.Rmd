@@ -30,26 +30,14 @@ WFC algorithm is used in multiples implementations, the main concept of the algo
 - **Design meaningful rules :** Write rules for the set of voxel created that can lead to a relevant scene generation with the WFC algorithm.
 
 
-### Optionnal Extensions
-In order to improve our resulting scenes we will add some extensions to the project, depending on how much time we have. The potential extensions are describe below: 
+### Optional Extensions
+In order to improve our resulting scenes we will added some extensions to the project:
 
 - **Animate the parts entering the scene :**
-The algorithm as described before only render the final result of the WFC algorithm. We could display instead, each Voxel choose by the algorithm one by one with a nice animation to produce a step by step video of the generation.
+The algorithm as described before only render the final result of the WFC algorithm. We allow the user to display instead, each block of voxels one by one with a nice animation to produce a step by step video of the generation.
 
 - **Bézier curves for camera trajectory :**
-It could be nice to allow the user to move the camera nicely in the produced scene using Bezier curve
-
-- **Bloom + emissive lights in the scene :**
-To produce a more realistic scene, we could add Bloom and emissive light to the rendering pipeline.
-
-- **Screen space reflections : **
-Another extension to make the scene more realistic, add reflection on objects. 
-
-- **Ambient occlusion : **
- Ambient occlusion is a shading and rendering technique used to calculate how exposed each point in a scene is to ambient lighting. For example, the interior of a tube is typically more occluded (and hence darker) than the exposed outer surfaces, and the deeper you go inside the tube, the more occluded (and darker) the lighting become.
-
-- **Infinite world generation :**
-Once the user can move the camera in the scene, it could be interesting to infinitely generate scene when the user move further away.
+We allow the user to move the camera nicely in the produced scene using Bezier curve (Press B).
 
 # Schedule
 ***
@@ -76,7 +64,7 @@ You can find in the array below some important dates during the project developm
 # Technical Approach
 ***
 ### WFC algorithm implementation
-We first adapted the C# implementation of WFC by mxgmn in C++, we struggled a bit with the data structures and the voxel format at the beginning but everything eventually worked out. We used the same structure as mxgmn, xml configuration files indicate the parameters, the rules and the source blocks of the algorithm and we define for each block a symmetry component to facilitate voxels rotations. (https://www.dropbox.com/s/zeiat1w8zre9ro8/Knots%20breakdown.png?dl=0)
+We first adapted the C# implementation of WFC by mxgmn in C++ (see references), we struggled a bit with the data structures and the voxel format at the beginning but everything eventually worked out. We used the same structure as mxgmn, xml configuration files indicate the parameters, the rules and the source blocks of the algorithm and we define for each block a symmetry component to facilitate voxels rotations. The symmetry component is describe here: https://www.dropbox.com/s/zeiat1w8zre9ro8/Knots%20breakdown.png?dl=0
 
 ### Voxels design and Rules implementation
 We first began to build a set of voxels block to feed our algorithm. This step was quite time consuming since we needed to think about how each block will interact with each other. We built a set of 16 different blocks to define the world, some of which are shown below:
@@ -126,7 +114,20 @@ We spawn the parts in blocks, and let the gravity do the rest. The challenge in 
 - C++
 - OpenGL
 
-## Resources :
+## Contributions
+Each team member contributed equally to the project: 
+
+- **Antoine Crettenand:** Works on the openGL rendering, Bezier curve and rules.
+
+- **Louis Vialar:** Works on the openGL rendering, Bezier curve and step by step extensions.
+
+- **François Quellec:** Works on the WFC algorithm, rules and blocks design.
+
+## Download
+
+You can download the entire project here: 
+
+## Resources
 - https://github.com/mxgmn/WaveFunctionCollapse (C# algorithm implementation and description)
 - https://robertheaton.com/2018/12/17/wavefunction-collapse-algorithm/ (base article for the algorithm)
 - https://marian42.de/article/wfc/ (algorithm exploitation in 3D)
