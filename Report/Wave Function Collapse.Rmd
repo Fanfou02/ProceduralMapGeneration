@@ -64,7 +64,7 @@ You can find in the array below some important dates during the project developm
 # Technical Approach
 ***
 ### WFC algorithm implementation
-We first adapted the C# implementation of WFC by mxgmn in C++ (see references), we struggled a bit with the data structures and the voxel format at the beginning but everything eventually worked out. We used the same structure as mxgmn, xml configuration files indicate the parameters, the rules and the source blocks of the algorithm and we define for each block a symmetry component to facilitate voxels rotations. The symmetry component is describe here: https://www.dropbox.com/s/zeiat1w8zre9ro8/Knots%20breakdown.png?dl=0
+We first adapted the C# implementation of WFC by mxgmn in C++ (see references), we struggled a bit with the data structures and the voxel format at the beginning but everything eventually worked out. We used the same structure as mxgmn, xml configuration files indicate the parameters, the rules and the source blocks of the algorithm and we define for each block a symmetry component to facilitate voxels rotations. The symmetry component is describe [here](https://www.dropbox.com/s/zeiat1w8zre9ro8/Knots%20breakdown.png?dl=0)
 
 ### Voxels design and Rules implementation
 We first began to build a set of voxels block to feed our algorithm. This step was quite time consuming since we needed to think about how each block will interact with each other. We built a set of 16 different blocks to define the world, some of which are shown below:
@@ -125,7 +125,7 @@ Each team member contributed equally to the project:
 
 ## Download
 
-You can download the entire project here: 
+You can download the entire project [here](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/Fanfou02/ProceduralMapGeneration) or directly on github. 
 
 ## Resources
 - https://github.com/mxgmn/WaveFunctionCollapse (C# algorithm implementation and description)
